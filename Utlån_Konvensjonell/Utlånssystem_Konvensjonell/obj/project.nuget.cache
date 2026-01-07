@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "2A9sIbuQjwn45cigSYDPSXA1RK3iveHUVy333MXZ47hZpPBf8Cspm5tJf7OBE8nUOralO2ssxCHP9MrW1nHWXg==",
+  "dgSpecHash": "U+JSjNQOB0M=",
   "success": true,
-  "projectFilePath": "/home/armand/Documents/Datateknologi/bacheloroppgave/prosjekt/Datbac-Prosjekt/Utlån_Konvensjonell/Utlånssystem_Konvensjonell/Utlånssystem_Konvensjonell.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "/home/audun/Pythontestinggrounds/Datbac/Prosjekt/Datbac-Prosjekt/Utlån_Konvensjonell/Utlånssystem_Konvensjonell/Utlånssystem_Konvensjonell.csproj",
+  "expectedPackageFiles": [
+    "/home/audun/.nuget/packages/microsoft.netcore.app.host.linux-x64/8.0.22/microsoft.netcore.app.host.linux-x64.8.0.22.nupkg.sha512"
+  ],
   "logs": []
 }

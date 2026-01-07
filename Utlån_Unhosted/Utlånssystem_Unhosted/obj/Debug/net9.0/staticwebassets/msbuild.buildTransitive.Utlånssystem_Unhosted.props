@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="../buildMultiTargeting/Utlånssystem_Unhosted.props" />
-</Project>

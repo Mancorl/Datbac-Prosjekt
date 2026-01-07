@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "Utlånssystem_Konvensjonell/1.0.0": {
+        "runtime": {
+          "Utlånssystem_Konvensjonell.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Utlånssystem_Konvensjonell/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

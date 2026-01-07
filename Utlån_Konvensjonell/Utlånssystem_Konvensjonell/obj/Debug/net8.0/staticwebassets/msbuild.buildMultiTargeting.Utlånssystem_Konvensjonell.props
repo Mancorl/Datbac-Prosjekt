@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="../build/Utlånssystem_Konvensjonell.props" />
+</Project>

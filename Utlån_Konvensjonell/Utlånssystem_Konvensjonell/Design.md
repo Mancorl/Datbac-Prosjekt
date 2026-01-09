@@ -22,6 +22,6 @@ flowchart TB
 
     Lender -. Set Lender .-> FulfillmentContext
 
-    
+    FulfillmentContext -. OfferShipperSet .-> Order
 
 ```

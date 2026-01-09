@@ -24,7 +24,7 @@ flowchart TB
 
     FulfillmentContext -. LenderSet .-> BoardGameLent
     Order -. Borrow Boardgame .-> FulfillmentContext
-    BoardGameLent -. Retrieve Boardgame .-> LenderContext
+    BoardGameLent -. Retrieve Boardgame .-> Lender[LenderContext]
     
 
 ```

@@ -8,19 +8,19 @@ flowchart TB
   end
   subgraph userContext
     login[Login] 
-    login --> user[UserContext / Cart] 
+    login --> user[UserContext] 
   end
     
-    login --> courier[CourierContext]  
+    login --> Lender[LenderContext]  
 
-    admin[AdminContext] -. updateFoodItem .-> ProductContext
-    admin -. acceptCourier .-> courier
+    admin[AdminContext] -. updateBoardGameItem .-> BoardGameContext
+    admin -. acceptLender .-> Lender
 
-    ProductContext["ProductContext"] -. FoodItemChanged .-> user
+    BoardGameContext["BoardGameContext"] -. BoardGameChanged .-> user
     user -- Checkout --> IOrderingService
     IOrderingService --> Order
 
-    courier -. Set Shipper .-> FulfillmentContext
+    Lender -. Set Lender .-> FulfillmentContext
 
     Order -. OrderPlaced .-> FulfillmentContext["FulfillmentContext"] & InvoicingContext["InvoicingContext"]
     FulfillmentContext -. OfferShipperSet .-> Order

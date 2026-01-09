@@ -23,7 +23,8 @@ flowchart TB
     Lender -. Set Lender .-> FulfillmentContext
 
     FulfillmentContext -. LenderSet .-> BoardGameLent
-    Order -. Retrieve Boardgame .-> FulfillmentContext
+    Order -. Borrow Boardgame .-> FulfillmentContext
+    BoardGameLent -. Retrieve Boardgame .-> LenderContext
     
 
 ```

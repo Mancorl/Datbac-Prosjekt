@@ -22,7 +22,6 @@ flowchart TB
 
     Lender -. Set Lender .-> FulfillmentContext
 
-    Order -. OrderPlaced .-> FulfillmentContext["FulfillmentContext"] & InvoicingContext["InvoicingContext"]
-    FulfillmentContext -. OfferShipperSet .-> Order
+    
 
 ```

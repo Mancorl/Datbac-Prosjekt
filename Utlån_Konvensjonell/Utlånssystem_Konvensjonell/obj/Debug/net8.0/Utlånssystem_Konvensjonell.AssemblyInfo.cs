@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Utlånssystem_Konvensjonell")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a4a5c4c4588980a82c15c4ae175f6959a7ee155b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4a1b51e507ced3a183a7ae148bb18db71c0844ed")]
 [assembly: System.Reflection.AssemblyProductAttribute("Utlånssystem_Konvensjonell")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Utlånssystem_Konvensjonell")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -6,4 +6,9 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Mediator.Net" Version="4.9.0" />
+    <PackageReference Include="MediatR" Version="14.0.0" />
+  </ItemGroup>
+
 </Project>

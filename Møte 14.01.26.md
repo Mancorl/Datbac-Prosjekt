@@ -27,14 +27,18 @@ Armand S Sandvik
 
 -Hvor lang skal rapporten være
 -Er det teoretiske rammeverket rett retning, noen kommentarer? noe feil?
-- Evt mer vi kan lese oss opp på
+- Evt mer vi kan lese oss opp på?
 
 ## Discussion Notes
 
--
--
+- Se litt mer på flere alternativer, sett oss mer inn i web3.
+-Rapport bør være mellom 50 og 80 sider.
+-mydata.org
 
 ## Action Items
 
--
--
+-Utforsk mer teoretisk, praktisk er på god vei.
+-Tenk mer på hvilke kategorier vi skal sammenlikne med.
+-Tenk på hvor enkel appen er å bruke
+-Klargjør grunnlaget for å sammenlikne sikkerhet spesielt mtp Owasp top 10.
+-Bevisstgjøre bruk av AI, vi er ikke super anti AI

@@ -1,8 +1,14 @@
 using MediatR;
+using System;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddDbContext<BoardGameContext>(options =>
+{
+    options.UseSqlite("$Data Source={'BGDB.db'}");
+}
+);
 
 var app = builder.Build();
 

@@ -12,7 +12,7 @@ Leander N Jehl
   Jobber med introduksjonsdelen, kommet langt. Forklarer historie samt hva web3.0 er samt grunnlaget bak oppgaven.
   Jobber med alternative rammeverk for web3.0
 - Reading
-  - 
+  - Lest opp litt påforksjellige rammeverk som Blockchain, Verifiable Credentials og Encrypted cloud.
 - Admin
   - 
 - Other

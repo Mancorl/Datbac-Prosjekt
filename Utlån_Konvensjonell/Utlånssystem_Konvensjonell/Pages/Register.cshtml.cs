@@ -51,14 +51,8 @@ public class RegisterModel : PageModel
         return Page();
     }
 
-    var user = new User(
-        email,
-        Input.Password,
-        Input.FirstName.Trim(),
-        Input.LastName.Trim()
-    );
+    var user = new User(Input.Email, Input.Password, Input.FirstName, Input.LastName);
 
-    user.Permission = Permission.User;
 
     var validators = new IValidator<User>[]
     {

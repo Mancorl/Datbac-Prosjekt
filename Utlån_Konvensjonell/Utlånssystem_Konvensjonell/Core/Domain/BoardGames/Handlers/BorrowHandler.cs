@@ -1,27 +1,27 @@
 using System;
 using System.Threading.Tasks;
-using UiS.Dat240.Lab3.Core.Domain.Fulfillment;
-using UiS.Dat240.Lab3.Infrastructure.Data;
-using UiS.Dat240.Lab3.Core.Domain.Ordering.Services;
-using UiS.Dat240.Lab3.Infrastructure.Data;
-namespace UiS.Dat240.Lab3.Core.Domain.Cart.Handlers
-{
-    public class OrderPlacedHandler
-    {
-        private readonly FulfilmentContext _db;
+using Utlånssystem_Konvensjonell.Core.Domain.BoardGames;
+using Utlånssystem_Konvensjonell.Infrastructure.Data;
+using Utlånssystem_Konvensjonell.Core.Domain.Account;
 
-        public OrderPlacedHandler(FulfilmentContext db)
+namespace Utlånssystem_Konvensjonell.Core.Domain.BoardGames.Handlers
+{
+    public class BorrowHandler
+    {
+        private readonly BoardGameContext _db;
+
+        public BorrowHandler(BoardGameContext db)
         {
             _db = db;
         }
 
-        public async Task OnOrderPlaced(object? sender, OrderingService.OrderPlacedEventArgs e)
+        public async Task OnBorrow(object? sender)//, BorrowingService.BorrowEventArgs e)
         {
-            Console.WriteLine($"{e.OrderId}, {e.SubTotal}");
-            var reimb = new Reimbursement(e.OrderId, e.SubTotal, Guid.NewGuid());
-            var offer = new Offer(Guid.NewGuid(), e.OrderId, reimb);
-            await _db.AddRangeAsync(reimb, offer);
-            await _db.SaveChangesAsync();
+            Console.WriteLine("Henlo");//$"{e.Name}, {e.Id}");
+            //var reimb = new Reimbursement(e.OrderId, e.SubTotal, Guid.NewGuid());
+            //var offer = new Offer(Guid.NewGuid(), e.OrderId, reimb);
+            //await _db.AddRangeAsync(reimb, offer);
+            //await _db.SaveChangesAsync();
         }
 
     }

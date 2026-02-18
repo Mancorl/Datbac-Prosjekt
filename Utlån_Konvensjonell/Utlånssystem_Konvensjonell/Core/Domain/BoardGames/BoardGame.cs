@@ -2,7 +2,7 @@ namespace Utlånssystem_Konvensjonell.Core.Domain.BoardGames;
 
 public class BoardGame
 {
-	public BoardGame(string name, string edition, int quantity = 1, Loanable loanable = Loanable.Yes)
+	public BoardGame(string name, float edition = 1, int quantity = 1, Loanable loanable = Loanable.Yes)
 	{
 		Id = Guid.NewGuid();
 		Name = name;
@@ -13,7 +13,7 @@ public class BoardGame
 
 
 	public string Name { get; protected set; }
-	public string Edition {get; protected set;}
+	public float Edition {get; protected set;}
 	public Guid Id{get;protected set;}
 	public int Quantity{get;protected set;}
 	public int TotalQuantity{get;protected set;}

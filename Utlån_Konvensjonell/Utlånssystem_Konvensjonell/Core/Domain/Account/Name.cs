@@ -2,10 +2,10 @@ namespace Utlånssystem_Konvensjonell.Core.Domain.Account;
 
 public class Name
 {
-	public Name(string firstname, string lastname, id){
+	public Name(string firstname, string lastname, Guid id){
 		First = firstname;
 		Last = lastname;
-		Id = id
+		Id = id;
 	}
 
 	public string First { get; protected set; }
@@ -14,3 +14,4 @@ public class Name
 
 
 }
+

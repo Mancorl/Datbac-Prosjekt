@@ -10,10 +10,10 @@ public class User
 {
 	public User(string email, string password, string firstname, string lastname)
 	{
-		Id = Guid.NewGuid()
+		Id = Guid.NewGuid();
 		Email = email;
 		Password = password;
-		Name = new Name(firstname,lastname, Id)
+		Name = new Name(firstname,lastname, Id);
 	}
 	public Guid Id { get; protected set; }
 	public string Email { get; set; }

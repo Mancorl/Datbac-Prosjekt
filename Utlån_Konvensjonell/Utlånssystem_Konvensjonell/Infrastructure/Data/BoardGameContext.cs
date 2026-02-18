@@ -25,8 +25,7 @@ public class BoardGameContext : DbContext
         base.OnModelCreating(modelBuilder);
 
         // Owned/value objects
-        modelBuilder.Entity<User>().OwnsOne(p => p.First);
-        modelBuilder.Entity<User>().OwnsOne(p => p.Last);
+
 
         
 

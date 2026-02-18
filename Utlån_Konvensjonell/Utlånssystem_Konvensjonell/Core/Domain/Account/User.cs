@@ -8,7 +8,6 @@ namespace Utlånssystem_Konvensjonell.Core.Domain.Account;
 
 public class User
 {
-	[SetsRequiredMembers]
 	public User(string email, string password, string first, string last)
 	{
 		

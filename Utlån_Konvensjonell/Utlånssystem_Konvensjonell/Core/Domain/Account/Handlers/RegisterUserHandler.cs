@@ -15,24 +15,22 @@ namespace Utlånssystem_Konvensjonell.Core.Domain.Account.Handlers
             _db = db;
         }
 
-        public static async Task<string> OnRegistered(object? sender, RegisteredEventArgs e)
-        {
-            var user = new User(
-                e.Email,
-                e.Password,
-                e.FirstName,
-                e.LastName
-            );
-            try
-            {
-                _db.Users.Add(user);
-                await _db.SaveChangesAsync();
-                return "User registered successfully.";
-            }
-            catch (Exception ex)
-            {
-                return $"An error occurred during registration: {ex.Message}";
-            }
-        }
+        public void OnRegistered(object? sender, RegisteredEventArgs e)
+{
+    _ = HandleAsync(e);
+}
+
+private async Task HandleAsync(RegisteredEventArgs e)
+{
+    var user = new User(
+        e.Email,
+        e.Password,
+        e.FirstName,
+        e.LastName
+    );
+
+    _db.Users.Add(user);
+    await _db.SaveChangesAsync();
+}
     }
 }

@@ -16,10 +16,6 @@ public class RegisterModel : PageModel
 {
     private readonly BoardGameContext _db;
 
-    public RegisterModel(BoardGameContext db)
-    {
-        _db = db;
-    }
     private readonly RegistrationService _registrationService;
     private readonly RegisterUserHandler _handler;
 

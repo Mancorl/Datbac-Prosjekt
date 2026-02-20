@@ -10,6 +10,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddScoped<RegistrationService>();
+builder.Services.AddScoped<RegisterUserHandler>();
 
 
 builder.Services.AddDbContext<BoardGameContext>(options =>

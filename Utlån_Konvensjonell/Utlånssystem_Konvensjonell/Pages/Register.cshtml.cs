@@ -5,6 +5,10 @@ using Microsoft.EntityFrameworkCore;
 using Utlånssystem_Konvensjonell.Core.Domain.Account;
 using Utlånssystem_Konvensjonell.Infrastructure.Data;
 using Utlånssystem_Konvensjonell.SharedKernel;
+using Utlånssystem_Konvensjonell.Core.Domain.Account.Handlers;
+using Utlånssystem_Konvensjonell.Core.Domain.Account.Events;
+using Utlånssystem_Konvensjonell.Core.Domain.Account.Services;
+
 
 namespace Utlånssystem_Konvensjonell.Pages;
 
@@ -15,6 +19,18 @@ public class RegisterModel : PageModel
     public RegisterModel(BoardGameContext db)
     {
         _db = db;
+    }
+    private readonly RegistrationService _registrationService;
+    private readonly RegisterUserHandler _handler;
+
+    public RegisterModel(
+        BoardGameContext db,
+        RegistrationService registrationService,
+        RegisterUserHandler handler)
+    {
+        _db = db;
+        _registrationService = registrationService;
+        _handler = handler;
     }
 
     [BindProperty]
@@ -38,41 +54,14 @@ public class RegisterModel : PageModel
     public void OnGet() { }
 
     public async Task<IActionResult> OnPostAsync()
-{
-    if (!ModelState.IsValid)
-        return Page();
-
-    var email = Input.Email.Trim().ToLowerInvariant();
-
-    var exists = await _db.Users.AnyAsync(u => u.Email.ToLower() == email);
-    if (exists)
     {
-        ModelState.AddModelError("Input.Email", "Email is already registered.");
-        return Page();
-    }
-
-    var user = new User(Input.Email, Input.Password, Input.FirstName, Input.LastName);
-
-
-    var validators = new IValidator<User>[]
-    {
-        new UserFirstNameValidator(),
-        new UserLastNameValidator(),
-        new UserEmailValidator()
-    };
-
-    foreach (var v in validators)
-    {
-        var (ok, error) = v.IsValid(user);
-        if (!ok)
+        if (!ModelState.IsValid)
         {
-            ModelState.AddModelError(string.Empty, error);
             return Page();
         }
-    }
 
-    _db.Users.Add(user);
-    await _db.SaveChangesAsync();
+        _registrationService.Registered += _handler.OnRegistered;
+        await _registrationService.RegisterAsync(Input.Email, Input.Password, Input.FirstName, Input.LastName);
 
-    return RedirectToPage("/Login");
+        return RedirectToPage("/Index");
 }}

@@ -3,11 +3,14 @@ using MediatR;
 using System.Reflection;
 using System;
 using Utlånssystem_Konvensjonell.Infrastructure.Data;
+using Utlånssystem_Konvensjonell.Core.Domain.Account.Services;
+using Utlånssystem_Konvensjonell.Core.Domain.Account.Handlers;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
 // Add services to the container.
 builder.Services.AddRazorPages();
+
 
 builder.Services.AddDbContext<BoardGameContext>(options =>
 {
@@ -27,6 +30,10 @@ using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<BoardGameContext>();
     db.Database.EnsureCreated(); // creates DB and tables if they don't exist
+    var registrationService = scope.ServiceProvider.GetRequiredService<RegistrationService>();
+    var handler = scope.ServiceProvider.GetRequiredService<RegisterUserHandler>();
+
+    registrationService.Registered += handler.OnRegistered;
 }
 
 app.UseHttpsRedirection();

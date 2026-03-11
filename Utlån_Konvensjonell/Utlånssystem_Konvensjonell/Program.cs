@@ -5,13 +5,25 @@ using System;
 using Utlånssystem_Konvensjonell.Infrastructure.Data;
 using Utlånssystem_Konvensjonell.Core.Domain.Account.Services;
 using Utlånssystem_Konvensjonell.Core.Domain.Account.Handlers;
+using Microsoft.AspNetCore.Authentication.Cookies;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options =>
+    {
+        options.LoginPath = "/Login";
+    });
+
+builder.Services.AddAuthorization();
 builder.Services.AddScoped<RegistrationService>();
 builder.Services.AddScoped<RegisterUserHandler>();
+
+builder.Services.AddScoped<LoginService>();
+builder.Services.AddScoped<LoginUserHandler>();
 
 
 builder.Services.AddDbContext<BoardGameContext>(options =>
@@ -43,6 +55,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapRazorPages();

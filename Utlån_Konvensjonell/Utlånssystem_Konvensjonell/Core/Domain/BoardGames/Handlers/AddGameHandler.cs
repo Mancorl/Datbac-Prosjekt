@@ -25,11 +25,10 @@ private async Task HandleAsync(AddGameEventArgs e)
     var game = new BoardGame(
         e.GameTitle,
         e.Quantity,
-        e.FirstName,
-        e.LastName
+        e.Loanable
     );
 
-    _db.Users.Add(user);
+    _db.Games.Add(game);
     await _db.SaveChangesAsync();
 }
     }

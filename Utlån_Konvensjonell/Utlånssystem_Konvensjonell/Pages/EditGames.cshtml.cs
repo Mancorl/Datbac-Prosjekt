@@ -8,6 +8,12 @@ using Utlånssystem_Konvensjonell.SharedKernel;
 using Utlånssystem_Konvensjonell.Core.Domain.Account.Handlers;
 using Utlånssystem_Konvensjonell.Core.Domain.Account.Events;
 using Utlånssystem_Konvensjonell.Core.Domain.Account.Services;
+using Utlånssystem_Konvensjonell.Core.Domain.BoardGames;
+
+using Utlånssystem_Konvensjonell.Core.Domain.BoardGames.Events;
+using Utlånssystem_Konvensjonell.Core.Domain.BoardGames.Handlers;
+
+
 
 
 namespace Utlånssystem_Konvensjonell.Pages;
@@ -17,7 +23,7 @@ public class EditGameModel : PageModel
 private readonly BoardGameContext _db;
 private readonly AddGameHandler _AddGameHandler;
 
-public RegisterModel(
+public EditGameModel(
         BoardGameContext db,
         AddGameHandler AddGameHandler)
     {
@@ -43,15 +49,17 @@ public RegisterModel(
 
     }
 
-  public async Task<IActionResult> OnPostAsync()
+    public void OnGet() { }
+
+    public async Task<IActionResult> OnPostAsync()
     {
         if (!ModelState.IsValid)
         {
             return Page();
         }
 
-        _registrationService.Registered += _handler.OnRegistered;
-        await _registrationService.RegisterAsync(Input.Email, Input.Password, Input.FirstName, Input.LastName);
+        //_registrationService.Registered += _handler.OnRegistered;
+        //await _registrationService.RegisterAsync(Input.Email, Input.Password, Input.FirstName, Input.LastName);
 
         return RedirectToPage("/Index");
 

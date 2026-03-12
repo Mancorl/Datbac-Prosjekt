@@ -1,14 +1,25 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text.RegularExpressions;
+using Utlånssystem_Konvensjonell.SharedKernel;
+using System.Diagnostics.CodeAnalysis;
+
 namespace Utlånssystem_Konvensjonell.Core.Domain.BoardGames;
 
 public class BoardGame
 {
-	public BoardGame(string name, float edition = 1, int quantity = 1, Loanable loanable = Loanable.Yes)
+	public BoardGame(string name, int quantity = 1, bool loanable = true )
 	{
 		Id = Guid.NewGuid();
 		Name = name;
-		Edition = edition;
+		//Edition = edition;
 		TotalQuantity = Quantity = quantity;
-		IsLoanable = loanable;
+		if(loanable){
+			IsLoanable = Loanable.Yes;
+		}else{
+			IsLoanable = Loanable.No;
+		}
 	}
 
 

@@ -6,6 +6,7 @@ using Utlånssystem_Konvensjonell.SharedKernel;
 using System.Linq;
 using System.Reflection;
 using Utlånssystem_Konvensjonell.Core.Domain.Account;
+using Utlånssystem_Konvensjonell.Core.Domain.BoardGames;
 
 namespace Utlånssystem_Konvensjonell.Infrastructure.Data;
 
@@ -19,6 +20,7 @@ public class BoardGameContext : DbContext
     }
 
     public DbSet<User> Users { get; set; } = null!;
+    public DbSet<BoardGame> Games { get; set; } = null!;
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

@@ -6,3 +6,12 @@
 <h1>@ViewData["Title"]</h1>
 
 <p>Look at what boardgames you can borrow from us.</p>
+
+@foreach (var user in Model.Users)
+{
+    <div>
+        <p>@user.First @user.Last</p>
+        <p>@user.Email</p>
+        <hr />
+    </div>
+}

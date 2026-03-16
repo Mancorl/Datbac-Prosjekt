@@ -59,6 +59,7 @@ public class BoardGameContext : DbContext
 
         return result;
     }
+    
 
     public override int SaveChanges() => SaveChangesAsync().GetAwaiter().GetResult();
 }

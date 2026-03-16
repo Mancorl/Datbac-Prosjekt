@@ -12,6 +12,8 @@
 <script>
 console.log("Authenticated:", "@User.Identity?.IsAuthenticated");
 console.log("User name:", "@User.Identity?.Name");
+console.log("Is Admin:", "@User.IsInRole("Admin")");
+console.log("Role claim:", "@User.FindFirst(System.Security.Claims.ClaimTypes.Role)?.Value");
 </script>
 
 <body>
@@ -34,6 +36,12 @@ console.log("User name:", "@User.Identity?.Name");
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Lån">Lån</a>
                         </li>
+                        @if (User.Identity != null && User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/EditGames">Edit Games</a>
+                            </li>
+                        }
                     </ul>
 
                     <ul class="navbar-nav ms-auto">

@@ -9,7 +9,7 @@ namespace Utlånssystem_Konvensjonell.Core.Domain.BoardGames;
 
 public class BoardGame
 {
-	public BoardGame(string name, int quantity = 1, bool loanable = true, string imagePath = "images/Default.jpg")
+	public BoardGame(string name, int quantity = 1, bool loanable = true, string imagePath = "images/Default.jpg", string description = "Placeholder")
 	{
 		Id = Guid.NewGuid();
 		Name = name;
@@ -17,16 +17,19 @@ public class BoardGame
 		TotalQuantity = Quantity = quantity;
 		Loanable = loanable;
 		ImagePath = imagePath;
+		Description = description;
 	}
 
 
 	public string Name { get; protected set; }
 	public float Edition {get; protected set;}
 	public Guid Id{get;protected set;}
-	public int Quantity{get;protected set;}
-	public int TotalQuantity{get;protected set;}
+	public int Quantity{get; set;}
+	public int TotalQuantity{get; set;}
 	public bool Loanable {get;protected set;}
 	public string ImagePath { get; protected set; }
+	public string Description { get; protected set; }
+
 
 	
 

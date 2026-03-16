@@ -26,7 +26,8 @@ private async Task HandleAsync(AddGameEventArgs e)
         e.GameTitle,
         e.Quantity,
         e.Loanable,
-        e.ImagePath
+        e.ImagePath,
+        e.GameDescription
     );
 
     _db.Games.Add(game);

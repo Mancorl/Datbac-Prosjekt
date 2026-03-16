@@ -8,6 +8,7 @@ using Utlånssystem_Konvensjonell.Core.Domain.Account.Handlers;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Utlånssystem_Konvensjonell.Core.Domain.BoardGames.Handlers;
 using Utlånssystem_Konvensjonell.Core.Domain.BoardGames.Services;
+using Utlånssystem_Konvensjonell.Core.Domain.Account;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -49,6 +50,21 @@ using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<BoardGameContext>();
     db.Database.EnsureCreated(); // creates DB and tables if they don't exist
+
+        if (!db.Users.Any(u => u.Email == "UiSbrettspill@gmail.com"))
+    {
+        var adminUser = new User(
+            "UiSbrettspill@gmail.com",
+            "Password",
+            "UiS",
+            "Brettspill"
+        );
+
+        adminUser.Permission = Permission.Admin;
+
+        db.Users.Add(adminUser);
+        db.SaveChanges();
+    }
     var registrationService = scope.ServiceProvider.GetRequiredService<RegistrationService>();
     var handler = scope.ServiceProvider.GetRequiredService<RegisterUserHandler>();
 
@@ -56,6 +72,8 @@ using (var scope = app.Services.CreateScope())
 
     registrationService.Registered += handler.OnRegistered;
 }
+
+
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();

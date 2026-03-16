@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Y3diyYquy7FWDJXlP7HUj8pstx5GplScvrUBTR5dXEM=",
+  "Hash": "iwCsvG7246gNLVNUci8caUhYjO0E8o7lfX31q1QxvgA=",
   "Source": "Utlånssystem_Konvensjonell",
   "BasePath": "_content/Utlånssystem_Konvensjonell",
   "Mode": "Default",
@@ -110,6 +110,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/images/Default.jpg"
+    },
+    {
+      "Identity": "/home/armand/Documents/Datateknologi/bacheloroppgave/prosjekt/Datbac-Prosjekt/Utlån_Konvensjonell/Utlånssystem_Konvensjonell/wwwroot/images/Shrek.jpg",
+      "SourceId": "Utlånssystem_Konvensjonell",
+      "SourceType": "Discovered",
+      "ContentRoot": "/home/armand/Documents/Datateknologi/bacheloroppgave/prosjekt/Datbac-Prosjekt/Utlån_Konvensjonell/Utlånssystem_Konvensjonell/wwwroot/",
+      "BasePath": "_content/Utlånssystem_Konvensjonell",
+      "RelativePath": "images/Shrek.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/images/Shrek.jpg"
     },
     {
       "Identity": "/home/armand/Documents/Datateknologi/bacheloroppgave/prosjekt/Datbac-Prosjekt/Utlån_Konvensjonell/Utlånssystem_Konvensjonell/wwwroot/images/test.jpg",

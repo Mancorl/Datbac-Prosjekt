@@ -12,11 +12,16 @@ using Utlånssystem_Konvensjonell.Core.Domain.BoardGames.Events;
 using Utlånssystem_Konvensjonell.Core.Domain.BoardGames.Handlers;
 using Utlånssystem_Konvensjonell.Core.Domain.BoardGames.Services;
 
+using Microsoft.AspNetCore.Authorization;
+
+
 
 
 
 namespace Utlånssystem_Konvensjonell.Pages;
 
+
+[Authorize(Roles = "Admin")]
 public class EditGameModel : PageModel
 {
 private readonly BoardGameContext _db;
@@ -53,6 +58,10 @@ public EditGameModel(
         public bool Loanable { get; set; } = true;
 
         public IFormFile? Image { get; set; }
+
+
+        [Required]
+        public string GameDescription { get; set; } = "";
 
     }
 
@@ -105,7 +114,7 @@ public EditGameModel(
 
 
         _RegisteredGameService.Registered += _AddGameHandler.OnRegistered;
-        await _RegisteredGameService.RegisterAsync(Input.GameTitle, Input.Quantity, Input.Loanable, ImagePath);
+        await _RegisteredGameService.RegisterAsync(Input.GameTitle, Input.Quantity, Input.Loanable, ImagePath, Input.GameDescription);
 
         return RedirectToPage("/Index");
 

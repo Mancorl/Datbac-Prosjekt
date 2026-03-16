@@ -5,12 +5,12 @@ public class RegisteredGameService
 {
     public event EventHandler<AddGameEventArgs>? Registered;
 
-    public async Task RegisterAsync(string GameTitle, int Quantity, bool Loanable, string ImagePath)
+    public async Task RegisterAsync(string GameTitle, int Quantity, bool Loanable, string ImagePath, string GameDescription)
     {
         // domain logic here
 
         Registered?.Invoke(this, new AddGameEventArgs(
-            GameTitle, Quantity, Loanable, ImagePath
+            GameTitle, Quantity, Loanable, ImagePath, GameDescription
         ));
     }
 }

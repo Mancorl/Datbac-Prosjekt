@@ -7,6 +7,20 @@
 
 <p>Look at what boardgames you can borrow from us.</p>
 
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["Message"]
+    </div>
+}
+
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["Error"]
+    </div>
+}
+
 
 
 @if( Model.Games.Any()){
@@ -18,15 +32,27 @@
             <div class="card-body">
                 <h5 class="card-title">@game.Name</h5>
                 <p>Amount avalalalable: @game.Quantity</p>
-                <p class="card-text">@game.ImagePath</p>
+                <p class="card-text">Description: @game.Description</p>
                 @if (game.ImagePath != null)
                 {
                     <img src="@game.ImagePath" class="img-fluid" />
                 }else{
                     <img src="image/Default.jpg" class="img-fluid" />
                 }
-
+                <form method="post" asp-page-handler="Rent" asp-route-id="@game.Id" class="d-inline">
                 <button class="btn btn-primary" type="submit">Rent</button>
+                </form>
+
+                @if (User.Identity != null && User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                        {
+                            <form method="post" asp-page-handler="Edit" asp-route-id="@game.Id" class="d-inline">
+                              <button class="btn btn-primary" type="submit">Edit</button>
+                            </form>
+
+                            <form method="post" asp-page-handler="Delete" asp-route-id="@game.Id" class="d-inline">
+                              <button class="btn btn-primary" type="submit">Delete</button>
+                            </form>
+                        }
               
                 
             </div>

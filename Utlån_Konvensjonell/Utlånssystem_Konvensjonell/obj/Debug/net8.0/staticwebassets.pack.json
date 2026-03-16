@@ -17,6 +17,10 @@
       "PackagePath": "staticwebassets/images/Default.jpg"
     },
     {
+      "Id": "/home/armand/Documents/Datateknologi/bacheloroppgave/prosjekt/Datbac-Prosjekt/Utlån_Konvensjonell/Utlånssystem_Konvensjonell/wwwroot/images/Shrek.jpg",
+      "PackagePath": "staticwebassets/images/Shrek.jpg"
+    },
+    {
       "Id": "/home/armand/Documents/Datateknologi/bacheloroppgave/prosjekt/Datbac-Prosjekt/Utlån_Konvensjonell/Utlånssystem_Konvensjonell/wwwroot/images/test.jpg",
       "PackagePath": "staticwebassets/images/test.jpg"
     },

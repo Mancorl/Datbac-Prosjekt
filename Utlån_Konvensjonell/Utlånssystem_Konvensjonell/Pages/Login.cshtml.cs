@@ -118,6 +118,7 @@ public class LoginModel : PageModel
         Console.WriteLine($"Logga inn: {result.User.First} {result.User.Last}");
         Console.WriteLine($"Useriden: {result.User.Id}");
         Console.WriteLine($"Email: {result.User.Email}");
+        Console.WriteLine($"Permission: {result.User.Permission}");
 
         var claims = new List<Claim>
         {
@@ -125,6 +126,11 @@ public class LoginModel : PageModel
             new Claim(ClaimTypes.Name, $"{result.User.First} {result.User.Last}"),
             new Claim(ClaimTypes.Email, result.User.Email)
         };
+
+        if (result.User.Permission == Permission.Admin)
+        {
+            claims.Add(new Claim(ClaimTypes.Role, "Admin"));
+        }
 
         var identity = new ClaimsIdentity(
             claims,

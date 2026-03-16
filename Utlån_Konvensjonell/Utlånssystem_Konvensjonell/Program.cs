@@ -6,6 +6,8 @@ using Utlånssystem_Konvensjonell.Infrastructure.Data;
 using Utlånssystem_Konvensjonell.Core.Domain.Account.Services;
 using Utlånssystem_Konvensjonell.Core.Domain.Account.Handlers;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Utlånssystem_Konvensjonell.Core.Domain.BoardGames.Handlers;
+using Utlånssystem_Konvensjonell.Core.Domain.BoardGames.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,6 +26,9 @@ builder.Services.AddScoped<RegisterUserHandler>();
 
 builder.Services.AddScoped<LoginService>();
 builder.Services.AddScoped<LoginUserHandler>();
+
+builder.Services.AddScoped<AddGameHandler>();
+builder.Services.AddScoped<RegisteredGameService>();
 
 
 builder.Services.AddDbContext<BoardGameContext>(options =>
@@ -46,6 +51,8 @@ using (var scope = app.Services.CreateScope())
     db.Database.EnsureCreated(); // creates DB and tables if they don't exist
     var registrationService = scope.ServiceProvider.GetRequiredService<RegistrationService>();
     var handler = scope.ServiceProvider.GetRequiredService<RegisterUserHandler>();
+
+    
 
     registrationService.Registered += handler.OnRegistered;
 }

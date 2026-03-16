@@ -13,6 +13,14 @@
       "PackagePath": "staticwebassets/favicon.ico"
     },
     {
+      "Id": "/home/armand/Documents/Datateknologi/bacheloroppgave/prosjekt/Datbac-Prosjekt/Utlån_Konvensjonell/Utlånssystem_Konvensjonell/wwwroot/images/Default.jpg",
+      "PackagePath": "staticwebassets/images/Default.jpg"
+    },
+    {
+      "Id": "/home/armand/Documents/Datateknologi/bacheloroppgave/prosjekt/Datbac-Prosjekt/Utlån_Konvensjonell/Utlånssystem_Konvensjonell/wwwroot/images/test.jpg",
+      "PackagePath": "staticwebassets/images/test.jpg"
+    },
+    {
       "Id": "/home/armand/Documents/Datateknologi/bacheloroppgave/prosjekt/Datbac-Prosjekt/Utlån_Konvensjonell/Utlånssystem_Konvensjonell/wwwroot/js/site.js",
       "PackagePath": "staticwebassets/js/site.js"
     },

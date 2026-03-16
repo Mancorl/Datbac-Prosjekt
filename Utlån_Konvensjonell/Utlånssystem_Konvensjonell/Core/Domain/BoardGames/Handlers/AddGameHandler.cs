@@ -25,7 +25,8 @@ private async Task HandleAsync(AddGameEventArgs e)
     var game = new BoardGame(
         e.GameTitle,
         e.Quantity,
-        e.Loanable
+        e.Loanable,
+        e.ImagePath
     );
 
     _db.Games.Add(game);

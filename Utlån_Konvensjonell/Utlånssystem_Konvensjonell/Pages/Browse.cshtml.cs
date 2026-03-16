@@ -18,10 +18,10 @@ public class BrowseModel : PageModel
         _db = db;
     }
 
-    public List<User> Users { get; set; } = new();
+    public List<BoardGame> Games { get; set; } = new();
 
     public async Task OnGetAsync()
     {
-        Users = await _db.Users.ToListAsync();
+        Games = await _db.Games.ToListAsync();
     }
 }

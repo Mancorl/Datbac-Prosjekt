@@ -7,11 +7,33 @@
 
 <p>Look at what boardgames you can borrow from us.</p>
 
-@foreach (var user in Model.Users)
-{
-    <div>
-        <p>@user.First @user.Last</p>
-        <p>@user.Email</p>
-        <hr />
+
+
+@if( Model.Games.Any()){
+    @foreach (var game in Model.Games)
+    {
+        
+    <div class="col-md-3 mb-3">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">@game.Name</h5>
+                <p>Amount avalalalable: @game.Quantity</p>
+                <p class="card-text">@game.ImagePath</p>
+                @if (game.ImagePath != null)
+                {
+                    <img src="@game.ImagePath" class="img-fluid" />
+                }else{
+                    <img src="image/Default.jpg" class="img-fluid" />
+                }
+
+                <button class="btn btn-primary" type="submit">Rent</button>
+              
+                
+            </div>
+        </div>
     </div>
-}
+    }}
+    else{
+        <p>Sowwy, empty</p>
+        }
+

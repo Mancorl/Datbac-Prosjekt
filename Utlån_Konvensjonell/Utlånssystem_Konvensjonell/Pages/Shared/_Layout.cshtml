@@ -39,7 +39,7 @@ console.log("Role claim:", "@User.FindFirst(System.Security.Claims.ClaimTypes.Ro
                         @if (User.Identity != null && User.Identity.IsAuthenticated && User.IsInRole("Admin"))
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-page="/EditGames">Edit Games</a>
+                                <a class="nav-link text-dark" asp-area="" asp-page="/EditGames">Register Games</a>
                             </li>
                         }
                     </ul>

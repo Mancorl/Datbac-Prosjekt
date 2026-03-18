@@ -43,11 +43,21 @@
                 <button class="btn btn-primary" type="submit">Rent</button>
                 </form>
 
+
+               
+
                 @if (User.Identity != null && User.Identity.IsAuthenticated && User.IsInRole("Admin"))
                         {
-                            <form method="post" asp-page-handler="Edit" asp-route-id="@game.Id" class="d-inline">
-                              <button class="btn btn-primary" type="submit">Edit</button>
-                            </form>
+                           <button 
+                                class="btn btn-primary edit-btn"
+                                data-id="@game.Id"
+                                data-name="@game.Name"
+                                data-quantity="@game.Quantity"
+                                data-description="@game.Description"
+                                data-image="@game.ImagePath"
+                                type="button">
+                                Edit
+                            </button>
 
                             <form method="post" asp-page-handler="Delete" asp-route-id="@game.Id" class="d-inline">
                               <button class="btn btn-primary" type="submit">Delete</button>
@@ -57,9 +67,85 @@
                 
             </div>
         </div>
+
     </div>
+  
     }}
     else{
         <p>Sowwy, empty</p>
         }
+
+
+<div class="modal fade" id="editModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <form method="post" asp-page-handler="Edit" enctype="multipart/form-data">
+
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit Game</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body">
+
+                    <input type="hidden" id="editId" name="Id" />
+
+                    <div class="form-group">
+                        <label>Title</label>
+                        <input id="editName" name="Name" class="form-control" />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Quantity</label>
+                        <input id="editQuantity" name="Quantity" type="number" class="form-control" />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Description</label>
+                        <input id="editDescription" name="Description" class="form-control" />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Image</label>
+                        <input type="file" name="Image" class="form-control" />
+                    </div>
+
+                </div>
+
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+<script>
+document.querySelectorAll('.edit-btn').forEach(button => {
+    button.addEventListener('click', function () {
+
+        // Get data from button
+        const id = this.dataset.id;
+        const name = this.dataset.name;
+        const quantity = this.dataset.quantity;
+        const description = this.dataset.description;
+
+        // Fill modal fields
+        document.getElementById('editId').value = id;
+        document.getElementById('editName').value = name;
+        document.getElementById('editQuantity').value = quantity;
+        document.getElementById('editDescription').value = description;
+
+        // Show modal
+        const modal = new bootstrap.Modal(document.getElementById('editModal'));
+        modal.show();
+    });
+});
+</script>
+}
+
 

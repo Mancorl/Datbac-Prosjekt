@@ -31,6 +31,40 @@ public class BoardGame
 	public string Description { get; protected set; }
 
 
+	 public void Edit(string name, int quantity, string description, string? imagePath = null)
+    {
+        if (string.IsNullOrWhiteSpace(name))
+            throw new ArgumentException("Name cannot be empty.");
+
+        if (quantity < 0)
+            throw new ArgumentException("Quantity cannot be negative.");
+
+        if (string.IsNullOrWhiteSpace(description))
+            throw new ArgumentException("Description cannot be empty.");
+
+        Name = name;
+        Quantity = quantity;
+        Description = description;
+
+        if (!string.IsNullOrWhiteSpace(imagePath))
+        {
+            ImagePath = imagePath;
+        }
+    }
+
+
+	 public void RentOne()
+    {
+        if (!Loanable)
+            throw new InvalidOperationException("This game cannot be borrowed.");
+
+        if (Quantity <= 0)
+            throw new InvalidOperationException("No copies available.");
+
+        Quantity--;
+    }
+
+
 	
 
 

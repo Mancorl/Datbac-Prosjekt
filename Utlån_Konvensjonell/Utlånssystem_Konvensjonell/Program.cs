@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Utlånssystem_Konvensjonell.Core.Domain.BoardGames.Handlers;
 using Utlånssystem_Konvensjonell.Core.Domain.BoardGames.Services;
 using Utlånssystem_Konvensjonell.Core.Domain.Account;
+using Utlånssystem_Konvensjonell.Core.Domain.Borrowed;
 
 var builder = WebApplication.CreateBuilder(args);
 

@@ -1,25 +1,26 @@
 {
   "format": 1,
   "restore": {
-    "/home/armand/Documents/Datateknologi/bacheloroppgave/prosjekt/Datbac-Prosjekt/Utlån_Konvensjonell/Utlånssystem_Konvensjonell/Utlånssystem_Konvensjonell.csproj": {}
+    "/Users/audunsteinkopf/Documents/GitHub/Datbac-Prosjekt/Utlån_Konvensjonell/Utlånssystem_Konvensjonell/Utlånssystem_Konvensjonell.csproj": {}
   },
   "projects": {
-    "/home/armand/Documents/Datateknologi/bacheloroppgave/prosjekt/Datbac-Prosjekt/Utlån_Konvensjonell/Utlånssystem_Konvensjonell/Utlånssystem_Konvensjonell.csproj": {
+    "/Users/audunsteinkopf/Documents/GitHub/Datbac-Prosjekt/Utlån_Konvensjonell/Utlånssystem_Konvensjonell/Utlånssystem_Konvensjonell.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/armand/Documents/Datateknologi/bacheloroppgave/prosjekt/Datbac-Prosjekt/Utlån_Konvensjonell/Utlånssystem_Konvensjonell/Utlånssystem_Konvensjonell.csproj",
+        "projectUniqueName": "/Users/audunsteinkopf/Documents/GitHub/Datbac-Prosjekt/Utlån_Konvensjonell/Utlånssystem_Konvensjonell/Utlånssystem_Konvensjonell.csproj",
         "projectName": "Utlånssystem_Konvensjonell",
-        "projectPath": "/home/armand/Documents/Datateknologi/bacheloroppgave/prosjekt/Datbac-Prosjekt/Utlån_Konvensjonell/Utlånssystem_Konvensjonell/Utlånssystem_Konvensjonell.csproj",
-        "packagesPath": "/home/armand/.nuget/packages/",
-        "outputPath": "/home/armand/Documents/Datateknologi/bacheloroppgave/prosjekt/Datbac-Prosjekt/Utlån_Konvensjonell/Utlånssystem_Konvensjonell/obj/",
+        "projectPath": "/Users/audunsteinkopf/Documents/GitHub/Datbac-Prosjekt/Utlån_Konvensjonell/Utlånssystem_Konvensjonell/Utlånssystem_Konvensjonell.csproj",
+        "packagesPath": "/Users/audunsteinkopf/.nuget/packages/",
+        "outputPath": "/Users/audunsteinkopf/Documents/GitHub/Datbac-Prosjekt/Utlån_Konvensjonell/Utlånssystem_Konvensjonell/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/armand/.nuget/NuGet/NuGet.Config"
+          "/Users/audunsteinkopf/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "/usr/local/share/dotnet/library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -32,7 +33,13 @@
           "warnAsError": [
             "NU1605"
           ]
-        }
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "10.0.100"
       },
       "frameworks": {
         "net8.0": {
@@ -74,7 +81,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.122/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/10.0.103/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

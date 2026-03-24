@@ -62,6 +62,7 @@ using (var scope = app.Services.CreateScope())
         );
 
         adminUser.Permission = Permission.Admin;
+        adminUser.IsAuthorized = true;
 
         db.Users.Add(adminUser);
         db.SaveChanges();

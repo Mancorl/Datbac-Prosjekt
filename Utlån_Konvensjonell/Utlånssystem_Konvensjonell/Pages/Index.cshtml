@@ -4,9 +4,22 @@
     ViewData["Title"] = "Home page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-    <p>Armand, unless?</p>
-    <p>Teste dotnet watch</p>
-</div>
+@if (User.Identity == null || !User.Identity.IsAuthenticated)
+{
+    <div class="text-center">
+        <h1 class="display-4">Welcome, create a user to rent our games!</h1>
+    </div>
+}
+else if (!Model.isauthorized)
+{
+    <div class="text-center">
+        <h1 class="display-4">You have not yet been authorized by an admin!</h1>
+    </div>
+}
+else
+{
+    <div class="text-center">
+        <h1 class="display-4">Welcome back!</h1>
+    </div>
+}
+

@@ -18,6 +18,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = /home/armand/Documents/Datateknologi/bacheloroppgave/prosjekt/Datbac-Prosjekt/Utlån_Konvensjonell/Utlånssystem_Konvensjonell
 build_property._RazorSourceGeneratorDebug = 
 
+[/home/armand/Documents/Datateknologi/bacheloroppgave/prosjekt/Datbac-Prosjekt/Utlån_Konvensjonell/Utlånssystem_Konvensjonell/Pages/Authorize.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQXV0aG9yaXplLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [/home/armand/Documents/Datateknologi/bacheloroppgave/prosjekt/Datbac-Prosjekt/Utlån_Konvensjonell/Utlånssystem_Konvensjonell/Pages/Browse.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQnJvd3NlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 

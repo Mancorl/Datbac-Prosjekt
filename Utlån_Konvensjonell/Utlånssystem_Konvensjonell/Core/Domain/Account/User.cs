@@ -16,6 +16,7 @@ public class User
 		Password = password;
 		First = first;
 		Last = last;
+		IsAuthorized = false;
 
 	}
 	public Guid Id { get; protected set; }
@@ -24,6 +25,14 @@ public class User
 	public Permission Permission { get; set; }
 	public string First { get; protected set; }
 	public string Last { get; protected set; }
+	public bool IsAuthorized {get; set;}
+
+
+	public void Authorize()
+	{
+		IsAuthorized = true;
+	}
+
 
 
 }
@@ -60,3 +69,4 @@ public class UserEmailValidator : IValidator<User>
 		return (true, "");
 	}
 }
+

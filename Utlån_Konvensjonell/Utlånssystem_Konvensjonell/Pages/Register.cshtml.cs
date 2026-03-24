@@ -56,8 +56,19 @@ public class RegisterModel : PageModel
             return Page();
         }
 
-        _registrationService.Registered += _handler.OnRegistered;
-        await _registrationService.RegisterAsync(Input.Email, Input.Password, Input.FirstName, Input.LastName);
+        var NormEmail = Input.Email.Trim().ToLower();
 
-        return RedirectToPage("/Index");
+        if (!_db.Users.Any(u => u.Email == NormEmail))
+        {
+
+        _registrationService.Registered += _handler.OnRegistered;
+        await _registrationService.RegisterAsync(NormEmail, Input.Password, Input.FirstName, Input.LastName);
+        }
+        else{
+            ModelState.AddModelError("Input.Email", "This email is already in use.");
+        return Page();
+        }
+
+        return RedirectToPage("/Login");
+    
 }}

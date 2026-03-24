@@ -125,6 +125,7 @@ public class LoginModel : PageModel
             new Claim(ClaimTypes.NameIdentifier, result.User.Id.ToString()),
             new Claim(ClaimTypes.Name, $"{result.User.First} {result.User.Last}"),
             new Claim(ClaimTypes.Email, result.User.Email)
+            //new Claim(CliamTypes.IsAuthorized, result.User.IsAuthorized)
         };
 
         if (result.User.Permission == Permission.Admin)

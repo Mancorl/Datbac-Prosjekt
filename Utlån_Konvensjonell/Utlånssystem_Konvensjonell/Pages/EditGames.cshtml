@@ -1,0 +1,87 @@
+@page "/RegisterGames"
+@model EditGameModel
+@{ ViewData["Title"]= "Register Games";
+}
+
+
+<div class="text-center">
+    <h1 class="display-4">Register Games</h1>
+
+   <form method="post" enctype="multipart/form-data">
+
+    <div class="form-group">
+        <label asp-for="Input.GameTitle">Game Title</label>
+        <input asp-for="Input.GameTitle" />
+        <span asp-validation-for="Input.GameTitle"></span>
+    </div>
+
+     <div class="form-group">
+        <label asp-for="Input.GameDescription">Game Description:</label>
+        <input asp-for="Input.GameDescription" />
+        <span asp-validation-for="Input.GameDescription"></span>
+    </div>
+
+
+
+    <div class="form-group">
+        <label asp-for="Input.Quantity"></label>
+        <input asp-for="Input.Quantity" />
+        <span asp-validation-for="Input.Quantity"></span>
+    </div>
+
+
+    <div class="form-group">
+        <label asp-for="Input.Loanable"></label>
+        <input asp-for="Input.Loanable" />
+        <span asp-validation-for="Input.Loanable"></span>
+    </div>
+
+    <input type="file" id="imageInput" asp-for="Input.Image">
+
+    <button type="submit">Register</button>
+</form>
+
+  <!-- Image Type Error Modal -->
+    <div class="modal fade" id="imageTypeModal" tabindex="-1" aria-labelledby="imageTypeModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="imageTypeModalLabel">Invalid Image Type</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    You chose the wrong file type. Please select an image file with one of the following formats: PNG, JPEG, or JPG.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+@section Scripts {
+    <script>
+        document.getElementById('imageInput').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const allowedTypes = ['image/png', 'image/jpeg', 'image/jpg'];
+                if (!allowedTypes.includes(file.type.toLowerCase())) {
+                    // Clear the file input
+                    e.target.value = '';
+                    // Show the modal
+                    const modal = new bootstrap.Modal(document.getElementById('imageTypeModal'));
+                    modal.show();
+                }
+            }
+        });
+    </script>
+}
+
+   
+
+</div>
+
+
+
+

@@ -8,6 +8,14 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Utlånssystem_Konvensjonell.styles.css" asp-append-version="true" />
 </head>
+
+<script>
+console.log("Authenticated:", "@User.Identity?.IsAuthenticated");
+console.log("User name:", "@User.Identity?.Name");
+console.log("Is Admin:", "@User.IsInRole("Admin")");
+console.log("Role claim:", "@User.FindFirst(System.Security.Claims.ClaimTypes.Role)?.Value");
+</script>
+
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
@@ -28,15 +36,39 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Lån">Lån</a>
                         </li>
+                        @if (User.Identity != null && User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/EditGames">Register Games</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Authorize">Authorize Users</a>
+                            </li>
+                        }
                     </ul>
 
-                    <ul class="navbar-nav ms-auto"
+                    <ul class="navbar-nav ms-auto">
+                        @if (User.Identity != null && User.Identity.IsAuthenticated)
+                        {
+                        <li class="nav-item">
+                            <span class="nav-link text-dark">Hello @User.Identity.Name</span>
+                        </li>
+                        <li class="nav-item">
+                            <form method="post" asp-page="/Logout" style="display:inline;">
+                                <button type="submit" class="btn btn-link nav-link text-dark">Logout</button>
+                            </form>
+                        </li>
+                        }
+                        else
+                        {
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Register">Register</a>
                         </li>
                         <li class="navbar-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Login">Login</a>
                         </li>
+                        }
                     </ul>
                 </div>
             </div>

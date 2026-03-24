@@ -6,6 +6,9 @@ using Utlånssystem_Konvensjonell.SharedKernel;
 using System.Linq;
 using System.Reflection;
 using Utlånssystem_Konvensjonell.Core.Domain.Account;
+using Utlånssystem_Konvensjonell.Core.Domain.BoardGames;
+using Utlånssystem_Konvensjonell.Core.Domain.Borrowed;
+
 
 namespace Utlånssystem_Konvensjonell.Infrastructure.Data;
 
@@ -19,6 +22,8 @@ public class BoardGameContext : DbContext
     }
 
     public DbSet<User> Users { get; set; } = null!;
+    public DbSet<BoardGame> Games { get; set; } = null!;
+    public DbSet<Borrowing> Rented {get; set;} = null!;
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -57,6 +62,7 @@ public class BoardGameContext : DbContext
 
         return result;
     }
+    
 
     public override int SaveChanges() => SaveChangesAsync().GetAwaiter().GetResult();
 }

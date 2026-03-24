@@ -1,0 +1,32 @@
+@page
+@model AuthorizeUserModel
+@{
+    ViewData["Title"] = "Authorize User";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Authorize Users</h1>
+
+    @if (Model.Users.Any())
+    {
+        foreach (var user in Model.Users)
+        {
+            <div class="col-md-3 mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">@user.First @user.Last</h5>
+                        <p>@user.Email</p>
+                        <p>Permission: @user.IsAuthorized</p>
+                        <form method="post" asp-page-handler="Authorize" asp-route-id="@user.Id" class="d-inline">
+                            <button class="btn btn-primary" type="submit">Authorize User</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+        <p>Sowwy empty</p>
+    }
+</div>

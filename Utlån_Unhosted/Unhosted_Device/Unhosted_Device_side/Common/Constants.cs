@@ -1,3 +1,5 @@
+namespace Unhosted_Device_side.Common;
+
 public static class Constants
 {
     public const string DatabaseFilename = "UnhostedDB.db3";

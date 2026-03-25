@@ -1,5 +1,16 @@
 ﻿@page "/"
+@using Unhosted_Device_side.Data
+@using Unhosted_Device_side.Common
+@inject AppDatabase Database
 
 <h1>Hello, world!</h1>
 
 Welcome to your new app.
+
+@code {
+    protected override async Task OnInitializedAsync()
+    {
+        Console.WriteLine($"DB path: {Constants.DatabasePath}");
+        await Database.InitAsync();
+    }
+}

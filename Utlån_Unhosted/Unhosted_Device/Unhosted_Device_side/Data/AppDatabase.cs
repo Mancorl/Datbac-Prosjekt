@@ -1,5 +1,6 @@
 using SQLite;
 using Unhosted_Device_side.Data.Tables;
+using Unhosted_Device_side.Common;
 
 namespace Unhosted_Device_side.Data;
 

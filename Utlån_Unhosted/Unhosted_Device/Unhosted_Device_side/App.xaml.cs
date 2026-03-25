@@ -2,10 +2,15 @@
 
 public partial class App : Application
 {
-	public App()
+	public App(AppDatabase database)
 	{
 		InitializeComponent();
+        MainPage = new MainPage();
+
+        Task.Run(async () => await database.InitAsync());
 	}
+
+	
 
 	protected override Window CreateWindow(IActivationState? activationState)
 	{

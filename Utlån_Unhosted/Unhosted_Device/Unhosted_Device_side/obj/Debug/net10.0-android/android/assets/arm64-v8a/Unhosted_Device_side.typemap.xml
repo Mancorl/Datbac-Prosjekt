@@ -1,10 +1,10 @@
-<api type="debug" assembly-name="Unhosted_Device_side" mvid="5c752490cb3a4f7a8ebeea822d0e3fff">
+<api type="debug" assembly-name="Unhosted_Device_side" mvid="f5145141914a4a07ad924e2594c8884e">
   <java-to-managed>
-    <entry java-name="crc64cac1344af39f7a9e/MainActivity" managed-name="Unhosted_Device_side.MainActivity, Unhosted_Device_side" managed-type-token-id="33554440" />
-    <entry java-name="crc64cac1344af39f7a9e/MainApplication" managed-name="Unhosted_Device_side.MainApplication, Unhosted_Device_side" managed-type-token-id="33554441" />
+    <entry java-name="crc64cac1344af39f7a9e/MainActivity" managed-name="Unhosted_Device_side.MainActivity, Unhosted_Device_side" managed-type-token-id="33554444" />
+    <entry java-name="crc64cac1344af39f7a9e/MainApplication" managed-name="Unhosted_Device_side.MainApplication, Unhosted_Device_side" managed-type-token-id="33554445" />
   </java-to-managed>
   <managed-to-java>
-    <entry java-name="crc64cac1344af39f7a9e/MainActivity" managed-name="Unhosted_Device_side.MainActivity, Unhosted_Device_side" managed-type-token-id="33554440" />
-    <entry java-name="crc64cac1344af39f7a9e/MainApplication" managed-name="Unhosted_Device_side.MainApplication, Unhosted_Device_side" managed-type-token-id="33554441" />
+    <entry java-name="crc64cac1344af39f7a9e/MainActivity" managed-name="Unhosted_Device_side.MainActivity, Unhosted_Device_side" managed-type-token-id="33554444" />
+    <entry java-name="crc64cac1344af39f7a9e/MainApplication" managed-name="Unhosted_Device_side.MainApplication, Unhosted_Device_side" managed-type-token-id="33554445" />
   </managed-to-java>
 </api>

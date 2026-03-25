@@ -17,25 +17,21 @@ public class AppDatabase
             Constants.DatabasePath,
             Constants.Flags);
 
-        await _database.CreateTableAsync<UserClass>();
-        //await _database.CreateTableAsync<LoanEntity>();
+        await _database.CreateTableAsync<UserEntity>();
 
         _initialized = true;
     }
 
-    public async Task<List<UserClass>> GetUsersAsync()
+    public async Task<List<UserEntity>> GetUsersAsync()
     {
         await InitAsync();
-        return await _database!.Table<UserClass>().ToListAsync();
+        return await _database!.Table<UserEntity>().ToListAsync();
     }
 
-    public async Task<int> SaveUserAsync(UserClass user)
+    public async Task<int> SaveUserAsync(UserEntity user)
     {
         await InitAsync();
 
-        if (user.Id != null)
-            return await _database!.UpdateAsync(user);
-
-        return await _database!.InsertAsync(user);
+        return await _database!.InsertOrReplaceAsync(user);
     }
 }

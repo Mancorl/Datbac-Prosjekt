@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/audunsteinkopf/Documents/GitHub/Datbac-Prosjekt/Utlån_Konvensjonell/Utlånssystem_Konvensjonell/Utlånssystem_Konvensjonell.csproj": {}
+    "/Users/audunsteinkopf/Documents/GitHub/Datbac-Prosjekt/Utlån_Konvensjonell/Utlånssystem_Konvensjonell/Utlånssystem_Konvensjonell.csproj": {}
   },
   "projects": {
-    "/Users/audunsteinkopf/Documents/GitHub/Datbac-Prosjekt/Utlån_Konvensjonell/Utlånssystem_Konvensjonell/Utlånssystem_Konvensjonell.csproj": {
+    "/Users/audunsteinkopf/Documents/GitHub/Datbac-Prosjekt/Utlån_Konvensjonell/Utlånssystem_Konvensjonell/Utlånssystem_Konvensjonell.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/audunsteinkopf/Documents/GitHub/Datbac-Prosjekt/Utlån_Konvensjonell/Utlånssystem_Konvensjonell/Utlånssystem_Konvensjonell.csproj",
+        "projectUniqueName": "/Users/audunsteinkopf/Documents/GitHub/Datbac-Prosjekt/Utlån_Konvensjonell/Utlånssystem_Konvensjonell/Utlånssystem_Konvensjonell.csproj",
         "projectName": "Utlånssystem_Konvensjonell",
-        "projectPath": "/Users/audunsteinkopf/Documents/GitHub/Datbac-Prosjekt/Utlån_Konvensjonell/Utlånssystem_Konvensjonell/Utlånssystem_Konvensjonell.csproj",
+        "projectPath": "/Users/audunsteinkopf/Documents/GitHub/Datbac-Prosjekt/Utlån_Konvensjonell/Utlånssystem_Konvensjonell/Utlånssystem_Konvensjonell.csproj",
         "packagesPath": "/Users/audunsteinkopf/.nuget/packages/",
-        "outputPath": "/Users/audunsteinkopf/Documents/GitHub/Datbac-Prosjekt/Utlån_Konvensjonell/Utlånssystem_Konvensjonell/obj/",
+        "outputPath": "/Users/audunsteinkopf/Documents/GitHub/Datbac-Prosjekt/Utlån_Konvensjonell/Utlånssystem_Konvensjonell/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/audunsteinkopf/.nuget/NuGet/NuGet.Config"

@@ -16,11 +16,6 @@
 /home/armand/Documents/Datateknologi/bacheloroppgave/prosjekt/Datbac-Prosjekt/Utlån_Konvensjonell/Utlånssystem_Konvensjonell/obj/Debug/net8.0/Utlånssystem_Konvensjonell.sourcelink.json
 /home/armand/Documents/Datateknologi/bacheloroppgave/prosjekt/Datbac-Prosjekt/Utlån_Konvensjonell/Utlånssystem_Konvensjonell/obj/Debug/net8.0/staticwebassets.build.json
 /home/armand/Documents/Datateknologi/bacheloroppgave/prosjekt/Datbac-Prosjekt/Utlån_Konvensjonell/Utlånssystem_Konvensjonell/obj/Debug/net8.0/staticwebassets.development.json
-/home/armand/Documents/Datateknologi/bacheloroppgave/prosjekt/Datbac-Prosjekt/Utlån_Konvensjonell/Utlånssystem_Konvensjonell/obj/Debug/net8.0/staticwebassets/msbuild.Utlånssystem_Konvensjonell.Microsoft.AspNetCore.StaticWebAssets.props
-/home/armand/Documents/Datateknologi/bacheloroppgave/prosjekt/Datbac-Prosjekt/Utlån_Konvensjonell/Utlånssystem_Konvensjonell/obj/Debug/net8.0/staticwebassets/msbuild.build.Utlånssystem_Konvensjonell.props
-/home/armand/Documents/Datateknologi/bacheloroppgave/prosjekt/Datbac-Prosjekt/Utlån_Konvensjonell/Utlånssystem_Konvensjonell/obj/Debug/net8.0/staticwebassets/msbuild.buildMultiTargeting.Utlånssystem_Konvensjonell.props
-/home/armand/Documents/Datateknologi/bacheloroppgave/prosjekt/Datbac-Prosjekt/Utlån_Konvensjonell/Utlånssystem_Konvensjonell/obj/Debug/net8.0/staticwebassets/msbuild.buildTransitive.Utlånssystem_Konvensjonell.props
-/home/armand/Documents/Datateknologi/bacheloroppgave/prosjekt/Datbac-Prosjekt/Utlån_Konvensjonell/Utlånssystem_Konvensjonell/obj/Debug/net8.0/staticwebassets.pack.json
 /home/armand/Documents/Datateknologi/bacheloroppgave/prosjekt/Datbac-Prosjekt/Utlån_Konvensjonell/Utlånssystem_Konvensjonell/obj/Debug/net8.0/scopedcss/Pages/Shared/_Layout.cshtml.rz.scp.css
 /home/armand/Documents/Datateknologi/bacheloroppgave/prosjekt/Datbac-Prosjekt/Utlån_Konvensjonell/Utlånssystem_Konvensjonell/obj/Debug/net8.0/scopedcss/bundle/Utlånssystem_Konvensjonell.styles.css
 /home/armand/Documents/Datateknologi/bacheloroppgave/prosjekt/Datbac-Prosjekt/Utlån_Konvensjonell/Utlånssystem_Konvensjonell/obj/Debug/net8.0/scopedcss/projectbundle/Utlånssystem_Konvensjonell.bundle.scp.css
@@ -78,7 +73,6 @@
 /home/armand/Documents/Datateknologi/bacheloroppgave/prosjekt/Datbac-Prosjekt/Utlån_Konvensjonell/Utlånssystem_Konvensjonell/bin/Debug/net8.0/System.Interactive.Async.dll
 /home/armand/Documents/Datateknologi/bacheloroppgave/prosjekt/Datbac-Prosjekt/Utlån_Konvensjonell/Utlånssystem_Konvensjonell/bin/Debug/net8.0/System.Linq.Async.dll
 /home/armand/Documents/Datateknologi/bacheloroppgave/prosjekt/Datbac-Prosjekt/Utlån_Konvensjonell/Utlånssystem_Konvensjonell/obj/Debug/net8.0/Utlånssystem_Konvensjonell.csproj.AssemblyReference.cache
-/home/armand/Documents/Datateknologi/bacheloroppgave/prosjekt/Datbac-Prosjekt/Utlån_Konvensjonell/Utlånssystem_Konvensjonell/obj/Debug/net8.0/Utlånssystem_Konvensjonell.csproj.CopyComplete
 /home/audun/Pythontestinggrounds/Datbac/Prosjekt/Datbac-Prosjekt/Utlån_Konvensjonell/Utlånssystem_Konvensjonell/bin/Debug/net8.0/Microsoft.Data.Sqlite.dll
 /home/audun/Pythontestinggrounds/Datbac/Prosjekt/Datbac-Prosjekt/Utlån_Konvensjonell/Utlånssystem_Konvensjonell/bin/Debug/net8.0/Microsoft.EntityFrameworkCore.dll
 /home/audun/Pythontestinggrounds/Datbac/Prosjekt/Datbac-Prosjekt/Utlån_Konvensjonell/Utlånssystem_Konvensjonell/bin/Debug/net8.0/Microsoft.EntityFrameworkCore.Abstractions.dll
@@ -208,3 +202,12 @@
 /Users/audunsteinkopf/Documents/GitHub/Datbac-Prosjekt/Utlån_Konvensjonell/Utlånssystem_Konvensjonell/obj/Debug/net8.0/Utlånssystem_Konvensjonell.pdb
 /Users/audunsteinkopf/Documents/GitHub/Datbac-Prosjekt/Utlån_Konvensjonell/Utlånssystem_Konvensjonell/obj/Debug/net8.0/Utlånssystem_Konvensjonell.genruntimeconfig.cache
 /Users/audunsteinkopf/Documents/GitHub/Datbac-Prosjekt/Utlån_Konvensjonell/Utlånssystem_Konvensjonell/obj/Debug/net8.0/ref/Utlånssystem_Konvensjonell.dll
+/home/armand/Documents/Datateknologi/bacheloroppgave/prosjekt/Datbac-Prosjekt/Utlån_Konvensjonell/Utlånssystem_Konvensjonell/bin/Debug/net8.0/Utlånssystem_Konvensjonell.staticwebassets.endpoints.json
+/home/armand/Documents/Datateknologi/bacheloroppgave/prosjekt/Datbac-Prosjekt/Utlån_Konvensjonell/Utlånssystem_Konvensjonell/obj/Debug/net8.0/rpswa.dswa.cache.json
+/home/armand/Documents/Datateknologi/bacheloroppgave/prosjekt/Datbac-Prosjekt/Utlån_Konvensjonell/Utlånssystem_Konvensjonell/obj/Debug/net8.0/rjimswa.dswa.cache.json
+/home/armand/Documents/Datateknologi/bacheloroppgave/prosjekt/Datbac-Prosjekt/Utlån_Konvensjonell/Utlånssystem_Konvensjonell/obj/Debug/net8.0/rjsmrazor.dswa.cache.json
+/home/armand/Documents/Datateknologi/bacheloroppgave/prosjekt/Datbac-Prosjekt/Utlån_Konvensjonell/Utlånssystem_Konvensjonell/obj/Debug/net8.0/rjsmcshtml.dswa.cache.json
+/home/armand/Documents/Datateknologi/bacheloroppgave/prosjekt/Datbac-Prosjekt/Utlån_Konvensjonell/Utlånssystem_Konvensjonell/obj/Debug/net8.0/staticwebassets.build.json.cache
+/home/armand/Documents/Datateknologi/bacheloroppgave/prosjekt/Datbac-Prosjekt/Utlån_Konvensjonell/Utlånssystem_Konvensjonell/obj/Debug/net8.0/staticwebassets.build.endpoints.json
+/home/armand/Documents/Datateknologi/bacheloroppgave/prosjekt/Datbac-Prosjekt/Utlån_Konvensjonell/Utlånssystem_Konvensjonell/obj/Debug/net8.0/swae.build.ex.cache
+/home/armand/Documents/Datateknologi/bacheloroppgave/prosjekt/Datbac-Prosjekt/Utlån_Konvensjonell/Utlånssystem_Konvensjonell/obj/Debug/net8.0/Utl_nssy.365235D7.Up2Date

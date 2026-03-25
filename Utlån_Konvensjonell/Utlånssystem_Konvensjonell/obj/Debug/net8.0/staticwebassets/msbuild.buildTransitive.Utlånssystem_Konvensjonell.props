@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="../buildMultiTargeting/Utlånssystem_Konvensjonell.props" />
-</Project>

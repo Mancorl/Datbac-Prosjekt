@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 using Unhosted_Device_side.Data;
+using MediatR;
 
 namespace Unhosted_Device_side;
 

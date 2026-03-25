@@ -56,6 +56,10 @@
         "net10.0-android36.0": {
           "targetAlias": "net10.0-android",
           "dependencies": {
+            "MediatR": {
+              "target": "Package",
+              "version": "[12.4.1, )"
+            },
             "Microsoft.AspNetCore.Components.WebView.Maui": {
               "target": "Package",
               "version": "[10.0.20, )"
@@ -73,6 +77,10 @@
               "target": "Package",
               "version": "[10.0.3, )",
               "autoReferenced": true
+            },
+            "sqlite-net-pcl": {
+              "target": "Package",
+              "version": "[1.9.172, )"
             }
           },
           "imports": [
@@ -382,6 +390,10 @@
         "net10.0-ios26.2": {
           "targetAlias": "net10.0-ios",
           "dependencies": {
+            "MediatR": {
+              "target": "Package",
+              "version": "[12.4.1, )"
+            },
             "Microsoft.AspNetCore.Components.WebView.Maui": {
               "target": "Package",
               "version": "[10.0.20, )"
@@ -399,6 +411,10 @@
               "target": "Package",
               "version": "[10.0.3, )",
               "autoReferenced": true
+            },
+            "sqlite-net-pcl": {
+              "target": "Package",
+              "version": "[1.9.172, )"
             }
           },
           "imports": [
@@ -708,6 +724,10 @@
         "net10.0-maccatalyst26.2": {
           "targetAlias": "net10.0-maccatalyst",
           "dependencies": {
+            "MediatR": {
+              "target": "Package",
+              "version": "[12.4.1, )"
+            },
             "Microsoft.AspNetCore.Components.WebView.Maui": {
               "target": "Package",
               "version": "[10.0.20, )"
@@ -725,6 +745,10 @@
               "target": "Package",
               "version": "[10.0.3, )",
               "autoReferenced": true
+            },
+            "sqlite-net-pcl": {
+              "target": "Package",
+              "version": "[1.9.172, )"
             }
           },
           "imports": [

@@ -2,13 +2,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
-using Utlånssystem_Konvensjonell.SharedKernel;
+using SharedKernel;
 using System.Diagnostics.CodeAnalysis;
 
 namespace Unhosted_Device_side.Data.Tables;
 
 public class UserClass
 {
+	public UserClass() { }
 	public UserClass(string email, string password, string first, string last)
 	{
 		
@@ -34,10 +35,16 @@ public class UserClass
 		IsAuthorized = true;
 	}
 
+	
+
 
 
 }
-
+public enum Permission
+{
+    Lender,
+    Admin
+}
 
 public class UserFirstNameValidator : IValidator<UserClass>
 {

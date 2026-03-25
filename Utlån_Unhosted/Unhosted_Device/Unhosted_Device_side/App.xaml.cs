@@ -1,4 +1,6 @@
-﻿namespace Unhosted_Device_side;
+﻿using Unhosted_Device_side.Data;
+
+namespace Unhosted_Device_side;
 
 public partial class App : Application
 {

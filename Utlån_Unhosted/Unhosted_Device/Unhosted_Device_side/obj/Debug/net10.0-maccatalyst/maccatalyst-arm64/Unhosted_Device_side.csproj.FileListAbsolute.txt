@@ -349,3 +349,10 @@
 /Users/audunsteinkopf/Documents/GitHub/Datbac-Prosjekt/Utlån_Unhosted/Unhosted_Device/Unhosted_Device_side/obj/Debug/net10.0-maccatalyst/maccatalyst-arm64/Unhosted_Device_side.pdb
 /Users/audunsteinkopf/Documents/GitHub/Datbac-Prosjekt/Utlån_Unhosted/Unhosted_Device/Unhosted_Device_side/obj/Debug/net10.0-maccatalyst/maccatalyst-arm64/Unhosted_Device_side.genruntimeconfig.cache
 /Users/audunsteinkopf/Documents/GitHub/Datbac-Prosjekt/Utlån_Unhosted/Unhosted_Device/Unhosted_Device_side/obj/Debug/net10.0-maccatalyst/maccatalyst-arm64/ref/Unhosted_Device_side.dll
+/Users/audunsteinkopf/Documents/GitHub/Datbac-Prosjekt/Utlån_Unhosted/Unhosted_Device/Unhosted_Device_side/bin/Debug/net10.0-maccatalyst/maccatalyst-arm64/MediatR.dll
+/Users/audunsteinkopf/Documents/GitHub/Datbac-Prosjekt/Utlån_Unhosted/Unhosted_Device/Unhosted_Device_side/bin/Debug/net10.0-maccatalyst/maccatalyst-arm64/MediatR.Contracts.dll
+/Users/audunsteinkopf/Documents/GitHub/Datbac-Prosjekt/Utlån_Unhosted/Unhosted_Device/Unhosted_Device_side/bin/Debug/net10.0-maccatalyst/maccatalyst-arm64/SQLite-net.dll
+/Users/audunsteinkopf/Documents/GitHub/Datbac-Prosjekt/Utlån_Unhosted/Unhosted_Device/Unhosted_Device_side/bin/Debug/net10.0-maccatalyst/maccatalyst-arm64/SQLitePCLRaw.batteries_v2.dll
+/Users/audunsteinkopf/Documents/GitHub/Datbac-Prosjekt/Utlån_Unhosted/Unhosted_Device/Unhosted_Device_side/bin/Debug/net10.0-maccatalyst/maccatalyst-arm64/SQLitePCLRaw.core.dll
+/Users/audunsteinkopf/Documents/GitHub/Datbac-Prosjekt/Utlån_Unhosted/Unhosted_Device/Unhosted_Device_side/bin/Debug/net10.0-maccatalyst/maccatalyst-arm64/SQLitePCLRaw.provider.e_sqlite3.dll
+/Users/audunsteinkopf/Documents/GitHub/Datbac-Prosjekt/Utlån_Unhosted/Unhosted_Device/Unhosted_Device_side/bin/Debug/net10.0-maccatalyst/maccatalyst-arm64/libe_sqlite3.dylib

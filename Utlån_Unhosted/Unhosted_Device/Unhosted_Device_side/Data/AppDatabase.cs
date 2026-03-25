@@ -1,4 +1,5 @@
 using SQLite;
+using Unhosted_Device_side.Data.Tables;
 
 namespace Unhosted_Device_side.Data;
 
@@ -32,7 +33,7 @@ public class AppDatabase
     {
         await InitAsync();
 
-        if (user.Id != 0)
+        if (user.Id != null)
             return await _database!.UpdateAsync(user);
 
         return await _database!.InsertAsync(user);

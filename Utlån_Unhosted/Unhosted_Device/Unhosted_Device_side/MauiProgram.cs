@@ -17,9 +17,20 @@ public static class MauiProgram
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
 			});
 
+
+		builder.Services.AddSingleton(sp =>
+            new HttpClient
+            {
+                BaseAddress = new Uri("http://127.0.1.1:5031/")
+            });	
+
 		builder.Services.AddMauiBlazorWebView();
 	 	builder.Services.AddSingleton<AppDatabase>();
 		builder.Services.AddSingleton<RentService>();
+		builder.Services.AddSingleton<GameService>();
+		builder.Services.AddSingleton<GameServiceAPI>();
+
+		
 		
 
 #if DEBUG

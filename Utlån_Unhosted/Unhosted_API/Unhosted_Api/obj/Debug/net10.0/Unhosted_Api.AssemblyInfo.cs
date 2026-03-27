@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Unhosted_Api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7afd0d050bc6f996d1f89f682233a6a895b1ce2d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8b8b1b14566e51d12f905576706a0802e1aa1a02")]
 [assembly: System.Reflection.AssemblyProductAttribute("Unhosted_Api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Unhosted_Api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,3 +1,5 @@
+/*
+
 using Microsoft.AspNetCore.Mvc;
 using Unhosted_Api.Data;
 using Unhosted_Api.Models;
@@ -35,4 +37,4 @@ public IActionResult Create(CreateBoardGameDto dto)
 
     return Ok(game);
 }
-}
+}*/

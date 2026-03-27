@@ -21,7 +21,7 @@ public static class MauiProgram
 		builder.Services.AddSingleton(sp =>
             new HttpClient
             {
-                BaseAddress = new Uri("http://127.0.1.1:5031/")
+                BaseAddress = new Uri("http://localhost:5031")
             });	
 
 		builder.Services.AddMauiBlazorWebView();

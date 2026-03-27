@@ -17,7 +17,7 @@ public class AddBoardGamesController : ControllerBase
     }
 
     [HttpPost]
-public ActionResult<string> Delete()
+public IActionResult Create(CreateBoardGameDto dto)
 {
     var imagePath = string.IsNullOrWhiteSpace(dto.ImagePath)
         ? "images/Default.jpg"

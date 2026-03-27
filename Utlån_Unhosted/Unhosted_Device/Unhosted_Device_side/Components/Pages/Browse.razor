@@ -4,6 +4,7 @@
 @using Unhosted_Device_side.Services;
 @inject AppDatabase Database
 @inject RentService RentService
+@inject GameService GameService
 
 <div class="container py-3">
     <p>Look at what boardgames you can borrow from us.</p>
@@ -28,7 +29,7 @@
                     <div class="card h-100">
                         <div class="card-body">
                             <h5 class="card-title">@game.Name</h5>
-                            <p>Amount available: @game.Quantity</p>
+                            <p>Name: @game.Name Amount available: @game.Quantity</p>
                             <p class="card-text">Description: @game.Description</p>
 
                             @if (!string.IsNullOrWhiteSpace(game.ImagePath))
@@ -82,8 +83,16 @@
 
     protected override async Task OnInitializedAsync()
     {
-        _games = await Database.GetGamesAsync();
+        await LoadGamesAsync();
     }
+    
+
+    private async Task LoadGamesAsync()
+    {
+        await GameService.GetGamesFromApiAsync();
+        _games = await GameService.GetLocalGamesAsync();
+    }
+
 
 private async Task RentGame(Guid gameId)
 {

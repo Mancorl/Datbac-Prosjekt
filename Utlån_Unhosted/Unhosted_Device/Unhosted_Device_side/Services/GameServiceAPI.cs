@@ -1,4 +1,5 @@
 using System.Net.Http.Json;
+using System.Text.Json;
 using Unhosted_Device_side.Models;
 
 namespace Unhosted_Device_side.Services;
@@ -12,8 +13,13 @@ public class GameServiceAPI
         _httpClient = httpClient;
     }
 
-    public async Task<List<Game>?> GetGamesAsync()
+        public async Task<List<Game>?> GetGamesAsync()
     {
-        return await _httpClient.GetFromJsonAsync<List<Game>>("api/RetrieveGames");
+        var options = new JsonSerializerOptions
+        {
+            PropertyNameCaseInsensitive = true
+        };
+
+        return await _httpClient.GetFromJsonAsync<List<Game>>("api/RetrieveGames", options);
     }
 }

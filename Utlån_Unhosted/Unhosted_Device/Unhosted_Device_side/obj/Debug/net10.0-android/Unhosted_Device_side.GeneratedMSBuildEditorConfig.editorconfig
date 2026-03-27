@@ -21,18 +21,18 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Unhosted_Device_side
 build_property.RootNamespace = Unhosted_Device_side
-build_property.ProjectDir = /home/armand/Documents/Datateknologi/bacheloroppgave/prosjekt/Datbac-Prosjekt/Utlån_Unhosted/Unhosted_Device/Unhosted_Device_side/
+build_property.ProjectDir = /Users/audunsteinkopf/Documents/GitHub/Datbac-Prosjekt/Utlån_Unhosted/Unhosted_Device/Unhosted_Device_side/
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 9.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = /home/armand/Documents/Datateknologi/bacheloroppgave/prosjekt/Datbac-Prosjekt/Utlån_Unhosted/Unhosted_Device/Unhosted_Device_side
+build_property.MSBuildProjectDirectory = /Users/audunsteinkopf/Documents/GitHub/Datbac-Prosjekt/Utlån_Unhosted/Unhosted_Device/Unhosted_Device_side
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 10.0
 build_property.EnableCodeStyleSeverity = 
 
-[/home/armand/Documents/Datateknologi/bacheloroppgave/prosjekt/Datbac-Prosjekt/Utlån_Unhosted/Unhosted_Device/Unhosted_Device_side/App.xaml]
+[/Users/audunsteinkopf/Documents/GitHub/Datbac-Prosjekt/Utlån_Unhosted/Unhosted_Device/Unhosted_Device_side/App.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = Unhosted_Device_side.App.xaml
 build_metadata.AdditionalFiles.TargetPath = App.xaml
@@ -43,7 +43,7 @@ build_metadata.AdditionalFiles.EnableDiagnostics =
 build_metadata.AdditionalFiles.LineInfo = 
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/armand/Documents/Datateknologi/bacheloroppgave/prosjekt/Datbac-Prosjekt/Utlån_Unhosted/Unhosted_Device/Unhosted_Device_side/MainPage.xaml]
+[/Users/audunsteinkopf/Documents/GitHub/Datbac-Prosjekt/Utlån_Unhosted/Unhosted_Device/Unhosted_Device_side/MainPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = Unhosted_Device_side.MainPage.xaml
 build_metadata.AdditionalFiles.TargetPath = MainPage.xaml
@@ -54,7 +54,7 @@ build_metadata.AdditionalFiles.EnableDiagnostics =
 build_metadata.AdditionalFiles.LineInfo = 
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/armand/Documents/Datateknologi/bacheloroppgave/prosjekt/Datbac-Prosjekt/Utlån_Unhosted/Unhosted_Device/Unhosted_Device_side/Components/Pages/Browse.razor]
+[/Users/audunsteinkopf/Documents/GitHub/Datbac-Prosjekt/Utlån_Unhosted/Unhosted_Device/Unhosted_Device_side/Components/Pages/Browse.razor]
 build_metadata.AdditionalFiles.GenKind = 
 build_metadata.AdditionalFiles.ManifestResourceName = 
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9Ccm93c2UucmF6b3I=
@@ -65,7 +65,7 @@ build_metadata.AdditionalFiles.EnableDiagnostics =
 build_metadata.AdditionalFiles.LineInfo = 
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/armand/Documents/Datateknologi/bacheloroppgave/prosjekt/Datbac-Prosjekt/Utlån_Unhosted/Unhosted_Device/Unhosted_Device_side/Components/Pages/Counter.razor]
+[/Users/audunsteinkopf/Documents/GitHub/Datbac-Prosjekt/Utlån_Unhosted/Unhosted_Device/Unhosted_Device_side/Components/Pages/Counter.razor]
 build_metadata.AdditionalFiles.GenKind = 
 build_metadata.AdditionalFiles.ManifestResourceName = 
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9Db3VudGVyLnJhem9y
@@ -76,7 +76,7 @@ build_metadata.AdditionalFiles.EnableDiagnostics =
 build_metadata.AdditionalFiles.LineInfo = 
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/armand/Documents/Datateknologi/bacheloroppgave/prosjekt/Datbac-Prosjekt/Utlån_Unhosted/Unhosted_Device/Unhosted_Device_side/Components/Pages/Home.razor]
+[/Users/audunsteinkopf/Documents/GitHub/Datbac-Prosjekt/Utlån_Unhosted/Unhosted_Device/Unhosted_Device_side/Components/Pages/Home.razor]
 build_metadata.AdditionalFiles.GenKind = 
 build_metadata.AdditionalFiles.ManifestResourceName = 
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9Ib21lLnJhem9y
@@ -87,7 +87,7 @@ build_metadata.AdditionalFiles.EnableDiagnostics =
 build_metadata.AdditionalFiles.LineInfo = 
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/armand/Documents/Datateknologi/bacheloroppgave/prosjekt/Datbac-Prosjekt/Utlån_Unhosted/Unhosted_Device/Unhosted_Device_side/Components/Pages/NotFound.razor]
+[/Users/audunsteinkopf/Documents/GitHub/Datbac-Prosjekt/Utlån_Unhosted/Unhosted_Device/Unhosted_Device_side/Components/Pages/NotFound.razor]
 build_metadata.AdditionalFiles.GenKind = 
 build_metadata.AdditionalFiles.ManifestResourceName = 
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9Ob3RGb3VuZC5yYXpvcg==
@@ -98,7 +98,7 @@ build_metadata.AdditionalFiles.EnableDiagnostics =
 build_metadata.AdditionalFiles.LineInfo = 
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/armand/Documents/Datateknologi/bacheloroppgave/prosjekt/Datbac-Prosjekt/Utlån_Unhosted/Unhosted_Device/Unhosted_Device_side/Components/Pages/Weather.razor]
+[/Users/audunsteinkopf/Documents/GitHub/Datbac-Prosjekt/Utlån_Unhosted/Unhosted_Device/Unhosted_Device_side/Components/Pages/Weather.razor]
 build_metadata.AdditionalFiles.GenKind = 
 build_metadata.AdditionalFiles.ManifestResourceName = 
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9XZWF0aGVyLnJhem9y
@@ -109,7 +109,7 @@ build_metadata.AdditionalFiles.EnableDiagnostics =
 build_metadata.AdditionalFiles.LineInfo = 
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/armand/Documents/Datateknologi/bacheloroppgave/prosjekt/Datbac-Prosjekt/Utlån_Unhosted/Unhosted_Device/Unhosted_Device_side/Components/Routes.razor]
+[/Users/audunsteinkopf/Documents/GitHub/Datbac-Prosjekt/Utlån_Unhosted/Unhosted_Device/Unhosted_Device_side/Components/Routes.razor]
 build_metadata.AdditionalFiles.GenKind = 
 build_metadata.AdditionalFiles.ManifestResourceName = 
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9Sb3V0ZXMucmF6b3I=
@@ -120,7 +120,7 @@ build_metadata.AdditionalFiles.EnableDiagnostics =
 build_metadata.AdditionalFiles.LineInfo = 
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/armand/Documents/Datateknologi/bacheloroppgave/prosjekt/Datbac-Prosjekt/Utlån_Unhosted/Unhosted_Device/Unhosted_Device_side/Components/_Imports.razor]
+[/Users/audunsteinkopf/Documents/GitHub/Datbac-Prosjekt/Utlån_Unhosted/Unhosted_Device/Unhosted_Device_side/Components/_Imports.razor]
 build_metadata.AdditionalFiles.GenKind = 
 build_metadata.AdditionalFiles.ManifestResourceName = 
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9fSW1wb3J0cy5yYXpvcg==
@@ -131,7 +131,7 @@ build_metadata.AdditionalFiles.EnableDiagnostics =
 build_metadata.AdditionalFiles.LineInfo = 
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/armand/Documents/Datateknologi/bacheloroppgave/prosjekt/Datbac-Prosjekt/Utlån_Unhosted/Unhosted_Device/Unhosted_Device_side/Components/Layout/MainLayout.razor]
+[/Users/audunsteinkopf/Documents/GitHub/Datbac-Prosjekt/Utlån_Unhosted/Unhosted_Device/Unhosted_Device_side/Components/Layout/MainLayout.razor]
 build_metadata.AdditionalFiles.GenKind = 
 build_metadata.AdditionalFiles.ManifestResourceName = 
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9MYXlvdXQvTWFpbkxheW91dC5yYXpvcg==
@@ -142,7 +142,7 @@ build_metadata.AdditionalFiles.EnableDiagnostics =
 build_metadata.AdditionalFiles.LineInfo = 
 build_metadata.AdditionalFiles.CssScope = b-omofjgu7w9
 
-[/home/armand/Documents/Datateknologi/bacheloroppgave/prosjekt/Datbac-Prosjekt/Utlån_Unhosted/Unhosted_Device/Unhosted_Device_side/Components/Layout/NavMenu.razor]
+[/Users/audunsteinkopf/Documents/GitHub/Datbac-Prosjekt/Utlån_Unhosted/Unhosted_Device/Unhosted_Device_side/Components/Layout/NavMenu.razor]
 build_metadata.AdditionalFiles.GenKind = 
 build_metadata.AdditionalFiles.ManifestResourceName = 
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9MYXlvdXQvTmF2TWVudS5yYXpvcg==

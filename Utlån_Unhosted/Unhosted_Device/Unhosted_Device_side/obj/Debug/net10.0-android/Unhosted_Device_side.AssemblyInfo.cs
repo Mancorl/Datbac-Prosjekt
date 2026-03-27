@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Unhosted_Device_side")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+9104a23c291a3fc0c7133cb00f4eabfc3243cc43")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+8b8b1b14566e51d12f905576706a0802e1aa1a02")]
 [assembly: System.Reflection.AssemblyProductAttribute("Unhosted_Device_side")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Unhosted_Device_side")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

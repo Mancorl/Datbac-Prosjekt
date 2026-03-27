@@ -9,11 +9,15 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
-builder.Services.AddScoped<HelloService>();
-builder.Services.AddControllers();      
+builder.Services.AddScoped<HelloService>();     
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlite("Data Source=Data/unhosted.db")
 );
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.PropertyNamingPolicy = null;
+    });
 
 
 

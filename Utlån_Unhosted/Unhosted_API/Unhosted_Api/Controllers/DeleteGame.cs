@@ -6,7 +6,7 @@ using Unhosted_Api.DTO;
 namespace Unhosted_Api.Controllers;
 
 [ApiController]
-[Route("api/AddGames")]
+[Route("api/DeleteGame")]
 public class AddBoardGamesController : ControllerBase
 {
     private readonly AppDbContext _context;
@@ -16,8 +16,8 @@ public class AddBoardGamesController : ControllerBase
         _context = context;
     }
 
-    [HttpPost]
-public ActionResult<string> Delete()
+    [Http]
+public IActionResult Create(CreateBoardGameDto dto)
 {
     var imagePath = string.IsNullOrWhiteSpace(dto.ImagePath)
         ? "images/Default.jpg"

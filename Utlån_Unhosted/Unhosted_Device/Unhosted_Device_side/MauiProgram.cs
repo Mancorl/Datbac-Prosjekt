@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 using Unhosted_Device_side.Data;
+using Unhosted_Device_side.Services;
 using MediatR;
 
 namespace Unhosted_Device_side;
@@ -18,6 +19,7 @@ public static class MauiProgram
 
 		builder.Services.AddMauiBlazorWebView();
 	 	builder.Services.AddSingleton<AppDatabase>();
+		builder.Services.AddSingleton<RentService>();
 		
 
 #if DEBUG

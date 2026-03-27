@@ -15,11 +15,10 @@ public class RetrieveBoardGamesController : ControllerBase
         _context = context;
     }
 
-    // GET: api/RetrieveGames
     [HttpGet]
     public ActionResult<IEnumerable<BoardGame>> RetrieveBoardGames()
     {
         var BoardGames = _context.BoardGames.ToList();
-        return Ok(BoardGames); // returns JSON automatically
+        return Ok(BoardGames);
     }
 }

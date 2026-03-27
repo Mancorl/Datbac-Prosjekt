@@ -19,11 +19,14 @@ public class AddBoardGamesController : ControllerBase
     [HttpPost]
 public IActionResult Create(CreateBoardGameDto dto)
 {
+    var imagePath = string.IsNullOrWhiteSpace(dto.ImagePath)
+        ? "images/Default.jpg"
+        : dto.ImagePath;
     var game = new BoardGame(
         dto.Name,
         dto.Quantity,
         true,
-        "images/Default.jpg",
+        imagePath,
         dto.Description
     );
 

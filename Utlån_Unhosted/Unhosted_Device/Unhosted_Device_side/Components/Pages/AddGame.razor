@@ -1,1 +1,93 @@
 @page "/addgame"
+@using Microsoft.AspNetCore.Components.Forms
+@using Unhosted_Device_side.Data
+@using Unhosted_Device_side.Data.Tables
+@using Unhosted_Device_side.Models
+@inject AppDatabase Database
+
+<div class="container py-3">
+    <h1 class="display-6">Register Games</h1>
+
+    @if (!string.IsNullOrWhiteSpace(_message))
+    {
+        <div class="alert @(_isError ? "alert-danger" : "alert-success")">
+            @_message
+        </div>
+    }
+
+    <EditForm Model="_input" OnValidSubmit="RegisterGameAsync">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+
+        <div class="mb-3">
+            <label class="form-label">Game Title</label>
+            <InputText class="form-control" @bind-Value="_input.GameTitle" />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Game Description</label>
+            <InputText class="form-control" @bind-Value="_input.GameDescription" />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Quantity</label>
+            <InputNumber class="form-control" @bind-Value="_input.Quantity" />
+        </div>
+
+        <div class="form-check mb-3">
+            <InputCheckbox class="form-check-input" @bind-Value="_input.Loanable" />
+            <label class="form-check-label">Loanable</label>
+        </div>
+
+    
+      
+
+        <button type="submit" class="btn btn-primary">Register</button>
+    </EditForm>
+</div>
+
+@code {
+    private AddGameInputModel _input = new();
+    private string? _message;
+    private bool _isError;
+
+
+
+
+    private async Task RegisterGameAsync()
+    {
+        try
+        {
+            var game = new GameEntity
+            {
+                Id = Guid.NewGuid(),
+                Name = _input.GameTitle,
+                Description = _input.GameDescription,
+                Quantity = _input.Quantity,
+                TotalQuantity = _input.Quantity,
+                Loanable = _input.Loanable,
+            };
+
+            await Database.SaveGameAsync(game);
+
+            _message = $"{game.Name} registered successfully.";
+            _isError = false;
+
+            _input = new AddGameInputModel();
+           
+        }
+        catch (Exception ex)
+        {
+            _message = $"Could not register game: {ex.Message}";
+            _isError = true;
+        }
+    }
+
+    public class AddGameInputModel
+    {
+        public string GameTitle { get; set; } = string.Empty;
+        public string GameDescription { get; set; } = string.Empty;
+        public int Quantity { get; set; } = 1;
+        public bool Loanable { get; set; } = true;
+    }
+}

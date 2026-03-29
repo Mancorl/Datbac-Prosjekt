@@ -2,6 +2,7 @@
 @using Unhosted_Device_side.Data
 @using Unhosted_Device_side.Data.Tables
 @using Unhosted_Device_side.Common
+@using Unhosted_Device_side.Models
 @inject AppDatabase Database
 
 @if (_user is null)
@@ -63,7 +64,7 @@ else
             Password = _password,
             First = _first,
             Last = _last,
-            Permission = 0,
+            Permission = Permission.Lender,
             IsAuthorized = false
         };
 

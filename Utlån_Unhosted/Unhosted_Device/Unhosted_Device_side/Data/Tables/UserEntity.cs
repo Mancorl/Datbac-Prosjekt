@@ -1,4 +1,5 @@
 using SQLite;
+using Unhosted_Device_side.Models;
 
 namespace Unhosted_Device_side.Data.Tables;
 
@@ -12,7 +13,7 @@ public class UserEntity
 
     public string Password { get; set; } = string.Empty;
 
-    public int Permission { get; set; }
+    public Permission Permission { get; set; }
 
     public string First { get; set; } = string.Empty;
 

@@ -9,15 +9,13 @@
 <div class="container py-3">
     <p>Look at what boardgames you can borrow from us.</p>
 
-                    <div class="container py-3">
-
-    @if (!string.IsNullOrEmpty(_message))
-    {
-        <div class="alert alert-warning">
-            @_message
-        </div>
-    }
-
+    <div class="container py-3">
+        @if (!string.IsNullOrEmpty(_message))
+        {
+            <div class="alert alert-warning">
+                @_message
+            </div>
+        }
     </div>
     
     @if (_games is not null && _games.Any())
@@ -55,9 +53,7 @@
                                
                             }
 
-                            <button class="btn btn-warning mb-3" @onclick="RefillGames">
-                                Refill all games
-                            </button>
+                            
                         </div>
                     </div>
                 </div>
@@ -109,19 +105,5 @@ private async Task RentGame(Guid gameId)
     _games = await Database.GetGamesAsync();
 }
 
-private async Task RefillGames()
-{
-    if (_games is null)
-        return;
-
-    foreach (var game in _games)
-    {
-        game.Quantity = game.TotalQuantity;
-        await Database.SaveGameAsync(game);
-    }
-
-    _message = "All games refilled!";
-    _games = await Database.GetGamesAsync();
-}
 
 }

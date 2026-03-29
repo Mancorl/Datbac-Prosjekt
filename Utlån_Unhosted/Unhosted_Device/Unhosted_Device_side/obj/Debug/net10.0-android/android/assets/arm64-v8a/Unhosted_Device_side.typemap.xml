@@ -1,4 +1,4 @@
-<api type="debug" assembly-name="Unhosted_Device_side" mvid="937887b0e93540f083103103e1cab05c">
+<api type="debug" assembly-name="Unhosted_Device_side" mvid="6524c4957d70416597868210ed479285">
   <java-to-managed>
     <entry java-name="crc64cac1344af39f7a9e/MainActivity" managed-name="Unhosted_Device_side.MainActivity, Unhosted_Device_side" managed-type-token-id="33554443" />
     <entry java-name="crc64cac1344af39f7a9e/MainApplication" managed-name="Unhosted_Device_side.MainApplication, Unhosted_Device_side" managed-type-token-id="33554444" />

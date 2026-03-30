@@ -3,6 +3,7 @@ using Unhosted_Device_side.Data;
 using Unhosted_Device_side.Services;
 using MediatR;
 
+
 namespace Unhosted_Device_side;
 
 public static class MauiProgram
@@ -21,7 +22,10 @@ public static class MauiProgram
 		builder.Services.AddSingleton(sp =>
             new HttpClient
             {
-                BaseAddress = new Uri("http://localhost:5031")
+                //BaseAddress = new Uri("http://localhost:5031")
+				//BaseAddress = new Uri("http://10.14.177.33:5031")
+				BaseAddress = new Uri("http://127.0.0.1:5031")
+
             });	
 
 		builder.Services.AddMauiBlazorWebView();
@@ -29,7 +33,6 @@ public static class MauiProgram
 		builder.Services.AddSingleton<RentService>();
 		builder.Services.AddSingleton<GameService>();
 		builder.Services.AddSingleton<GameServiceAPI>();
-
 		
 		
 

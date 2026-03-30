@@ -14,6 +14,7 @@ builder.Services.AddScoped<HelloService>();
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlite("Data Source=Data/unhosted.db")
 );
+builder.Services.AddSingleton<IFileUploadService, FileUploadService>();
 builder.Services.AddControllers()
     .AddJsonOptions(options =>
     {

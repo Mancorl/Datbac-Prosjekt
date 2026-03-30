@@ -8,9 +8,9 @@ public class Game
 
     public Game() { }
     
-	public Game(string name, int quantity = 1, bool loanable = true, string imagePath = "images/Default.jpg", string description = "Placeholder")
+	public Game(Guid id, string name, int quantity = 1, bool loanable = true, string imagePath = "images/Default.jpg", string description = "Placeholder")
 	{
-		Id = Guid.NewGuid();
+		Id = id;
 		Name = name;
 		TotalQuantity = Quantity = quantity;
 		Loanable = loanable;

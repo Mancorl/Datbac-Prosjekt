@@ -6,9 +6,9 @@
 	<dict>
 		<key>output-files</key>
 		<array>
-			<string>/Users/audunsteinkopf/Documents/GitHub/Datbac-Prosjekt/Utlån_Unhosted/Unhosted_Device/Unhosted_Device_side/obj/Debug/net10.0-maccatalyst/maccatalyst-arm64/actool/bundle/Assets.car</string>
-			<string>/Users/audunsteinkopf/Documents/GitHub/Datbac-Prosjekt/Utlån_Unhosted/Unhosted_Device/Unhosted_Device_side/obj/Debug/net10.0-maccatalyst/maccatalyst-arm64/actool/bundle/appicon.icns</string>
-			<string>/Users/audunsteinkopf/Documents/GitHub/Datbac-Prosjekt/Utlån_Unhosted/Unhosted_Device/Unhosted_Device_side/obj/Debug/net10.0-maccatalyst/maccatalyst-arm64/actool/partial-info.plist</string>
+			<string>/Users/audun/Documents/Datbac-Prosjekt/Utlån_Unhosted/Unhosted_Device/Unhosted_Device_side/obj/Debug/net10.0-maccatalyst/maccatalyst-arm64/actool/bundle/Assets.car</string>
+			<string>/Users/audun/Documents/Datbac-Prosjekt/Utlån_Unhosted/Unhosted_Device/Unhosted_Device_side/obj/Debug/net10.0-maccatalyst/maccatalyst-arm64/actool/bundle/appicon.icns</string>
+			<string>/Users/audun/Documents/Datbac-Prosjekt/Utlån_Unhosted/Unhosted_Device/Unhosted_Device_side/obj/Debug/net10.0-maccatalyst/maccatalyst-arm64/actool/partial-info.plist</string>
 		</array>
 	</dict>
 </dict>

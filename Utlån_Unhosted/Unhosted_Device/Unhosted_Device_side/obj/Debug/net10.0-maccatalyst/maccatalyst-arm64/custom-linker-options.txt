@@ -5,7 +5,7 @@ AreAnyAssembliesTrimmed=false
 				AOTOutputDirectory=obj/Debug/net10.0-maccatalyst/maccatalyst-arm64/nativelibraries/aot-output/
 				DedupAssembly=
 				AppBundleManifestPath=bin/Debug/net10.0-maccatalyst/maccatalyst-arm64/Unhosted_Device_side.app/Contents/Info.plist
-				CacheDirectory=/Users/audunsteinkopf/Documents/GitHub/Datbac-Prosjekt/Utlån_Unhosted/Unhosted_Device/Unhosted_Device_side/obj/Debug/net10.0-maccatalyst/maccatalyst-arm64/linker-cache
+				CacheDirectory=/Users/audun/Documents/Datbac-Prosjekt/Utlån_Unhosted/Unhosted_Device/Unhosted_Device_side/obj/Debug/net10.0-maccatalyst/maccatalyst-arm64/linker-cache
 				
 				Debug=true
 				DeploymentTarget=15.0
@@ -188,7 +188,7 @@ FrameworkAssembly=System.Private.CoreLib
 				IntermediateLinkDir=obj/Debug/net10.0-maccatalyst/maccatalyst-arm64/linked/
 				InvariantGlobalization=false
 				HybridGlobalization=true
-				ItemsDirectory=/Users/audunsteinkopf/Documents/GitHub/Datbac-Prosjekt/Utlån_Unhosted/Unhosted_Device/Unhosted_Device_side/obj/Debug/net10.0-maccatalyst/maccatalyst-arm64/linker-items
+				ItemsDirectory=/Users/audun/Documents/Datbac-Prosjekt/Utlån_Unhosted/Unhosted_Device/Unhosted_Device_side/obj/Debug/net10.0-maccatalyst/maccatalyst-arm64/linker-items
 				IsAppExtension=false
 				IsSimulatorBuild=False
 				LibMonoLinkMode=static
@@ -226,7 +226,7 @@ MonoLibrary=/usr/local/share/dotnet/packs/Microsoft.NETCore.App.Runtime.Mono.mac
 				RuntimeConfigurationFile=runtimeconfig.bin
 				SdkDevPath=/Applications/Xcode.app/Contents/Developer
 				SdkRootDirectory=/usr/local/share/dotnet/packs/Microsoft.MacCatalyst.Sdk.net10.0_26.2/26.2.10217/
-				SdkVersion=26.2
+				SdkVersion=26.4
 				SkipMarkingNSObjectsInUserAssemblies=
 				TargetArchitectures=ARM64
 				TargetFramework=.NETCoreApp,Version=v10.0,Profile=maccatalyst

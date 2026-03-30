@@ -1,31 +1,31 @@
 {
   "Files": [
     {
-      "Id": "/Users/audunsteinkopf/.nuget/packages/microsoft.aspnetcore.components.webview/10.0.0/staticwebassets/blazor.modules.json",
+      "Id": "/Users/audun/.nuget/packages/microsoft.aspnetcore.components.webview/10.0.0/staticwebassets/blazor.modules.json",
       "PackagePath": "staticwebassets/_framework/blazor.modules.json"
     },
     {
-      "Id": "/Users/audunsteinkopf/.nuget/packages/microsoft.aspnetcore.components.webview/10.0.0/staticwebassets/blazor.webview.js",
+      "Id": "/Users/audun/.nuget/packages/microsoft.aspnetcore.components.webview/10.0.0/staticwebassets/blazor.webview.js",
       "PackagePath": "staticwebassets/_framework/blazor.webview.js"
     },
     {
-      "Id": "/Users/audunsteinkopf/Documents/GitHub/Datbac-Prosjekt/Utlån_Unhosted/Unhosted_Device/Unhosted_Device_side/obj/Debug/net10.0-maccatalyst/maccatalyst-arm64/scopedcss/bundle/Unhosted_Device_side.styles.css",
+      "Id": "/Users/audun/Documents/Datbac-Prosjekt/Utlån_Unhosted/Unhosted_Device/Unhosted_Device_side/obj/Debug/net10.0-maccatalyst/maccatalyst-arm64/scopedcss/bundle/Unhosted_Device_side.styles.css",
       "PackagePath": "staticwebassets/Unhosted_Device_side.styles.css"
     },
     {
-      "Id": "/Users/audunsteinkopf/Documents/GitHub/Datbac-Prosjekt/Utlån_Unhosted/Unhosted_Device/Unhosted_Device_side/wwwroot/app.css",
+      "Id": "/Users/audun/Documents/Datbac-Prosjekt/Utlån_Unhosted/Unhosted_Device/Unhosted_Device_side/wwwroot/app.css",
       "PackagePath": "staticwebassets/app.css"
     },
     {
-      "Id": "/Users/audunsteinkopf/Documents/GitHub/Datbac-Prosjekt/Utlån_Unhosted/Unhosted_Device/Unhosted_Device_side/wwwroot/index.html",
+      "Id": "/Users/audun/Documents/Datbac-Prosjekt/Utlån_Unhosted/Unhosted_Device/Unhosted_Device_side/wwwroot/index.html",
       "PackagePath": "staticwebassets/index.html"
     },
     {
-      "Id": "/Users/audunsteinkopf/Documents/GitHub/Datbac-Prosjekt/Utlån_Unhosted/Unhosted_Device/Unhosted_Device_side/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css",
+      "Id": "/Users/audun/Documents/Datbac-Prosjekt/Utlån_Unhosted/Unhosted_Device/Unhosted_Device_side/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css",
       "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.min.css"
     },
     {
-      "Id": "/Users/audunsteinkopf/Documents/GitHub/Datbac-Prosjekt/Utlån_Unhosted/Unhosted_Device/Unhosted_Device_side/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css.map",
+      "Id": "/Users/audun/Documents/Datbac-Prosjekt/Utlån_Unhosted/Unhosted_Device/Unhosted_Device_side/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css.map",
       "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.min.css.map"
     },
     {

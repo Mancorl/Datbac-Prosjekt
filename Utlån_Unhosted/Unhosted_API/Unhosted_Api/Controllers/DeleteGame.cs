@@ -1,5 +1,3 @@
-/*
-
 using Microsoft.AspNetCore.Mvc;
 using Unhosted_Api.Data;
 using Unhosted_Api.Models;
@@ -9,32 +7,28 @@ namespace Unhosted_Api.Controllers;
 
 [ApiController]
 [Route("api/DeleteGame")]
-public class AddBoardGamesController : ControllerBase
+public class DeleteGameController : ControllerBase
 {
     private readonly AppDbContext _context;
 
-    public AddBoardGamesController(AppDbContext context)
+    public DeleteGameController(AppDbContext context)
     {
         _context = context;
     }
 
-    [Http]
-public IActionResult Create(CreateBoardGameDto dto)
+    [HttpDelete("{id}")]
+public IActionResult Delete(Guid id)
 {
-    var imagePath = string.IsNullOrWhiteSpace(dto.ImagePath)
-        ? "images/Default.jpg"
-        : dto.ImagePath;
-    var game = new BoardGame(
-        dto.Name,
-        dto.Quantity,
-        true,
-        imagePath,
-        dto.Description
-    );
+    var game = _context.BoardGames.FirstOrDefault(g => g.Id == id);
 
-    _context.BoardGames.Add(game);
+    if (game == null)
+    {
+        return NotFound();
+    }
+
+    _context.BoardGames.Remove(game);
     _context.SaveChanges();
 
     return Ok(game);
 }
-}*/
+}

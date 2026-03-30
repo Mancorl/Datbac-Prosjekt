@@ -7,13 +7,13 @@ using Unhosted_Api.Services;
 namespace Unhosted_Api.Controllers;
 
 [ApiController]
-[Route("api/AddGames")]
-public class AddBoardGamesController : ControllerBase
+[Route("api/EditGames")]
+public class EditBoardGamesController : ControllerBase
 {
     private readonly AppDbContext _context;
     private readonly IFileUploadService _fileUploadService;
 
-    public AddBoardGamesController(AppDbContext context, IFileUploadService fileUploadService)
+    public EditBoardGamesController(AppDbContext context, IFileUploadService fileUploadService)
     {
         _context = context;
         _fileUploadService = fileUploadService;

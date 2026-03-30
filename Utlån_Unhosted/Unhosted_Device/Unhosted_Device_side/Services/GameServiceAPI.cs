@@ -25,7 +25,7 @@ public class GameServiceAPI
 
     public async Task<bool> CreateGameAsync(Game game)
     {
-        var response = await _httpClient.PostAsJsonAsync("api/CreateGame", game);
+        var response = await _httpClient.PostAsJsonAsync("api/AddGames", game);
         return response.IsSuccessStatusCode;
     }
 }

@@ -1,5 +1,4 @@
-**/bin/
-*.dll
-*-wal
-*-shm
-
+bin/
+obj/
+.vs/
+.DS_Store

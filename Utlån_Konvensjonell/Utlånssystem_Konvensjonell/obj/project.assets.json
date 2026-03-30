@@ -1384,25 +1384,24 @@
     ]
   },
   "packageFolders": {
-    "/Users/audunsteinkopf/.nuget/packages/": {}
+    "/Users/audun/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/audunsteinkopf/Documents/GitHub/Datbac-Prosjekt/Utlån_Konvensjonell/Utlånssystem_Konvensjonell/Utlånssystem_Konvensjonell.csproj",
+      "projectUniqueName": "/Users/audun/Documents/Datbac-Prosjekt/Utlån_Konvensjonell/Utlånssystem_Konvensjonell/Utlånssystem_Konvensjonell.csproj",
       "projectName": "Utlånssystem_Konvensjonell",
-      "projectPath": "/Users/audunsteinkopf/Documents/GitHub/Datbac-Prosjekt/Utlån_Konvensjonell/Utlånssystem_Konvensjonell/Utlånssystem_Konvensjonell.csproj",
-      "packagesPath": "/Users/audunsteinkopf/.nuget/packages/",
-      "outputPath": "/Users/audunsteinkopf/Documents/GitHub/Datbac-Prosjekt/Utlån_Konvensjonell/Utlånssystem_Konvensjonell/obj/",
+      "projectPath": "/Users/audun/Documents/Datbac-Prosjekt/Utlån_Konvensjonell/Utlånssystem_Konvensjonell/Utlånssystem_Konvensjonell.csproj",
+      "packagesPath": "/Users/audun/.nuget/packages/",
+      "outputPath": "/Users/audun/Documents/Datbac-Prosjekt/Utlån_Konvensjonell/Utlånssystem_Konvensjonell/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/audunsteinkopf/.nuget/NuGet/NuGet.Config"
+        "/Users/audun/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
-        "/usr/local/share/dotnet/library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -1421,7 +1420,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "10.0.100"
+      "SdkAnalysisLevel": "10.0.200"
     },
     "frameworks": {
       "net8.0": {
@@ -1455,6 +1454,20 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[8.0.25, 8.0.25]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Host.osx-arm64",
+            "version": "[8.0.25, 8.0.25]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[8.0.25, 8.0.25]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -1463,7 +1476,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/10.0.103/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/10.0.201/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

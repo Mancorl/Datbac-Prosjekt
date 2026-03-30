@@ -22,4 +22,10 @@ public class GameServiceAPI
 
         return await _httpClient.GetFromJsonAsync<List<Game>>("api/RetrieveGames", options);
     }
+
+    public async Task<bool> CreateGameAsync(Game game)
+    {
+        var response = await _httpClient.PostAsJsonAsync("api/CreateGame", game);
+        return response.IsSuccessStatusCode;
+    }
 }

@@ -3,7 +3,9 @@
 @using Unhosted_Device_side.Data
 @using Unhosted_Device_side.Data.Tables
 @using Unhosted_Device_side.Models
-@inject AppDatabase Database
+@using Unhosted_Device_side.Services
+
+@inject GameService GameService
 
 <div class="container py-3">
     <h1 class="display-6">Register Games</h1>
@@ -56,38 +58,14 @@
 
     private async Task RegisterGameAsync()
     {
-        try
-        {
-            var game = new GameEntity
-            {
-                Id = Guid.NewGuid(),
-                Name = _input.GameTitle,
-                Description = _input.GameDescription,
-                Quantity = _input.Quantity,
-                TotalQuantity = _input.Quantity,
-                Loanable = _input.Loanable,
-            };
+        var result = await GameService.CreateGameAndSyncAsync(_input);
 
-            await Database.SaveGameAsync(game);
+        _message = result.Message;
+        _isError = !result.Success;
 
-            _message = $"{game.Name} registered successfully.";
-            _isError = false;
-
+        if (result.Success)
             _input = new AddGameInputModel();
-           
-        }
-        catch (Exception ex)
-        {
-            _message = $"Could not register game: {ex.Message}";
-            _isError = true;
-        }
     }
 
-    public class AddGameInputModel
-    {
-        public string GameTitle { get; set; } = string.Empty;
-        public string GameDescription { get; set; } = string.Empty;
-        public int Quantity { get; set; } = 1;
-        public bool Loanable { get; set; } = true;
-    }
+   
 }

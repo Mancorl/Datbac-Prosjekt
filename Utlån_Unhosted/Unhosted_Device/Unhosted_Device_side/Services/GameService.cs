@@ -1,6 +1,6 @@
 using Unhosted_Device_side.Data;
 using Unhosted_Device_side.Data.Tables;
-using Unhosted_Device_side.Services;
+using Unhosted_Device_side.Models;
 
 namespace Unhosted_Device_side.Services;
 
@@ -41,5 +41,27 @@ public class GameService
 
             await _database.SaveGameAsync(entity);
         }
+    }
+    public async Task<(bool Success, string Message)> CreateGameAndSyncAsync(AddGameInputModel input)
+    {
+        var game = new Game
+        {
+            Id = Guid.NewGuid(),
+            Name = input.GameTitle,
+            Quantity = input.Quantity,
+            TotalQuantity = input.Quantity,
+            Loanable = input.Loanable,
+            Description = input.GameDescription,
+            ImagePath = "images/Default.jpg"
+        };
+
+        var success = await _gameServiceAPI.CreateGameAsync(game);
+
+        if (!success)
+            return (false, "Could not create game in API.");
+
+        await GetGamesFromApiAsync();
+
+        return (true, $"{game.Name} created successfully.");
     }
 }

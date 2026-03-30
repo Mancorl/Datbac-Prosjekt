@@ -20,18 +20,23 @@ public class EditBoardGamesController : ControllerBase
     }
 
     [HttpPost]
-public IActionResult Create([FromForm] CreateBoardGameDto dto)
+public IActionResult Create([FromForm] AdminBoardGameDto dto)
 {
-    var imagePath = _fileUploadService.UploadImage(dto.Image);
-    var game = new BoardGame(
-        dto.Name,
-        dto.Quantity,
-        true,
-        imagePath,
-        dto.Description
-    );
 
-    _context.BoardGames.Add(game);
+    var game = _context.BoardGames.Find(dto.Id);
+    if (game == null)
+        return NotFound($"Board game with Id {dto.Id} not found.");
+    if (dto.Image != null)
+{
+    // Upload the new image and update the path
+    game.ImagePath = _fileUploadService.UploadImage(dto.Image);
+}
+    game.Name = dto.Name;
+    game.Quantity = dto.Quantity;
+    game.Description = dto.Description;
+    game.Loanable = dto.Loanable;
+
+    _context.BoardGames.Update(game);
     _context.SaveChanges();
 
     return Ok(game);

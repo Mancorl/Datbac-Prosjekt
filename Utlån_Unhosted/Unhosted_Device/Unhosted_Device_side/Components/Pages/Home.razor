@@ -64,8 +64,8 @@ else
             Password = _password,
             First = _first,
             Last = _last,
-            Permission = Permission.Lender,
-            IsAuthorized = false
+            Permission = Permission.Admin,
+            IsAuthorized = true
         };
 
         await Database.SaveUserAsync(newUser);

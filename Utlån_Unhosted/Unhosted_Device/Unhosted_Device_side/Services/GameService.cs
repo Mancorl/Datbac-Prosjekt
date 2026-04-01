@@ -46,7 +46,6 @@ public class GameService
     {
         var game = new Game
         {
-            Id = Guid.NewGuid(),
             Name = input.GameTitle,
             Quantity = input.Quantity,
             TotalQuantity = input.Quantity,

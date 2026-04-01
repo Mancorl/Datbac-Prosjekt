@@ -21,14 +21,14 @@ public class BoardGame
 	}
 
 
-	public string Name { get; protected set; }
-	public float Edition {get; protected set;}
-	public Guid Id{get;protected set;}
+	public string Name { get; set; }
+	public float Edition {get; set;}
+	public Guid Id{get; set;}
 	public int Quantity{get; set;}
 	public int TotalQuantity{get; set;}
-	public bool Loanable {get;protected set;}
-	public string ImagePath { get; protected set; }
-	public string Description { get; protected set; }
+	public bool Loanable {get;set;}
+	public string ImagePath { get; set; }
+	public string Description { get;set; }
 
 
 	 public void Edit(string name, int quantity, string description, string? imagePath = null)

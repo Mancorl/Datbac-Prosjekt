@@ -10,8 +10,6 @@ namespace Unhosted_Api.Controllers;
 [Route("")]
 public class HelloController : ControllerBase
 {
-    private readonly AppDbContext _context;
-    private readonly IFileUploadService _fileUploadService;
 
 
     [HttpGet]

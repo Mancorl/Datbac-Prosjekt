@@ -36,6 +36,11 @@
             <InputNumber class="form-control" @bind-Value="_input.Quantity" />
         </div>
 
+        <div class="mb-3">
+            <label class="form-label">Image</label>
+            <InputFile OnChange="HandleFileSelected" class="form-control" />
+        </div>
+
         <div class="form-check mb-3">
             <InputCheckbox class="form-check-input" @bind-Value="_input.Loanable" />
             <label class="form-check-label">Loanable</label>
@@ -54,17 +59,34 @@
     private bool _isError;
 
 
+    private IBrowserFile? _selectedFile;
+
 
 
     private async Task RegisterGameAsync()
+{
+    Stream? stream = null;
+
+    if (_selectedFile != null)
     {
-        var result = await GameService.CreateGameAndSyncAsync(_input);
+        stream = _selectedFile.OpenReadStream();
+    }
 
-        _message = result.Message;
-        _isError = !result.Success;
+    var result = await GameService.CreateGameAndSyncAsync(_input, stream);
 
-        if (result.Success)
-            _input = new AddGameInputModel();
+    _message = result.Message;
+    _isError = !result.Success;
+
+    if (result.Success)
+    {
+        _input = new AddGameInputModel();
+        _selectedFile = null;
+    }
+}
+
+    private void HandleFileSelected(InputFileChangeEventArgs e)
+    {
+    _selectedFile = e.File;
     }
 
    

@@ -1,10 +1,14 @@
 @page "/browse"
 @using Unhosted_Device_side.Data
 @using Unhosted_Device_side.Data.Tables
+@using Unhosted_Device_side.Models
 @using Unhosted_Device_side.Services;
 @inject AppDatabase Database
 @inject RentService RentService
 @inject GameService GameService
+@inject HttpClient Http
+
+
 
 <div class="container py-3">
     <p>Look at what boardgames you can borrow from us.</p>
@@ -33,7 +37,7 @@
 
                             @if (!string.IsNullOrWhiteSpace(game.ImagePath))
                             {
-                                <img src="@game.ImagePath" class="img-fluid mb-3" />
+                                <img src="@GetImageUrl(game.ImagePath)" class="img-fluid mb-3" />
                             }
                             else
                             {
@@ -48,9 +52,20 @@
                           
                             
 
-                            @if (_isAdmin)
+                            @if (IsAdmin)
                             {
-                             <p>Hello Dadmin</p>
+                             <p>Hello Dadmin, want to delete or edit sum games?</p>
+
+                              <button class="btn btn-secondary me-2"
+                                        @onclick="() => EditGame(game.Id)">
+                                    Edit
+                                </button>
+
+                                <button class="btn btn-danger"
+                                        @onclick="() => DeleteGame(game.Id)">
+                                    Delete
+                                </button>
+
                                
                             }
 
@@ -68,21 +83,71 @@
     {
         <p>Sowwy, empty</p>
     }
+
+    @if (_showEditModal && _editGame is not null)
+{
+    <div class="modal fade show d-block" tabindex="-1" style="background-color: rgba(0,0,0,0.5);">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit Game</h5>
+                    <button type="button" class="btn-close" @onclick="CloseEditModal"></button>
+                </div>
+
+                <div class="modal-body">
+                    <div class="mb-2">
+                        <label>Name</label>
+                        <InputText class="form-control" @bind-Value="_editGame.Name" />
+                    </div>
+
+                    <div class="mb-2">
+                        <label>Quantity</label>
+                        <InputNumber class="form-control" @bind-Value="_editGame.Quantity" />
+                    </div>
+
+                    <div class="mb-2">
+                        <label>Description</label>
+                        <InputText class="form-control" @bind-Value="_editGame.Description" />
+                    </div>
+
+                    <div class="form-check mb-2">
+                        <InputCheckbox class="form-check-input" @bind-Value="_editGame.Loanable" />
+                        <label class="form-check-label">Loanable</label>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" @onclick="CloseEditModal">Cancel</button>
+                    <button class="btn btn-primary" @onclick="SaveEditGameAsync">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
 </div>
 
+
+
 @code {
+
     private List<GameEntity>? _games;
-
-    // Bare sette brukeren som admin når eg debugge shit
-    private bool _isAdmin = true;
-
+    private UserEntity? _user;
     private string? _message;
 
+    private bool _showEditModal;
+    private Game? _editGame;
+
+ 
+    private bool IsAdmin => _user?.Permission == Permission.Admin;
+
+ 
     protected override async Task OnInitializedAsync()
-    {
-        await LoadGamesAsync();
-    }
-    
+{
+    var users = await Database.GetUsersAsync();
+    _user = users.FirstOrDefault();
+
+    await LoadGamesAsync();
+}
 
     private async Task LoadGamesAsync()
     {
@@ -90,21 +155,81 @@
         _games = await GameService.GetLocalGamesAsync();
     }
 
-
-private async Task RentGame(Guid gameId)
-{
-    var users = await Database.GetUsersAsync();
-    var user = users.FirstOrDefault();
-
-    if (user is null)
+  
+    private async Task RentGame(Guid gameId)
     {
-        _message = "No user found.";
-        return;
+        var users = await Database.GetUsersAsync();
+        var user = users.FirstOrDefault();
+
+        if (user is null)
+        {
+            _message = "No user found.";
+            return;
+        }
+
+        _message = await RentService.RentGameAsync(user.Id, gameId);
+        _games = await Database.GetGamesAsync();
     }
 
-    _message = await RentService.RentGameAsync(user.Id, gameId);
-    _games = await Database.GetGamesAsync();
-}
+  
+    private void EditGame(Guid gameId)
+    {
+        var game = _games?.FirstOrDefault(g => g.Id == gameId);
+        if (game is null)
+            return;
 
+        _editGame = new Game
+        {
+            Id = game.Id,
+            Name = game.Name,
+            Quantity = game.Quantity,
+            TotalQuantity = game.TotalQuantity,
+            Loanable = game.Loanable,
+            ImagePath = game.ImagePath,
+            Description = game.Description
+        };
 
+        _showEditModal = true;
+    }
+
+    private void CloseEditModal()
+    {
+        _showEditModal = false;
+        _editGame = null;
+    }
+
+    private async Task SaveEditGameAsync()
+    {
+        if (_editGame is null)
+            return;
+
+        var success = await GameService.UpdateGameAsync(_editGame);
+
+        if (success)
+        {
+            _message = $"{_editGame.Name} updated successfully.";
+            await LoadGamesAsync();
+            CloseEditModal();
+        }
+        else
+        {
+            _message = "Failed to update game.";
+        }
+    }
+
+  
+    private async Task DeleteGame(Guid gameId)
+    {
+        _message = "Delete not implemented yet 👀";
+    }
+
+    private string GetImageUrl(string? path)
+    {
+    var baseUrl = Http.BaseAddress?.ToString().TrimEnd('/') ?? "";
+
+    if (string.IsNullOrWhiteSpace(path))
+        return $"{baseUrl}/images/Default.jpg";
+
+    return $"{baseUrl}/{path.TrimStart('/')}";
+    }
 }

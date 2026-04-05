@@ -1,6 +1,7 @@
 using Unhosted_Device_side.Data;
 using Unhosted_Device_side.Data.Tables;
 using Unhosted_Device_side.Models;
+using Microsoft.AspNetCore.Components.Forms;
 
 namespace Unhosted_Device_side.Services;
 
@@ -42,7 +43,8 @@ public class GameService
             await _database.SaveGameAsync(entity);
         }
     }
-    public async Task<(bool Success, string Message)> CreateGameAndSyncAsync(AddGameInputModel input)
+    
+    public async Task<(bool Success, string Message)> CreateGameAndSyncAsync(AddGameInputModel input, Stream? stream)
     {
         var game = new Game
         {
@@ -54,7 +56,7 @@ public class GameService
             ImagePath = "images/Default.jpg"
         };
 
-        var success = await _gameServiceAPI.CreateGameAsync(game);
+        var success = await _gameServiceAPI.CreateGameAsync(game, stream);
 
         if (!success)
             return (false, "Could not create game in API.");
@@ -63,4 +65,16 @@ public class GameService
 
         return (true, $"{game.Name} created successfully.");
     }
+
+
+    public async Task<bool> UpdateGameAsync(Game game)
+{
+    var success = await _gameServiceAPI.UpdateGameAsync(game);
+
+    if (!success)
+        return false;
+
+    await GetGamesFromApiAsync();
+    return true;
+}
 }

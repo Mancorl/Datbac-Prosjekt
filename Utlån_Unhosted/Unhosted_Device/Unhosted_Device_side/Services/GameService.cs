@@ -27,6 +27,20 @@ public class GameService
         if (apiGames is null)
             return;
 
+        var localGames = await _database.GetGamesAsync();
+
+        
+        var apiIds = apiGames.Select(g => g.Id).ToHashSet();
+
+        foreach (var local in localGames)
+        {
+            if (!apiIds.Contains(local.Id))
+            {
+                await _database.DeleteGameAsync(local.Id);
+            }
+        }
+
+        
         foreach (var game in apiGames)
         {
             var entity = new GameEntity
@@ -70,6 +84,17 @@ public class GameService
     public async Task<bool> UpdateGameAsync(Game game)
 {
     var success = await _gameServiceAPI.UpdateGameAsync(game);
+
+    if (!success)
+        return false;
+
+    await GetGamesFromApiAsync();
+    return true;
+}
+
+public async Task<bool> DeleteGameAsync(Guid id)
+{
+    var success = await _gameServiceAPI.DeleteGameAsync(id);
 
     if (!success)
         return false;

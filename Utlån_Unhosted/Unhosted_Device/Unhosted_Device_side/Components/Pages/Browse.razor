@@ -219,9 +219,21 @@
 
   
     private async Task DeleteGame(Guid gameId)
+{
+    var success = await GameService.DeleteGameAsync(gameId);
+
+    if (success)
     {
-        _message = "Delete not implemented yet 👀";
+
+        _games = _games?.Where(g => g.Id != gameId).ToList();
+        _message = "Game deleted successfully.";
+        await LoadGamesAsync();
     }
+    else
+    {
+        _message = "Failed to delete game.";
+    }
+}
 
     private string GetImageUrl(string? path)
     {

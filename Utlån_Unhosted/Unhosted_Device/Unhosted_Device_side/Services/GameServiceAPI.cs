@@ -62,4 +62,11 @@ public class GameServiceAPI
     var response = await _httpClient.PostAsync("api/EditGames", content);
     return response.IsSuccessStatusCode;
 }
+
+public async Task<bool> DeleteGameAsync(Guid id)
+{
+    var response = await _httpClient.DeleteAsync($"api/DeleteGame/{id}");
+    return response.IsSuccessStatusCode;
+}
+
 }

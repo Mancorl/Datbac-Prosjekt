@@ -67,5 +67,11 @@ public class AppDatabase
         return await _database!.InsertOrReplaceAsync(rent);
     }
 
+    public async Task<int> DeleteGameAsync(Guid id)
+    {
+        await InitAsync();
+        return await _database!.DeleteAsync<GameEntity>(id);
+    }
+
    
 }

@@ -31,8 +31,10 @@ public static class MauiProgram
 		builder.Services.AddMauiBlazorWebView();
 	 	builder.Services.AddSingleton<AppDatabase>();
 		builder.Services.AddSingleton<RentService>();
+		builder.Services.AddSingleton<RentServiceAPI>();
 		builder.Services.AddSingleton<GameService>();
 		builder.Services.AddSingleton<GameServiceAPI>();
+
 		
 		
 

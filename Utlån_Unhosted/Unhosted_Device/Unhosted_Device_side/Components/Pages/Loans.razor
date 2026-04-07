@@ -1,7 +1,11 @@
 @page "/loans"
 @using Unhosted_Device_side.Data
 @using Unhosted_Device_side.Data.Tables
+@using Unhosted_Device_side.Services
 @inject AppDatabase Database
+@inject RentService RentService
+@inject HttpClient Http
+
 
 
 <div class="container py-3">
@@ -25,7 +29,7 @@
 
                             @if (!string.IsNullOrWhiteSpace(game.ImagePath))
                             {
-                                <img src="@game.ImagePath" class="img-fluid mb-3" />
+                                <img src="@GetImageUrl(game.ImagePath)" class="img-fluid mb-3" />
                             }
                             else
                             {
@@ -60,26 +64,39 @@
     }
 
     private async Task LoadLoansAsync()
+{
+    var users = await Database.GetUsersAsync();
+    var user = users.FirstOrDefault();
+
+    if (user is null)
     {
-        var users = await Database.GetUsersAsync();
-        var user = users.FirstOrDefault();
+        _loanedGames = new List<GameEntity>();
+        return;
+    }
 
-        if (user is null)
-        {
-            _loanedGames = new List<GameEntity>();
-            return;
-        }
+    // 🔥 NEW: sync from API first
+    await RentService.SyncUserRentsAsync(user.Id);
 
-        var rents = await Database.GetRentsAsync();
+    var rents = await Database.GetRentsAsync();
 
-        var activeRents = rents
-            .Where(r => r.UserId == user.Id && r.Active)
-            .ToList();
+    var activeRents = rents
+        .Where(r => r.UserId == user.Id && r.Active)
+        .ToList();
 
-        var games = await Database.GetGamesAsync();
+    var games = await Database.GetGamesAsync();
 
-        _loanedGames = games
-            .Where(g => activeRents.Any(r => r.GameId == g.Id))
-            .ToList();
+    _loanedGames = games
+        .Where(g => activeRents.Any(r => r.GameId == g.Id))
+        .ToList();
+}
+
+private string GetImageUrl(string? path)
+    {
+    var baseUrl = Http.BaseAddress?.ToString().TrimEnd('/') ?? "";
+
+    if (string.IsNullOrWhiteSpace(path))
+        return $"{baseUrl}/images/Default.jpg";
+
+    return $"{baseUrl}/{path.TrimStart('/')}";
     }
 }

@@ -1,51 +1,62 @@
 using Unhosted_Device_side.Data;
 using Unhosted_Device_side.Data.Tables;
+using Unhosted_Device_side.Services;
 
 namespace Unhosted_Device_side.Services;
 
 public class RentService
 {
     private readonly AppDatabase _db;
+    private readonly RentServiceAPI _rentServiceAPI;
+    private readonly GameService _gameService;
 
-    public RentService(AppDatabase db)
+    public RentService(AppDatabase db, RentServiceAPI rentServiceAPI, GameService gameService)
     {
         _db = db;
+        _rentServiceAPI = rentServiceAPI;
+        _gameService = gameService;
     }
 
     public async Task<string> RentGameAsync(Guid userId, Guid gameId)
     {
+        var result = await _rentServiceAPI.BorrowGameAsync(userId, gameId);
+
+        if (!result.Success)
+            return $"Could not rent game: {result.Message}";
+
         var games = await _db.GetGamesAsync();
         var game = games.FirstOrDefault(g => g.Id == gameId);
 
-        if (game is null)
-            return "Game not found.";
+        await _gameService.GetGamesFromApiAsync();
 
-        if (game.Quantity <= 0)
-            return $"No copies of {game.Name} available.";
+        return $"You rented {game.Name}";
+    }
 
-        var Renting = await _db.GetRentsAsync();
-        
-        var CurRenting = Renting.Any(r =>
-            r.UserId == userId &&
-            r.GameId == gameId &&
-            r.Active);
 
-        if (CurRenting)
-            return $"You already rent {game.Name}.";
+    public async Task SyncUserRentsAsync(Guid userId)
+{
+    var apiRents = await _rentServiceAPI.GetUserRentsAsync(userId);
 
-        var rent = new RentEntity
+    if (apiRents is null)
+        return;
+
+    
+    var localRents = await _db.GetRentsAsync();
+    foreach (var r in localRents)
+        await _db.DeleteRentAsync(r.Id);
+
+    
+    foreach (var rent in apiRents)
+    {
+        var entity = new RentEntity
         {
-            Id = Guid.NewGuid(),
-            UserId = userId,
-            GameId = gameId,
-            Active = true
+            Id = rent.Id,
+            UserId = rent.UserId,
+            GameId = rent.GameId,
+            Active = rent.Active
         };
 
-        game.Quantity--;
-
-        await _db.SaveRentAsync(rent);
-        await _db.SaveGameAsync(game);
-
-        return $"You rented {game.Name}!";
+        await _db.SaveRentAsync(entity);
     }
+}
 }

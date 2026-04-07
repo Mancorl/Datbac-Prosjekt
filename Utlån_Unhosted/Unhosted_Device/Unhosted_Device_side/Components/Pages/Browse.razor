@@ -32,7 +32,8 @@
                         <div class="card-body">
                             <h5 class="card-title">@game.Name</h5>
                             <p>@game.Id</p>
-                            <p>Name: @game.Name Amount available: @game.Quantity</p>
+                            <p>Name: @game.Name</p>
+                            <p>Amount available: @game.Quantity</p>
                             <p class="card-text">Description: @game.Description</p>
 
                             @if (!string.IsNullOrWhiteSpace(game.ImagePath))
@@ -156,6 +157,7 @@
     }
 
   
+
     private async Task RentGame(Guid gameId)
     {
         var users = await Database.GetUsersAsync();
@@ -168,6 +170,11 @@
         }
 
         _message = await RentService.RentGameAsync(user.Id, gameId);
+
+        // 🔥 Sync fresh data from API
+        await GameService.GetGamesFromApiAsync();
+
+        // 🔥 Then reload local DB
         _games = await Database.GetGamesAsync();
     }
 

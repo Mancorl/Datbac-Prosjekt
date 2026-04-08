@@ -6,5 +6,7 @@ public class CreateBoardGameDto
     public string ImagePath {get; set;} = "images/Default.jpg";
     public string Description { get; set; }
 
+    public bool Loanable { get; set; }
+
     public IFormFile? Image { get; set; }
 }

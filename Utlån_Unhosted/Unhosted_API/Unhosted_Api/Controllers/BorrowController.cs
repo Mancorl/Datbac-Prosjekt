@@ -31,7 +31,7 @@ public class BorrowBoardGamesController : ControllerBase
         var reguser = _context.RegisteredUsers.Find(dto.UserId);
         if (reguser == null){
             return NotFound("That user was not found.");
-        }else   if (!BCrypt.Net.BCrypt.Verify(dto.Password, reguser.Password) && !BCrypt.Net.BCrypt.Verify(dto.Email, reguser.Hashid)){
+        }else   if (!BCrypt.Net.BCrypt.Verify(dto.Password, reguser.Password) || !BCrypt.Net.BCrypt.Verify(dto.Email, reguser.Hashid)){
             return BadRequest("Incorrect password or email.");
         }
 

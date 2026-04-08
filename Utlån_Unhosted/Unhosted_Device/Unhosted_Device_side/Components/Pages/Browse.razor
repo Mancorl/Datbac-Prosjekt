@@ -8,6 +8,8 @@
 @inject GameService GameService
 @inject HttpClient Http
 
+@inject AuthorizeService AuthorizeService
+
 
 
 <div class="container py-3">
@@ -143,12 +145,20 @@
 
  
     protected override async Task OnInitializedAsync()
-{
-    var users = await Database.GetUsersAsync();
-    _user = users.FirstOrDefault();
+    {
+        var users = await Database.GetUsersAsync();
+        _user = users.FirstOrDefault();
 
-    await LoadGamesAsync();
-}
+        if (_user is not null)
+        {
+            await AuthorizeService.SyncAuthorizationAsync(_user.Id);
+
+        
+            _user = await Database.GetUserAsync(_user.Id);
+        }
+
+        await LoadGamesAsync();
+    }
 
     private async Task LoadGamesAsync()
     {
@@ -163,19 +173,22 @@
         var users = await Database.GetUsersAsync();
         var user = users.FirstOrDefault();
 
-        if (user is null)
+        if (_user is null || !_user.IsAuthorized)
         {
-            _message = "No user found.";
-            return;
+        _message = "You are not authorized to rent.";
+        return;
         }
+        else {
+
 
         _message = await RentService.RentGameAsync(user.Id, gameId);
 
-        // 🔥 Sync fresh data from API
+        
         await GameService.GetGamesFromApiAsync();
 
-        // 🔥 Then reload local DB
+       
         _games = await Database.GetGamesAsync();
+        }
     }
 
   

@@ -1,10 +1,53 @@
 @page "/authorize"
-@using Microsoft.AspNetCore.Components.Forms
-@using Unhosted_Device_side.Data
-@using Unhosted_Device_side.Data.Tables
 @using Unhosted_Device_side.Models
-@inject AppDatabase Database
+@using Unhosted_Device_side.Services
+@inject AuthorizeService AuthorizeService
 
+<div class="container py-3">
+    <h3>Users awaiting authorization</h3>
 
+    @if (!_users.Any())
+    {
+        <p>Sowwy empty</p>
+    }
+    else
+    {
+        <div class="row">
+            @foreach (var user in _users)
+            {
+                <div class="col-12 col-md-6 col-lg-3 mb-3">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">@user.First @user.Last</h5>
+                            <p><strong>Email:</strong> @user.Email</p>
+                            <p><strong>Authorized:</strong> @user.IsAuthorized</p>
 
-<p>hmm</p>
+                            <button class="btn btn-success"
+                                    @onclick="() => AuthorizeUser(user.Id)">
+                                Authorize user
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+</div>
+@code {
+    private List<UnauthorUsers> _users = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        _users = await AuthorizeService.GetUnauthorizedUsersAsync();
+    }
+
+     private async Task AuthorizeUser(Guid userId)
+    {
+        var success = await AuthorizeService.AuthorizeUserAsync(userId);
+
+        if (success)
+        {
+            _users = _users.Where(u => u.Id != userId).ToList();
+        }
+    }
+}

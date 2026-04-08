@@ -3,7 +3,11 @@
 @using Unhosted_Device_side.Data.Tables
 @using Unhosted_Device_side.Common
 @using Unhosted_Device_side.Models
+@using Unhosted_Device_side.Services
+
 @inject AppDatabase Database
+@inject UserService UserService
+
 
 @if (_user is null)
 {
@@ -34,15 +38,48 @@
 else
 {
     <h1>Welcome @_user.First.</h1>
+    @if (_user.IsAuthorized == false)
+    {
+        <p>You have not yet been authorized. To be authorized you need to send in your userdata for an admin to verify it. Once verified it will be hashed/
+            and deleted from our database!
+        </p>
+
+
+        @if (!string.IsNullOrWhiteSpace(_message))
+        {
+            <p>@_message</p>
+        }
+        <button class="btn btn-primary" @onclick="Meowsa">Get Authorized</button>
+        
+
+
+
+    }
+    else
+    {
+        <p>Ayo you verfied stud!</p>
+    }
 }
 
 @code {
     private UserEntity? _user;
 
+    private string? _message;
+
     private string _email = string.Empty;
     private string _password = string.Empty;
     private string _first = string.Empty;
     private string _last = string.Empty;
+
+    private async Task Meowsa()
+    {
+    if (_user is null)
+        return;
+
+    var result = await UserService.SendUserAsync(_user);
+
+    _message = result.Message;
+    }
 
     protected override async Task OnInitializedAsync()
     {
@@ -64,8 +101,8 @@ else
             Password = _password,
             First = _first,
             Last = _last,
-            Permission = Permission.Admin,
-            IsAuthorized = true
+            Permission = Permission.Lender,
+            IsAuthorized = false
         };
 
         await Database.SaveUserAsync(newUser);

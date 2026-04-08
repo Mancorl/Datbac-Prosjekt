@@ -79,5 +79,11 @@ public class AppDatabase
         return await _database!.DeleteAsync<RentEntity>(id);
     }
 
+    public async Task<UserEntity?> GetUserAsync(Guid id)
+{
+    await InitAsync();
+    return await _database!.FindAsync<UserEntity>(id);
+}
+
    
 }

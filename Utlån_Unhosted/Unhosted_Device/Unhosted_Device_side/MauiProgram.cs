@@ -34,6 +34,11 @@ public static class MauiProgram
 		builder.Services.AddSingleton<RentServiceAPI>();
 		builder.Services.AddSingleton<GameService>();
 		builder.Services.AddSingleton<GameServiceAPI>();
+		builder.Services.AddSingleton<AuthorizeService>();
+		builder.Services.AddSingleton<AuthorizeServiceAPI>();
+		builder.Services.AddSingleton<UserServiceAPI>();
+		builder.Services.AddSingleton<UserService>();
+
 
 		
 		

@@ -5,7 +5,7 @@ using Unhosted_Api.Models;
 namespace Unhosted_Api.Controllers;
 
 [ApiController]
-[Route("api/RetrieveGames")]
+[Route("api/iSAuthorized")]
 public class CheckController : ControllerBase
 {
     private readonly AppDbContext _context;

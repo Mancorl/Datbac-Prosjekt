@@ -28,6 +28,8 @@ public class BorrowBoardGamesController : ControllerBase
         if (game.Quantity <= 0)
             return BadRequest("That board game is not available for loan.");
 
+        
+
         var existingBorrow = _context.Borrow.FirstOrDefault(b =>
             b.UserId == dto.UserId &&
             b.BoardGameId == dto.GameId &&

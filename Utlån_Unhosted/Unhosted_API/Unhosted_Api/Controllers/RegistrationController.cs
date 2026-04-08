@@ -18,10 +18,10 @@ public class RegistrationController : ControllerBase
             User user=_context.Users.Find(id);
             if(user == null)
                 return NotFound("User not found.");
-            RegisteredUser reguser = new RegisteredUser(user.First, user.Password);
+            RegisteredUser reguser = new RegisteredUser(user.Id,user.Email, user.Password);
             _context.RegisteredUsers.Add(reguser);
             _context.Users.Remove(user);
-            _context.SaveChanges();
+            _context.SaveChanges(); 
             return Ok(reguser);
             
         }else

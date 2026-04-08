@@ -11,13 +11,12 @@ namespace Unhosted_Api.Controllers;
 public class BorrowBoardGamesController : ControllerBase
 {
     private readonly AppDbContext _context;
-    //private readonly IFileUploadService _fileUploadService; Slette ikkje siden uvisst om du hadde tenkt å bruke, var ikke brukt før eg endra hvertfall.
 
-    public BorrowBoardGamesController(AppDbContext context)//, IFileUploadService fileUploadService)
+    public BorrowBoardGamesController(AppDbContext context)
     {
         _context = context;
-        //_fileUploadService = fileUploadService; --> Bruke du denne??
     }
+
 
     [HttpPost]
     public IActionResult Borrow([FromBody] BorrowDto dto)
@@ -39,13 +38,13 @@ public class BorrowBoardGamesController : ControllerBase
 
         game.Quantity -= 1;
 
-        var borrowing = new Borrowing(dto.UserId, dto.GameId, true);
+        var borrowing = new Borrowing(dto.UserId, dto.GameId, dto.Email, true);
 
         _context.BoardGames.Update(game);
         _context.Borrow.Add(borrowing);
         _context.SaveChanges();
 
-        var result = new BorrowOUTDto
+        var result = new BorrowDto
         {
             Id = borrowing.Id,
             UserId = borrowing.UserId ?? Guid.Empty,
@@ -64,11 +63,12 @@ public IActionResult GetUserBorrowings(Guid userId)
         .Where(b => b.UserId == userId)
         .ToList();
 
-    var result = borrowings.Select(b => new BorrowOUTDto
+    var result = borrowings.Select(b => new BorrowDto
     {
         Id = b.Id,
         UserId = b.UserId ?? Guid.Empty,
         GameId = b.BoardGameId ?? Guid.Empty,
+        Email = b.Email,
         Active = b.Active
     });
 

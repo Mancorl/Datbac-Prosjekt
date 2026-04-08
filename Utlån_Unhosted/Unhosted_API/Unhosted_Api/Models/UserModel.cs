@@ -43,26 +43,6 @@ public enum Permission
 }
 
 
-public class UserFirstNameValidator : IValidator<User>
-{
-	public (bool, string) IsValid(User user)
-	{
-		_ = user ?? throw new ArgumentNullException(nameof(user), "Cannot validate a null object");
-		if (string.IsNullOrWhiteSpace(user.First)) return (false, $"{nameof(user.First)}name cannot be empty.");
-		return (true, "");
-	}
-}
-
-public class UserLastNameValidator : IValidator<User>
-{
-	public (bool, string) IsValid(User user)
-	{
-		_ = user ?? throw new ArgumentNullException(nameof(user), "Cannot validate a null object");
-		if (string.IsNullOrWhiteSpace(user.Last)) return (false, $"{nameof(user.Last)}name cannot be empty.");
-		return (true, "");
-	}
-}
-
 public class UserEmailValidator : IValidator<User>
 {
 	public (bool, string) IsValid(User user)

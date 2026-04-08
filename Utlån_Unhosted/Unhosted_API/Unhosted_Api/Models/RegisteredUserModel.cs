@@ -1,5 +1,7 @@
 
 
+using System.Data.Common;
+
 namespace Unhosted_Api.Models;
 
 
@@ -10,13 +12,15 @@ public class RegisteredUser
     public string Hashid { get; protected set; }
     public string Password { get; set; }
     public Rights IsAdmin { get; set; }
+    public bool IsAuthorized { get; set; }
 
-    public RegisteredUser(string hashid, string password)
+    public RegisteredUser(Guid id, string hashid, string password)
     {
-        Id = Guid.NewGuid();
-        Hashid = hashid;
+        Id = id;
+        Hashid = BCrypt.Net.BCrypt.HashPassword(hashid);
         Password = password;
         IsAdmin = Rights.User;
+        IsAuthorized = true;
     }
 }
 public enum Rights

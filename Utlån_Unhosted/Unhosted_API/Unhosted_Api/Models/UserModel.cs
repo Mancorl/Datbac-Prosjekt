@@ -9,9 +9,9 @@ namespace Unhosted_Api.Models;
 
 public class User
 {
-	public User(string email, string password, string first, string last)
+	public User(Guid id,string email, string password, string first, string last)
 {
-    Id = Guid.NewGuid();
+    Id = id;
     Email = email;
     Password = BCrypt.Net.BCrypt.HashPassword(password);
     First = first;

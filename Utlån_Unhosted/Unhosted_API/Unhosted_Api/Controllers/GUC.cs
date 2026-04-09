@@ -16,12 +16,15 @@ public class GetUnauthorizedController : ControllerBase
     }
 
     [HttpGet]
-    public ActionResult<IEnumerable<User>> RetrieveBoardGames()
+    public ActionResult<IEnumerable<User>> RetrieveUCC()
     {
         var userlist = _context.Users.ToList();
-        userlist.RemoveAt(0);
+
         if (userlist.Count == 0)
-            return NotFound("No unverified users found.");
+            return Ok(new List<User>());
+
+        userlist.RemoveAt(0);
+
         return Ok(userlist);
     }
 }

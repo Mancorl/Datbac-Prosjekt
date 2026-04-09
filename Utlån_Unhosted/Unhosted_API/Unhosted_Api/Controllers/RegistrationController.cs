@@ -11,6 +11,7 @@ public class RegistrationController : ControllerBase
     {
         _context = context;
     }
+    [HttpPost("{id}")]
     public IActionResult Register(bool reg, Guid id)
     {
         if (reg)

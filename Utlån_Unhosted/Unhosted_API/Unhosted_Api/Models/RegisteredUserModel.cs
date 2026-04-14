@@ -14,6 +14,8 @@ public class RegisteredUser
     public Rights IsAdmin { get; set; }
     public bool IsAuthorized { get; set; }
 
+    private RegisteredUser() { }
+
     public RegisteredUser(Guid id, string hashid, string password)
     {
         Id = id;

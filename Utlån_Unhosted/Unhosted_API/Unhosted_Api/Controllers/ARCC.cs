@@ -18,7 +18,11 @@ public class AdminReturnCheckController : ControllerBase
     [HttpGet]
     public ActionResult<IEnumerable<Borrowing>> RetrieveBorrows()
     {
-        var Borrows = _context.Borrow.ToList();
-        return Ok(Borrows);
+        var borrows = _context.Borrow
+            .Where(b => !b.Active)
+            .ToList();
+
+        return Ok(borrows);
     }
 }
+

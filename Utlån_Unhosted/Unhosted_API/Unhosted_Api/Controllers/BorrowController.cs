@@ -28,12 +28,50 @@ public class BorrowBoardGamesController : ControllerBase
         if (game.Quantity <= 0)
             return BadRequest("That board game is not available for loan.");
 
-        var reguser = _context.RegisteredUsers.Find(dto.UserId);
+        /*var reguser = _context.RegisteredUsers.Find(dto.UserId);
         if (reguser == null){
             return NotFound("That user was not found.");
-        }else   if (!BCrypt.Net.BCrypt.Verify(dto.Password, reguser.Password) || !BCrypt.Net.BCrypt.Verify(dto.Email, reguser.Hashid)){
+        }else   if (!BCrypt.Net.BCrypt.Verify(dto.Password, reguser.Password) || !BCrypt.Net.BCrypt.Verify(dto.Email, reguser.Hashid)) {
+            Console.WriteLine($"DTO password: {dto.Password}");
+            Console.WriteLine($"DB password: {reguser.Password}");
+            Console.WriteLine($"Password hash length: {reguser.Password?.Length}");
+            Console.WriteLine(!BCrypt.Net.BCrypt.Verify(dto.Password, reguser.Password));
+
+
+            Console.WriteLine($"DTO Email: {dto.Email}");
+            Console.WriteLine($"DB Hash: {reguser.Hashid}");
+            Console.WriteLine($"Email hash length: {reguser.Hashid?.Length}");
+            Console.WriteLine(!BCrypt.Net.BCrypt.Verify(dto.Email, reguser.Hashid));
+            return BadRequest("Incorrect password or email.");
+        }*/
+        var reguser = _context.RegisteredUsers.Find(dto.UserId);
+        if (reguser == null)
+        {
+            return NotFound("That user was not found.");
+        }
+
+        var passwordOk = BCrypt.Net.BCrypt.Verify(dto.Password, reguser.Password);
+        var emailOk = BCrypt.Net.BCrypt.Verify(dto.Email, reguser.Hashid);
+
+        Console.WriteLine("[BORROW]");
+        Console.WriteLine($"DTO UserId: {dto.UserId}");
+        Console.WriteLine($"Loaded reguser.Id: {reguser.Id}");
+        Console.WriteLine($"DTO Password: '{dto.Password}'");
+        Console.WriteLine($"DTO Password Length: {dto.Password?.Length}");
+        Console.WriteLine($"Stored Password Hash: '{reguser.Password}'");
+        Console.WriteLine($"Password OK: {passwordOk}");
+
+        Console.WriteLine($"DTO Email: '{dto.Email}'");
+        Console.WriteLine($"DTO Email Length: {dto.Email?.Length}");
+        Console.WriteLine($"Stored Email Hash: '{reguser.Hashid}'");
+        Console.WriteLine($"Email OK: {emailOk}");
+
+        if (!passwordOk || !emailOk)
+        {
             return BadRequest("Incorrect password or email.");
         }
+        
+        
 
         var existingBorrow = _context.Borrow.FirstOrDefault(b =>
             b.UserId == dto.UserId &&

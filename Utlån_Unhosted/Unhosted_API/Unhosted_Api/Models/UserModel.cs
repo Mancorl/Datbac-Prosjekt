@@ -9,6 +9,7 @@ namespace Unhosted_Api.Models;
 
 public class User
 {
+	private User() { }
 	public User(Guid id,string email, string password, string first, string last)
 {
     Id = id;

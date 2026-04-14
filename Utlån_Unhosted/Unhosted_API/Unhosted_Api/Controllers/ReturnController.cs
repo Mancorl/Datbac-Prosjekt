@@ -26,7 +26,11 @@ public IActionResult ReturnGame([FromBody] BorrowDto dto)
         return NotFound($"That board game was not found.");
     game.Quantity += 1;
 
-    var retgame = _context.Borrow.Find(dto.UserId);
+    var retgame = _context.Borrow.FirstOrDefault(b =>
+            b.UserId == dto.UserId &&
+            b.BoardGameId == dto.GameId &&
+            b.Active);
+            
     if (retgame == null)
         return NotFound($"Desync error: User not found.");
     retgame.Active = false;

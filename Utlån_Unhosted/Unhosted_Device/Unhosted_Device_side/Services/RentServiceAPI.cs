@@ -12,13 +12,15 @@ public class RentServiceAPI
         _httpClient = httpClient;
     }
 
-    public async Task<(bool Success, string Message)> BorrowGameAsync(Guid userId, Guid gameId)
+    public async Task<(bool Success, string Message)> BorrowGameAsync(Guid userId, Guid gameId, string email, string password)
     {
         
             var dto = new
             {
                 UserId = userId,
-                GameId = gameId
+                GameId = gameId,
+                Email = email,
+                Password = password
             };
 
             var response = await _httpClient.PostAsJsonAsync("api/BorrowGames", dto);
@@ -30,8 +32,8 @@ public class RentServiceAPI
             return (true, body);
     }
    public async Task<List<RentEntity>?> GetUserRentsAsync(Guid userId)
-{
+    {
     return await _httpClient.GetFromJsonAsync<List<RentEntity>>(
         $"api/BorrowGames/user/{userId}");
-}
+    }
 }

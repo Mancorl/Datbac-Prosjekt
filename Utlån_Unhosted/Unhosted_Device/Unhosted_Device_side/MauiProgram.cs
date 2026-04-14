@@ -23,7 +23,7 @@ public static class MauiProgram
             new HttpClient
             {
                 //BaseAddress = new Uri("http://localhost:5031")
-				//BaseAddress = new Uri("http://10.14.177.33:5031")
+				//BaseAddress = new Uri("http://10.43.78.212:5031")
 				BaseAddress = new Uri("http://127.0.0.1:5031")
 
             });	
@@ -38,6 +38,10 @@ public static class MauiProgram
 		builder.Services.AddSingleton<AuthorizeServiceAPI>();
 		builder.Services.AddSingleton<UserServiceAPI>();
 		builder.Services.AddSingleton<UserService>();
+		builder.Services.AddSingleton<ReturnServiceAPI>();
+		builder.Services.AddSingleton<ReturnService>();
+		builder.Services.AddSingleton<CheckServiceAPI>();
+		builder.Services.AddSingleton<CheckService>();
 
 
 		

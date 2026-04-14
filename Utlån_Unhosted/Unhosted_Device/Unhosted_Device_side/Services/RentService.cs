@@ -17,10 +17,14 @@ public class RentService
         _gameService = gameService;
     }
 
-    public async Task<string> RentGameAsync(Guid userId, Guid gameId)
+    public async Task<string> RentGameAsync(UserEntity user, Guid gameId)
     {
-        var result = await _rentServiceAPI.BorrowGameAsync(userId, gameId);
-
+        var result = await _rentServiceAPI.BorrowGameAsync(
+        user.Id,
+        gameId,
+        user.Email,
+        user.Password
+    );
         if (!result.Success)
             return $"Could not rent game: {result.Message}";
 
@@ -53,6 +57,7 @@ public class RentService
             Id = rent.Id,
             UserId = rent.UserId,
             GameId = rent.GameId,
+            Email = rent.Email,
             Active = rent.Active
         };
 

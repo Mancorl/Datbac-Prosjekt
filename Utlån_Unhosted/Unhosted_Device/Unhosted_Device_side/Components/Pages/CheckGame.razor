@@ -1,0 +1,68 @@
+@page "/check"
+@using Unhosted_Device_side.Models
+@using Unhosted_Device_side.Services
+@inject CheckService CheckService
+@inject HttpClient Http
+
+<div class="container py-3">
+    <h3>These games have been returned and have to be inspected:</h3>
+
+    @if (!_games.Any())
+    {
+        <p>Sowwy empty</p>
+    }
+    else
+    {
+        <div class="row">
+            @foreach (var game in _games)
+            {
+                <div class="col-12 col-md-6 col-lg-3 mb-3">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">@game.Name</h5>
+                            <p><strong>User's Email:</strong> @game.Email</p>
+                             @if (!string.IsNullOrWhiteSpace(game.ImagePath))
+                            {
+                                <img src="@GetImageUrl(game.ImagePath)" class="img-fluid mb-3" />
+                            }
+                            else
+                            {
+                                <img src="images/Default.jpg" class="img-fluid mb-3" />
+                            }
+
+                            <button class="btn btn-success"
+                                    @onclick="() => GreenLight(game.BorrowId)">
+                                Approve
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+</div>
+@code {
+    private List<ReturnedGames> _games = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        _games = await CheckService.GetReturnedGamesAsync();
+    }
+
+    private async Task GreenLight(Guid borrowId)
+    {
+        await CheckService.GreenLightAsync(borrowId);
+        _games = await CheckService.GetReturnedGamesAsync();
+    }
+
+    private string GetImageUrl(string? path)
+    {
+        var baseUrl = Http.BaseAddress?.ToString().TrimEnd('/') ?? "";
+
+        if (string.IsNullOrWhiteSpace(path))
+            return $"{baseUrl}/images/Default.jpg";
+
+        return $"{baseUrl}/{path.TrimStart('/')}";
+        
+    }
+}

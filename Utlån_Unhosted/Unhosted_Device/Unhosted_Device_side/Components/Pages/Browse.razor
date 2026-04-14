@@ -181,7 +181,8 @@
         else {
 
 
-        _message = await RentService.RentGameAsync(user.Id, gameId);
+        _message = await RentService.RentGameAsync(user, gameId);
+        
 
         
         await GameService.GetGamesFromApiAsync();

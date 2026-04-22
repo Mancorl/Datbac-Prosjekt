@@ -91,7 +91,7 @@
         return;
     }
 
-    // 🔥 NEW: sync from API first
+    
     await RentService.SyncUserRentsAsync(user.Id);
 
     var rents = await Database.GetRentsAsync();
@@ -103,7 +103,7 @@
     var games = await Database.GetGamesAsync();
 
     _loanedGames = games
-        .Where(g => activeRents.Any(r => r.GameId == g.Id))
+        .Where(g => activeRents.Any(r => r.BoardGameId == g.Id))
         .ToList();
 }
 

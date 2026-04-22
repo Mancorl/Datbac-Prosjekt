@@ -9,7 +9,7 @@
 
     @if (!_games.Any())
     {
-        <p>Sowwy empty</p>
+        <p>No returned games needs to be checked</p>
     }
     else
     {
@@ -20,6 +20,7 @@
                     <div class="card h-100">
                         <div class="card-body">
                             <h5 class="card-title">@game.Name</h5>
+                            <p>Game Id:@game.GameId</p>
                             <p><strong>User's Email:</strong> @game.Email</p>
                              @if (!string.IsNullOrWhiteSpace(game.ImagePath))
                             {

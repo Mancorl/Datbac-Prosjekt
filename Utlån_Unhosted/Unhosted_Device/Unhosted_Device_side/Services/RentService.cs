@@ -56,7 +56,7 @@ public class RentService
         {
             Id = rent.Id,
             UserId = rent.UserId,
-            GameId = rent.GameId,
+            BoardGameId = rent.BoardGameId,
             Email = rent.Email,
             Active = rent.Active
         };

@@ -24,7 +24,7 @@ public class ReturnService
             return $"Could not return game: {result.Message}";
 
         var rents = await _db.GetRentsAsync();
-        var rent = rents.FirstOrDefault(r => r.UserId == user.Id && r.GameId == gameId && r.Active);
+        var rent = rents.FirstOrDefault(r => r.UserId == user.Id && r.BoardGameId == gameId && r.Active);
 
         if (rent != null)
         {

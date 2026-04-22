@@ -26,12 +26,12 @@ public class CheckService
             .Where(b => !b.Active)
             .Select(b =>
             {
-                var game = games.FirstOrDefault(g => g.Id == b.GameId);
+                var game = games.FirstOrDefault(g => g.Id == b.BoardGameId);
 
                 return new ReturnedGames
                 {
                     BorrowId = b.Id,
-                    GameId = b.GameId,
+                    GameId = b.BoardGameId,
                     Email = b.Email,
                     Active = b.Active,
                     Name = game?.Name ?? "Unknown game",

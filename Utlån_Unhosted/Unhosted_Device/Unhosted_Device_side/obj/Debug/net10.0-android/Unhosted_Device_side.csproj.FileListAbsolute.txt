@@ -2934,11 +2934,6 @@
 /home/armand/Documents/Datateknologi/bacheloroppgave/prosjekt/Datbac-Prosjekt/Utlån_Unhosted/Unhosted_Device/Unhosted_Device_side/obj/Debug/net10.0-android/resizetizer/r/mipmap-xhdpi/appicon_background.png
 /home/armand/Documents/Datateknologi/bacheloroppgave/prosjekt/Datbac-Prosjekt/Utlån_Unhosted/Unhosted_Device/Unhosted_Device_side/obj/Debug/net10.0-android/resizetizer/r/mipmap-hdpi/appicon_background.png
 /home/armand/Documents/Datateknologi/bacheloroppgave/prosjekt/Datbac-Prosjekt/Utlån_Unhosted/Unhosted_Device/Unhosted_Device_side/obj/Debug/net10.0-android/resizetizer/r/mipmap-mdpi/appicon_background.png
-/home/armand/Documents/Datateknologi/bacheloroppgave/prosjekt/Datbac-Prosjekt/Utlån_Unhosted/Unhosted_Device/Unhosted_Device_side/obj/Debug/net10.0-android/resizetizer/r/drawable-xxxhdpi/dotnet_bot.png
-/home/armand/Documents/Datateknologi/bacheloroppgave/prosjekt/Datbac-Prosjekt/Utlån_Unhosted/Unhosted_Device/Unhosted_Device_side/obj/Debug/net10.0-android/resizetizer/r/drawable-xxhdpi/dotnet_bot.png
-/home/armand/Documents/Datateknologi/bacheloroppgave/prosjekt/Datbac-Prosjekt/Utlån_Unhosted/Unhosted_Device/Unhosted_Device_side/obj/Debug/net10.0-android/resizetizer/r/drawable-xhdpi/dotnet_bot.png
-/home/armand/Documents/Datateknologi/bacheloroppgave/prosjekt/Datbac-Prosjekt/Utlån_Unhosted/Unhosted_Device/Unhosted_Device_side/obj/Debug/net10.0-android/resizetizer/r/drawable-hdpi/dotnet_bot.png
-/home/armand/Documents/Datateknologi/bacheloroppgave/prosjekt/Datbac-Prosjekt/Utlån_Unhosted/Unhosted_Device/Unhosted_Device_side/obj/Debug/net10.0-android/resizetizer/r/drawable-mdpi/dotnet_bot.png
 /home/armand/Documents/Datateknologi/bacheloroppgave/prosjekt/Datbac-Prosjekt/Utlån_Unhosted/Unhosted_Device/Unhosted_Device_side/obj/Debug/net10.0-android/mauiimage.stamp
 /home/armand/Documents/Datateknologi/bacheloroppgave/prosjekt/Datbac-Prosjekt/Utlån_Unhosted/Unhosted_Device/Unhosted_Device_side/obj/Debug/net10.0-android/mauiimage.outputs
 /home/armand/Documents/Datateknologi/bacheloroppgave/prosjekt/Datbac-Prosjekt/Utlån_Unhosted/Unhosted_Device/Unhosted_Device_side/obj/Debug/net10.0-android/_AndroidResolvedResources.hash
@@ -4571,3 +4566,8 @@
 /home/armand/Documents/Datateknologi/bacheloroppgave/prosjekt/Datbac-Prosjekt/Utlån_Unhosted/Unhosted_Device/Unhosted_Device_side/obj/Debug/net10.0-android/stamp/_GenerateJavaStubs.stamp
 /home/armand/Documents/Datateknologi/bacheloroppgave/prosjekt/Datbac-Prosjekt/Utlån_Unhosted/Unhosted_Device/Unhosted_Device_side/obj/Debug/net10.0-android/stamp/_GeneratePackageManagerJava.stamp
 /home/armand/Documents/Datateknologi/bacheloroppgave/prosjekt/Datbac-Prosjekt/Utlån_Unhosted/Unhosted_Device/Unhosted_Device_side/obj/Debug/net10.0-android/stamp/_ResolveLibraryProjectImports.stamp
+/home/armand/Documents/Datateknologi/bacheloroppgave/prosjekt/Datbac-Prosjekt/Utlån_Unhosted/Unhosted_Device/Unhosted_Device_side/obj/Debug/net10.0-android/resizetizer/r/drawable-hdpi/dotnet_bot.png
+/home/armand/Documents/Datateknologi/bacheloroppgave/prosjekt/Datbac-Prosjekt/Utlån_Unhosted/Unhosted_Device/Unhosted_Device_side/obj/Debug/net10.0-android/resizetizer/r/drawable-mdpi/dotnet_bot.png
+/home/armand/Documents/Datateknologi/bacheloroppgave/prosjekt/Datbac-Prosjekt/Utlån_Unhosted/Unhosted_Device/Unhosted_Device_side/obj/Debug/net10.0-android/resizetizer/r/drawable-xhdpi/dotnet_bot.png
+/home/armand/Documents/Datateknologi/bacheloroppgave/prosjekt/Datbac-Prosjekt/Utlån_Unhosted/Unhosted_Device/Unhosted_Device_side/obj/Debug/net10.0-android/resizetizer/r/drawable-xxhdpi/dotnet_bot.png
+/home/armand/Documents/Datateknologi/bacheloroppgave/prosjekt/Datbac-Prosjekt/Utlån_Unhosted/Unhosted_Device/Unhosted_Device_side/obj/Debug/net10.0-android/resizetizer/r/drawable-xxxhdpi/dotnet_bot.png

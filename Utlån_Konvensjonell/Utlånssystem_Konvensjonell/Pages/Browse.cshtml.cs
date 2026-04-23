@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Utlånssystem_Konvensjonell.Infrastructure.Data;
 using Utlånssystem_Konvensjonell.Core.Domain.BoardGames;
+using Utlånssystem_Konvensjonell.Core.Domain.BoardGames.Handlers;
 
 using Microsoft.AspNetCore.Mvc;
 
@@ -17,10 +18,12 @@ namespace Utlånssystem_Konvensjonell.Pages;
 public class BrowseModel : PageModel
 {
     private readonly BoardGameContext _db;
+    private readonly BorrowHandler _borrowHandler;
 
-    public BrowseModel(BoardGameContext db)
+    public BrowseModel(BoardGameContext db, BorrowHandler borrowHandler)
     {
         _db = db;
+        _borrowHandler = borrowHandler;
     }
 
     public List<BoardGame> Games { get; set; } = new();
@@ -32,35 +35,24 @@ public class BrowseModel : PageModel
 
 
     public async Task<IActionResult> OnPostRentAsync(Guid id)
-{
-    var game = await _db.Games.FirstOrDefaultAsync(g => g.Id == id);
-
-    var user = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-
-     if (string.IsNullOrEmpty(user) || !Guid.TryParse(user, out var userId))
-        return Forbid();
-
-    if (game == null)
-        return NotFound();
-
-    try
     {
-        game.RentOne();
+        var user = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
 
-        var borrowing = new Borrowing(userId, game.Id, true);
-        _db.Rented.Add(borrowing);
+        if (string.IsNullOrEmpty(user) || !Guid.TryParse(user, out var userId))
+            return Forbid();
 
-        await _db.SaveChangesAsync();
+        try
+        {
+            var gameName = await _borrowHandler.BorrowAsync(userId, id);
+            TempData["Message"] = $"You rented {gameName}.";
+        }
+        catch (InvalidOperationException ex)
+        {
+            TempData["Error"] = ex.Message;
+        }
 
-        TempData["Message"] = $"You rented {game.Name}.";
+        return RedirectToPage();
     }
-    catch (InvalidOperationException ex)
-    {
-        TempData["Error"] = ex.Message;
-    }
-
-    return RedirectToPage();
-}
 
     public async Task<IActionResult> OnPostEditAsync(Guid id, string name, int quantity, string description, IFormFile? image)
 {

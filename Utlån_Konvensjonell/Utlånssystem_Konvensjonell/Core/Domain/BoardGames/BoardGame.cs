@@ -64,6 +64,14 @@ public class BoardGame
         Quantity--;
     }
 
+    public void ReturnOne()
+    {
+        if (Quantity >= TotalQuantity)
+        throw new InvalidOperationException("All copies are already returned.");
+
+        Quantity++;
+    }
+
 
 	
 

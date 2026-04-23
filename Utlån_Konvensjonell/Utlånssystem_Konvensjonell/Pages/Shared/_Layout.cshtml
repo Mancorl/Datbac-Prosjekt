@@ -34,7 +34,7 @@ console.log("Role claim:", "@User.FindFirst(System.Security.Claims.ClaimTypes.Ro
                             <a class="nav-link text-dark" asp-area="" asp-page="/Browse">Browse</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Lån">Lån</a>
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Loans">Loans</a>
                         </li>
                         @if (User.Identity != null && User.Identity.IsAuthenticated && User.IsInRole("Admin"))
                         {

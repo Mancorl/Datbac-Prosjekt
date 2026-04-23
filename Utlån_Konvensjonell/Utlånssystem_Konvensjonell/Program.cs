@@ -32,6 +32,9 @@ builder.Services.AddScoped<LoginUserHandler>();
 builder.Services.AddScoped<AddGameHandler>();
 builder.Services.AddScoped<RegisteredGameService>();
 
+builder.Services.AddScoped<BorrowHandler>();
+builder.Services.AddScoped<ReturnHandler>();
+
 
 builder.Services.AddDbContext<BoardGameContext>(options =>
 {

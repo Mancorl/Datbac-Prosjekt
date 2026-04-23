@@ -1,0 +1,58 @@
+@page
+@model LoanModel
+@{ ViewData["Title"]= "Loans";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<p>Look at what boardgames you are currently borrowing from us.</p>
+
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["Message"]
+    </div>
+}
+
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["Error"]
+    </div>
+}
+
+
+
+@if( Model.RentedGames.Any()){
+    @foreach (var game in Model.RentedGames)
+    {
+        
+    <div class="col-md-3 mb-3">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">@game.Name</h5>
+                <p class="card-text">Description: @game.Description</p>
+                @if (game.ImagePath != null)
+                {
+                    <img src="@game.ImagePath" class="img-fluid" />
+                }else{
+                    <img src="image/Default.jpg" class="img-fluid" />
+                }
+
+                <form method="post" asp-page-handler="Return" asp-route-gameId="@game.GameId">
+                    <button class="btn btn-primary" type="submit">Return Game</button>
+                </form>
+
+
+
+            
+                
+            </div>
+        </div>
+
+    </div>
+  
+    }}
+    else{
+        <p>You are not currently borrowing any games.</p>
+        }

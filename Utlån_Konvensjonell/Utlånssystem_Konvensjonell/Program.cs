@@ -55,10 +55,10 @@ using (var scope = app.Services.CreateScope())
     var db = scope.ServiceProvider.GetRequiredService<BoardGameContext>();
     db.Database.EnsureCreated(); // creates DB and tables if they don't exist
 
-        if (!db.Users.Any(u => u.Email == "UiSbrettspill@gmail.com"))
+        if (!db.Users.Any(u => u.Email == "uisbrettspill@gmail.com"))
     {
         var adminUser = new User(
-            "UiSbrettspill@gmail.com",
+            "uisbrettspill@gmail.com",
             "Password",
             "UiS",
             "Brettspill"

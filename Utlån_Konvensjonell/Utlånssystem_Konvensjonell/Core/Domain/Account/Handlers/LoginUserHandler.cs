@@ -22,12 +22,12 @@ namespace Utlånssystem_Konvensjonell.Core.Domain.Account.Handlers
         public async Task<LoginResult> ValidateAsync(string email, string password)
         {
             var user = await _db.Users
-                .FirstOrDefaultAsync(u => u.Email == email);
+                .FirstOrDefaultAsync(u => u.Email.ToLower() == email.ToLower());
 
             if (user == null)
                 return LoginResult.Fail("User not found");
 
-            if (user.Password != password)
+            if (BCrypt.Net.BCrypt.Verify(password, user.Password))
                 return LoginResult.Fail("Incorrect password");
 
             return LoginResult.Ok(user);

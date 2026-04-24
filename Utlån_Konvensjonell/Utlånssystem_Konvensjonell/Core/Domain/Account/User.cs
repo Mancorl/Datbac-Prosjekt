@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using BCrypt.Net;
 using System.Text.RegularExpressions;
 using Utlånssystem_Konvensjonell.SharedKernel;
 using System.Diagnostics.CodeAnalysis;
@@ -13,7 +14,7 @@ public class User
 		
 		Id = Guid.NewGuid();
 		Email = email;
-		Password = password;
+		Password = BCrypt.Net.BCrypt.HashPassword(password);
 		First = first;
 		Last = last;
 		IsAuthorized = false;

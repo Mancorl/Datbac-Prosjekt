@@ -44,7 +44,7 @@ public class BoardGame
             throw new ArgumentException("Description cannot be empty.");
 
         Name = name;
-        Quantity = quantity;
+        TotalQuantity = Quantity = quantity;
         Description = description;
 
         if (!string.IsNullOrWhiteSpace(imagePath))

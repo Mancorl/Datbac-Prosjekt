@@ -22,20 +22,20 @@
 }
 
 
-
+<div class="row">
 @if( Model.Games.Any()){
     @foreach (var game in Model.Games)
     {
         
     <div class="col-md-3 mb-3">
-        <div class="card">
-            <div class="card-body">
+        <div class="card" style="width: 18rem;">
+            <div  class="card-body">
                 <h5 class="card-title">@game.Name</h5>
                 <p>Amount available: @game.Quantity</p>
                 <p class="card-text">Description: @game.Description</p>
                 @if (game.ImagePath != null)
                 {
-                    <img src="@game.ImagePath" class="img-fluid" />
+                    <img src="@game.ImagePath" class="img-fluid" style="width: 100%;" />
                 }else{
                     <img src="image/Default.jpg" class="img-fluid" />
                 }
@@ -121,6 +121,7 @@
 
         </div>
     </div>
+</div>
 </div>
 
 @section Scripts {

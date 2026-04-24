@@ -22,7 +22,7 @@
 }
 
 
-
+<div class="row">
 @if( Model.RentedGames.Any()){
     @foreach (var game in Model.RentedGames)
     {
@@ -56,3 +56,5 @@
     else{
         <p>You are not currently borrowing any games.</p>
         }
+    
+</div>

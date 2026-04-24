@@ -9,6 +9,7 @@ namespace Utlånssystem_Konvensjonell.Core.Domain.BoardGames;
 
 public class BoardGame
 {
+    public BoardGame() { } 
 	public BoardGame(string name, int quantity = 1, bool loanable = true, string imagePath = "images/Default.jpg", string description = "Placeholder")
 	{
 		Id = Guid.NewGuid();

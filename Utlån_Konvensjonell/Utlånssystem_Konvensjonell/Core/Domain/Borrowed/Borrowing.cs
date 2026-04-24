@@ -26,4 +26,10 @@ public class Borrowing
     public Guid? BoardGameId {get; protected set;}
     public bool Active {get; protected set;}
 
+
+	public void Returned()
+	{
+		Active = false;
+	}
+
 }

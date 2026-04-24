@@ -1,0 +1,54 @@
+@page
+@model GameCheckModel
+@{
+    ViewData["Title"] = "Check returned games";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["Message"]
+    </div>
+}
+
+@if (Model.ReturnedGames.Any())
+{
+    <div class="row">
+        @foreach (var item in Model.ReturnedGames)
+        {
+            <div class="col-md-3 mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">@item.GameName</h5>
+
+                        <p>@item.Description</p>
+
+                        @if (!string.IsNullOrWhiteSpace(item.ImagePath))
+                        {
+                            <img src="@item.ImagePath" class="img-fluid mb-3" />
+                        }
+                        else
+                        {
+                            <img src="images/Default.jpg" class="img-fluid mb-3" />
+                        }
+
+                        <p><strong>User:</strong> @item.UserName</p>
+                        <p><strong>Email:</strong> @item.UserEmail</p>
+
+                        <form method="post" asp-page-handler="Approve" asp-route-borrowId="@item.BorrowId">
+                            <button class="btn btn-success" type="submit">
+                                Approve return
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}
+else
+{
+    <p>No returned games waiting for inspection.</p>
+}

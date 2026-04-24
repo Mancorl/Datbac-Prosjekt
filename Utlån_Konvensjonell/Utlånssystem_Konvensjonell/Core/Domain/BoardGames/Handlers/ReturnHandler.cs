@@ -33,10 +33,10 @@ namespace Utlånssystem_Konvensjonell.Core.Domain.BoardGames.Handlers
                 throw new InvalidOperationException("Game not found.");
 
            
-            game.ReturnOne();
+            borrowing.Returned();
 
           
-            _db.Rented.Remove(borrowing);
+            //_db.Rented.Remove(borrowing);
 
             
             await _db.SaveChangesAsync();

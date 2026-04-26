@@ -12,8 +12,10 @@ using Utlånssystem_Konvensjonell.Core.Domain.Account;
 
 using System.Security.Claims;
 using Utlånssystem_Konvensjonell.Core.Domain.Borrowed;
+using System.Diagnostics;
 
 namespace Utlånssystem_Konvensjonell.Pages;
+
 
 [Authorize]
 public class LoanModel : PageModel
@@ -31,6 +33,10 @@ public class LoanModel : PageModel
 
     public async Task OnGetAsync()
     {
+
+        var sw = Stopwatch.StartNew(); 
+        
+
          var userClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
 
         if (string.IsNullOrEmpty(userClaim) || !Guid.TryParse(userClaim, out var userId))
@@ -55,10 +61,16 @@ public class LoanModel : PageModel
                 }
             )
             .ToListAsync();
+
+            sw.Stop();
+            Console.WriteLine($"[Conventional] Loans OnGet took {sw.ElapsedMilliseconds} ms");
+
+            MeasurementsLogger.Log("Conventional", "LoansOnGet", sw.ElapsedMilliseconds);
     }
 
     public async Task<IActionResult> OnPostReturnAsync(Guid BorrowId)
     {
+        var sw = Stopwatch.StartNew(); 
         var user = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
 
         if (string.IsNullOrEmpty(user) || !Guid.TryParse(user, out var userId))
@@ -73,6 +85,11 @@ public class LoanModel : PageModel
         {
             TempData["Error"] = ex.Message;
         }
+
+        sw.Stop();
+        Console.WriteLine($"[Conventional] ReturnGame took {sw.ElapsedMilliseconds} ms");
+
+        MeasurementsLogger.Log("Conventional", "ReturnGame", sw.ElapsedMilliseconds);
 
         return RedirectToPage();
     }

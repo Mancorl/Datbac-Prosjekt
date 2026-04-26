@@ -1,6 +1,7 @@
 @page "/authorize"
 @using Unhosted_Device_side.Models
 @using Unhosted_Device_side.Services
+@using System.Diagnostics;
 @inject AuthorizeService AuthorizeService
 
 <div class="container py-3">
@@ -38,16 +39,24 @@
 
     protected override async Task OnInitializedAsync()
     {
+        var sw = Stopwatch.StartNew();
         _users = await AuthorizeService.GetUnauthorizedUsersAsync();
+        sw.Stop();
+        MeasurementsLogger.Log("Unhosted", "LoadAuthorize", sw.ElapsedMilliseconds);
+        Console.WriteLine($"[Unhosted] Load Authorize took {sw.ElapsedMilliseconds} ms");
     }
 
      private async Task AuthorizeUser(Guid userId)
     {
+        var sw = Stopwatch.StartNew();
         var success = await AuthorizeService.AuthorizeUserAsync(userId);
 
         if (success)
         {
             _users = _users.Where(u => u.Id != userId).ToList();
         }
+        sw.Stop();
+        MeasurementsLogger.Log("Unhosted", "AuthorizeUser", sw.ElapsedMilliseconds);
+        Console.WriteLine($"[Unhosted] Authorize User took {sw.ElapsedMilliseconds} ms");
     }
 }

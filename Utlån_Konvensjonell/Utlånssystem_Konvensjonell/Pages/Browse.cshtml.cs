@@ -12,6 +12,7 @@ using Utlånssystem_Konvensjonell.Core.Domain.Account;
 
 using System.Security.Claims;
 using Utlånssystem_Konvensjonell.Core.Domain.Borrowed;
+using System.Diagnostics;
 
 namespace Utlånssystem_Konvensjonell.Pages;
 
@@ -30,45 +31,62 @@ public class BrowseModel : PageModel
 
     public async Task OnGetAsync()
     {
+        var sw = Stopwatch.StartNew(); 
+
         Games = await _db.Games.ToListAsync();
+
+        sw.Stop();
+        Console.WriteLine($"[Conventional] Browse OnGet took {sw.ElapsedMilliseconds} ms");
+
+        MeasurementsLogger.Log("Conventional", "BrowseOnGet", sw.ElapsedMilliseconds);
+        
     }
 
 
     public async Task<IActionResult> OnPostRentAsync(Guid id)
     {
-        var userClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-
-        if (string.IsNullOrEmpty(userClaim) || !Guid.TryParse(userClaim, out var userId))
-        {
-            TempData["Error"] = "You must be logged in to rent games.";
-            return RedirectToPage();
-        }
-
-        var user = await _db.Users.FirstOrDefaultAsync(u => u.Id == userId);
-
-        if (user == null)
-        {
-            TempData["Error"] = "User not found.";
-            return RedirectToPage();
-        }
-
-        if (!user.IsAuthorized)
-        {
-            TempData["Error"] = "You have not yet been authorized.";
-            return RedirectToPage();
-        }
-
+        var sw = Stopwatch.StartNew(); 
+        
         try
         {
+            var userClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+            if (string.IsNullOrEmpty(userClaim) || !Guid.TryParse(userClaim, out var userId))
+            {
+                TempData["Error"] = "You must be logged in to rent games.";
+                return RedirectToPage();
+            }
+
+            var user = await _db.Users.FirstOrDefaultAsync(u => u.Id == userId);
+
+            if (user == null)
+            {
+                TempData["Error"] = "User not found.";
+                return RedirectToPage();
+            }
+
+            if (!user.IsAuthorized)
+            {
+                TempData["Error"] = "You have not yet been authorized.";
+                return RedirectToPage();
+            }
+
             var gameName = await _borrowHandler.BorrowAsync(userId, id);
             TempData["Message"] = $"You rented {gameName}.";
+
+            return RedirectToPage();
         }
         catch (InvalidOperationException ex)
         {
             TempData["Error"] = ex.Message;
+            return RedirectToPage();
         }
-
-        return RedirectToPage();
+        finally
+        {
+            sw.Stop();
+            Console.WriteLine($"[Conventional] Rent took {sw.ElapsedMilliseconds} ms");
+            MeasurementsLogger.Log("Conventional", "Rent", sw.ElapsedMilliseconds);
+        }
     }
 
     public async Task<IActionResult> OnPostEditAsync(Guid id, string name, int quantity, string description, IFormFile? image)

@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Utlånssystem_Konvensjonell.Infrastructure.Data;
 using Utlånssystem_Konvensjonell.Pages;
+using System.Diagnostics;
 
 namespace Utlånssystem_Konvensjonell.Pages;
 
@@ -21,6 +22,7 @@ public class GameCheckModel : PageModel
 
     public async Task OnGetAsync()
     {
+        var sw = Stopwatch.StartNew(); 
         ReturnedGames = await _db.Rented
             .Where(b => !b.Active)
             .Join(
@@ -45,10 +47,18 @@ public class GameCheckModel : PageModel
                 }
             )
             .ToListAsync();
+
+            sw.Stop();
+            Console.WriteLine($"[Conventional] GameCheck OnGet took {sw.ElapsedMilliseconds} ms");
+
+            MeasurementsLogger.Log("Conventional", "GameCheckOnGet", sw.ElapsedMilliseconds);
+
+
     }
 
     public async Task<IActionResult> OnPostApproveAsync(Guid borrowId)
     {
+        var sw = Stopwatch.StartNew(); 
         var borrow = await _db.Rented.FirstOrDefaultAsync(b => b.Id == borrowId);
 
         if (borrow == null)
@@ -66,6 +76,11 @@ public class GameCheckModel : PageModel
         await _db.SaveChangesAsync();
 
         TempData["Message"] = "Game approved and returned to inventory.";
+
+        sw.Stop();
+        Console.WriteLine($"[Conventional] ApproveGame OnGet took {sw.ElapsedMilliseconds} ms");
+
+        MeasurementsLogger.Log("Conventional", "ApproveGame", sw.ElapsedMilliseconds);
 
         return RedirectToPage();
     }

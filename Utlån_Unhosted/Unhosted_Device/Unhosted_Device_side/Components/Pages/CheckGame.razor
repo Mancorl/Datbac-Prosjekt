@@ -1,6 +1,7 @@
 @page "/check"
 @using Unhosted_Device_side.Models
 @using Unhosted_Device_side.Services
+@using System.Diagnostics;
 @inject CheckService CheckService
 @inject HttpClient Http
 
@@ -47,13 +48,19 @@
 
     protected override async Task OnInitializedAsync()
     {
+         var sw = Stopwatch.StartNew();
         _games = await CheckService.GetReturnedGamesAsync();
+        MeasurementsLogger.Log("Unhosted", "LoadCheckGames", sw.ElapsedMilliseconds);
+        Console.WriteLine($"[Unhosted] Loading CheckGames took {sw.ElapsedMilliseconds} ms");
     }
 
     private async Task GreenLight(Guid borrowId)
     {
+        var sw = Stopwatch.StartNew();
         await CheckService.GreenLightAsync(borrowId);
         _games = await CheckService.GetReturnedGamesAsync();
+        MeasurementsLogger.Log("Unhosted", "ApproveGame", sw.ElapsedMilliseconds);
+        Console.WriteLine($"[Unhosted] Approving Game took {sw.ElapsedMilliseconds} ms");
     }
 
     private string GetImageUrl(string? path)

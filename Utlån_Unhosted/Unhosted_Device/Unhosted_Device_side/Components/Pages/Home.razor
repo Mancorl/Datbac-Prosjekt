@@ -4,6 +4,7 @@
 @using Unhosted_Device_side.Common
 @using Unhosted_Device_side.Models
 @using Unhosted_Device_side.Services
+@using System.Diagnostics;
 
 @inject AppDatabase Database
 @inject UserService UserService
@@ -83,12 +84,18 @@ else
 
     protected override async Task OnInitializedAsync()
     {
+        var sw = Stopwatch.StartNew();
+
         Console.WriteLine($"DB path: {Constants.DatabasePath}");
 
         await Database.InitAsync();
 
         var users = await Database.GetUsersAsync();
         _user = users.FirstOrDefault();
+
+        sw.Stop();
+        MeasurementsLogger.Log("Unhosted", "IndexLoad", sw.ElapsedMilliseconds);
+        Console.WriteLine($"[Unhosted] Load Index took {sw.ElapsedMilliseconds} ms");
 
     }
 

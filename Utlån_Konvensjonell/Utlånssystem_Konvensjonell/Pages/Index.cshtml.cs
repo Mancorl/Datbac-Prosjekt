@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Utlånssystem_Konvensjonell.Core.Domain.Account;
 using Utlånssystem_Konvensjonell.Infrastructure.Data;
 using Utlånssystem_Konvensjonell.SharedKernel;
+using System.Diagnostics;
 
 
 namespace Utlånssystem_Konvensjonell.Pages;
@@ -27,6 +28,8 @@ public class IndexModel : PageModel
     public async Task OnGetAsync()
     {
 
+        var sw = Stopwatch.StartNew();
+
         var userIdString = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
 
         if (string.IsNullOrEmpty(userIdString))
@@ -41,6 +44,11 @@ public class IndexModel : PageModel
         {
             isauthorized = user.IsAuthorized;
         }
+
+        sw.Stop();
+        Console.WriteLine($"[Conventional] Browse OnGet took {sw.ElapsedMilliseconds} ms");
+
+        MeasurementsLogger.Log("Conventional", "IndexOnGet", sw.ElapsedMilliseconds);
 
     }
 

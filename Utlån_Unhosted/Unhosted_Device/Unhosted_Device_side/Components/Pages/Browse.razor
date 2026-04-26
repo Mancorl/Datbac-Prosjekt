@@ -3,12 +3,15 @@
 @using Unhosted_Device_side.Data.Tables
 @using Unhosted_Device_side.Models
 @using Unhosted_Device_side.Services;
+@using System.Diagnostics;
 @inject AppDatabase Database
 @inject RentService RentService
 @inject GameService GameService
 @inject HttpClient Http
 
 @inject AuthorizeService AuthorizeService
+
+
 
 
 
@@ -146,6 +149,7 @@
  
     protected override async Task OnInitializedAsync()
     {
+        var sw = Stopwatch.StartNew();
         var users = await Database.GetUsersAsync();
         _user = users.FirstOrDefault();
 
@@ -158,6 +162,10 @@
         }
 
         await LoadGamesAsync();
+
+        sw.Stop();
+        MeasurementsLogger.Log("Unhosted", "BrowseGames", sw.ElapsedMilliseconds);
+        Console.WriteLine($"[Unhosted] BrowseGames took {sw.ElapsedMilliseconds} ms");
     }
 
     private async Task LoadGamesAsync()
@@ -170,6 +178,7 @@
 
     private async Task RentGame(Guid gameId)
     {
+        var sw = Stopwatch.StartNew();
         var users = await Database.GetUsersAsync();
         var user = users.FirstOrDefault();
 
@@ -189,6 +198,9 @@
 
        
         _games = await Database.GetGamesAsync();
+        sw.Stop();
+        MeasurementsLogger.Log("Unhosted", "Rent Game", sw.ElapsedMilliseconds);
+        Console.WriteLine($"[Unhosted] Rent Game took {sw.ElapsedMilliseconds} ms");
         }
     }
 

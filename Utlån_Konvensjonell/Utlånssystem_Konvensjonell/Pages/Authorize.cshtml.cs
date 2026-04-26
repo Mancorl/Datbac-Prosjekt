@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Utlånssystem_Konvensjonell.Core.Domain.Account;
 using Utlånssystem_Konvensjonell.Infrastructure.Data;
 using Microsoft.AspNetCore.Mvc; 
+using System.Diagnostics;
 
 
 namespace Utlånssystem_Konvensjonell.Pages;
@@ -22,12 +23,20 @@ public class AuthorizeUserModel : PageModel
 
     public async Task OnGetAsync()
     {
+        var sw = Stopwatch.StartNew(); 
+
         Users = await _db.Users.Where(u => !u.IsAuthorized)
         .ToListAsync();
+
+        sw.Stop();
+        Console.WriteLine($"[Conventional] Authorize OnGet took {sw.ElapsedMilliseconds} ms");
+
+        MeasurementsLogger.Log("Conventional", "AuthorizeOnGet", sw.ElapsedMilliseconds);
     }
 
     public async Task<IActionResult> OnPostAuthorizeAsync(Guid id)
     {
+        var sw = Stopwatch.StartNew(); 
 
         var user = await _db.Users.FirstOrDefaultAsync(u => u.Id == id);
 
@@ -37,7 +46,12 @@ public class AuthorizeUserModel : PageModel
         user.Authorize();
         await _db.SaveChangesAsync();
 
-        //TempData["Message"] = $"{game.Name} was deleted.";
+        sw.Stop();
+        Console.WriteLine($"[Conventional] Authorize User took {sw.ElapsedMilliseconds} ms");
+
+        MeasurementsLogger.Log("Conventional", "Authorize user", sw.ElapsedMilliseconds);
+
+
         return RedirectToPage();
     }
 }

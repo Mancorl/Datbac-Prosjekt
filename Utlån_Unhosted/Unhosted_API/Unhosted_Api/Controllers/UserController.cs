@@ -35,9 +35,12 @@ public class UserController : ControllerBase
         {
             user.IsAuthorized = true;
             user.Permission = Permission.Admin;
+            var reguser = new RegisteredUser(user.Id, user.Email, user.Password);
+            _context.RegisteredUsers.Add(reguser);
         }
             
         _context.Users.Add(user);
+        
         _context.SaveChanges();
 
         var savedUser = _context.Users.Find(user.Id);

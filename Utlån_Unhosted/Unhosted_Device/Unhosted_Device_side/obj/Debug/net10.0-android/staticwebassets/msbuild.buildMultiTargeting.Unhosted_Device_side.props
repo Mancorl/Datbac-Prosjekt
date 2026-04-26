@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="../build/Unhosted_Device_side.props" />
-</Project>

@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="../buildMultiTargeting/Unhosted_Device_side.props" />
-</Project>

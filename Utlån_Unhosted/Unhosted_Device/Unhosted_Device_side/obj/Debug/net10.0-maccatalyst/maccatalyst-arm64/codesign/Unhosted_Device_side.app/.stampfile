@@ -1,1 +1,0 @@
--v --force --timestamp=none --sign - --entitlements /Users/audun/Documents/Datbac-Prosjekt/Utlån_Unhosted/Unhosted_Device/Unhosted_Device_side/obj/Debug/net10.0-maccatalyst/maccatalyst-arm64/Entitlements.xcent /Users/audun/Documents/Datbac-Prosjekt/Utlån_Unhosted/Unhosted_Device/Unhosted_Device_side/bin/Debug/net10.0-maccatalyst/maccatalyst-arm64/Unhosted_Device_side.app

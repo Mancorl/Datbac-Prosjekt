@@ -15,6 +15,7 @@ using Utlånssystem_Konvensjonell.Core.Domain.Borrowed;
 
 namespace Utlånssystem_Konvensjonell.Pages;
 
+[Authorize]
 public class LoanModel : PageModel
 {
     private readonly BoardGameContext _db;
@@ -30,8 +31,15 @@ public class LoanModel : PageModel
 
     public async Task OnGetAsync()
     {
+         var userClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+        if (string.IsNullOrEmpty(userClaim) || !Guid.TryParse(userClaim, out var userId))
+        {
+            RentedGames = new List<BorrowList>();
+            return;
+        }
         RentedGames = await _db.Rented
-            .Where(b => b.Active)
+            .Where(b => b.Active && b.UserId == userId)
             .Join(
                 _db.Games,
                 b => b.BoardGameId,
@@ -49,7 +57,7 @@ public class LoanModel : PageModel
             .ToListAsync();
     }
 
-    public async Task<IActionResult> OnPostReturnAsync(Guid gameId)
+    public async Task<IActionResult> OnPostReturnAsync(Guid BorrowId)
     {
         var user = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
 
@@ -58,7 +66,7 @@ public class LoanModel : PageModel
 
         try
         {
-            await _returnHandler.ReturnAsync(userId, gameId);
+            await _returnHandler.ReturnAsync(userId, BorrowId);
             TempData["Message"] = "Game returned successfully.";
         }
         catch (InvalidOperationException ex)

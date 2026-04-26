@@ -36,10 +36,27 @@ public class BrowseModel : PageModel
 
     public async Task<IActionResult> OnPostRentAsync(Guid id)
     {
-        var user = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+        var userClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
 
-        if (string.IsNullOrEmpty(user) || !Guid.TryParse(user, out var userId))
-            return Forbid();
+        if (string.IsNullOrEmpty(userClaim) || !Guid.TryParse(userClaim, out var userId))
+        {
+            TempData["Error"] = "You must be logged in to rent games.";
+            return RedirectToPage();
+        }
+
+        var user = await _db.Users.FirstOrDefaultAsync(u => u.Id == userId);
+
+        if (user == null)
+        {
+            TempData["Error"] = "User not found.";
+            return RedirectToPage();
+        }
+
+        if (!user.IsAuthorized)
+        {
+            TempData["Error"] = "You have not yet been authorized.";
+            return RedirectToPage();
+        }
 
         try
         {

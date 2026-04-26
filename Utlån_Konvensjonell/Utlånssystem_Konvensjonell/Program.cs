@@ -11,11 +11,14 @@ using Utlånssystem_Konvensjonell.Core.Domain.BoardGames.Services;
 using Utlånssystem_Konvensjonell.Core.Domain.Account;
 using Utlånssystem_Konvensjonell.Core.Domain.Borrowed;
 
+
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddMiniProfiler().AddEntityFramework();
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(options =>
     {
@@ -42,6 +45,7 @@ builder.Services.AddDbContext<BoardGameContext>(options =>
 });
 
 var app = builder.Build();
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -89,5 +93,6 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapRazorPages();
+app.UseMiniProfiler();
 
 app.Run();

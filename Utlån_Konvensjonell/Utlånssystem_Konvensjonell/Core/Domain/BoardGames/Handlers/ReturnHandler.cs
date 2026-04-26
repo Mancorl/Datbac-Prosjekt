@@ -16,29 +16,18 @@ namespace Utlånssystem_Konvensjonell.Core.Domain.BoardGames.Handlers
             _db = db;
         }
 
-        public async Task ReturnAsync(Guid userId, Guid gameId)
+        public async Task ReturnAsync(Guid userId, Guid borrowId)
         {
-          
             var borrowing = await _db.Rented.FirstOrDefaultAsync(r =>
+                r.Id == borrowId &&
                 r.UserId == userId &&
-                r.BoardGameId == gameId &&
                 r.Active);
 
             if (borrowing == null)
                 throw new InvalidOperationException("Active borrowing not found.");
 
-      
-            var game = await _db.Games.FirstOrDefaultAsync(g => g.Id == borrowing.BoardGameId);
-            if (game == null)
-                throw new InvalidOperationException("Game not found.");
-
-           
             borrowing.Returned();
 
-          
-            //_db.Rented.Remove(borrowing);
-
-            
             await _db.SaveChangesAsync();
         }
     }

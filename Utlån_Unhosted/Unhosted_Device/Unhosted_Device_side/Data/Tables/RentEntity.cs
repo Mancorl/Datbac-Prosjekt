@@ -1,5 +1,6 @@
 
 using SQLite;
+using System.Text.Json.Serialization;
 
 namespace Unhosted_Device_side.Data.Tables;
 
@@ -11,6 +12,7 @@ public class RentEntity
 
     public Guid UserId { get; set; }
 
+    [JsonPropertyName("gameId")]
     public Guid BoardGameId { get; set; }
 
     public string Email {get; set;} = string.Empty;

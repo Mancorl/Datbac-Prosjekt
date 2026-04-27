@@ -29,9 +29,9 @@ public class AuthorizeUserModel : PageModel
         .ToListAsync();
 
         sw.Stop();
-        Console.WriteLine($"[Conventional] Authorize OnGet took {sw.ElapsedMilliseconds} ms");
+        Console.WriteLine($"[Conventional] Load Authorize took {sw.ElapsedMilliseconds} ms");
 
-        MeasurementsLogger.Log("Conventional", "AuthorizeOnGet", sw.ElapsedMilliseconds);
+        MeasurementsLogger.Log("Conventional", "Load Authorize", sw.ElapsedMilliseconds);
     }
 
     public async Task<IActionResult> OnPostAuthorizeAsync(Guid id)

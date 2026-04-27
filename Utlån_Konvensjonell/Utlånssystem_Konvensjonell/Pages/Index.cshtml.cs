@@ -46,9 +46,9 @@ public class IndexModel : PageModel
         }
 
         sw.Stop();
-        Console.WriteLine($"[Conventional] Browse OnGet took {sw.ElapsedMilliseconds} ms");
+        Console.WriteLine($"[Conventional] Load Home took {sw.ElapsedMilliseconds} ms");
 
-        MeasurementsLogger.Log("Conventional", "IndexOnGet", sw.ElapsedMilliseconds);
+        MeasurementsLogger.Log("Conventional", "Load Home", sw.ElapsedMilliseconds);
 
     }
 

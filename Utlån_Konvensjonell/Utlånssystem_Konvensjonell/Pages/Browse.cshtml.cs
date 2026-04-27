@@ -36,9 +36,9 @@ public class BrowseModel : PageModel
         Games = await _db.Games.ToListAsync();
 
         sw.Stop();
-        Console.WriteLine($"[Conventional] Browse OnGet took {sw.ElapsedMilliseconds} ms");
+        Console.WriteLine($"[Conventional] Load Games took {sw.ElapsedMilliseconds} ms");
 
-        MeasurementsLogger.Log("Conventional", "BrowseOnGet", sw.ElapsedMilliseconds);
+        MeasurementsLogger.Log("Conventional", "Load Games", sw.ElapsedMilliseconds);
         
     }
 
@@ -84,8 +84,8 @@ public class BrowseModel : PageModel
         finally
         {
             sw.Stop();
-            Console.WriteLine($"[Conventional] Rent took {sw.ElapsedMilliseconds} ms");
-            MeasurementsLogger.Log("Conventional", "Rent", sw.ElapsedMilliseconds);
+            Console.WriteLine($"[Conventional] Rent Game took {sw.ElapsedMilliseconds} ms");
+            MeasurementsLogger.Log("Conventional", "Rent Game", sw.ElapsedMilliseconds);
         }
     }
 

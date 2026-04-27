@@ -164,8 +164,8 @@
         await LoadGamesAsync();
 
         sw.Stop();
-        MeasurementsLogger.Log("Unhosted", "BrowseGames", sw.ElapsedMilliseconds);
-        Console.WriteLine($"[Unhosted] BrowseGames took {sw.ElapsedMilliseconds} ms");
+        MeasurementsLogger.Log("Unhosted", "Load Games", sw.ElapsedMilliseconds);
+        Console.WriteLine($"[Unhosted] Load Games took {sw.ElapsedMilliseconds} ms");
     }
 
     private async Task LoadGamesAsync()

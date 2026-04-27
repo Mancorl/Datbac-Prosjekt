@@ -50,7 +50,7 @@
     {
          var sw = Stopwatch.StartNew();
         _games = await CheckService.GetReturnedGamesAsync();
-        MeasurementsLogger.Log("Unhosted", "LoadCheckGames", sw.ElapsedMilliseconds);
+        MeasurementsLogger.Log("Unhosted", "Load CheckGames", sw.ElapsedMilliseconds);
         Console.WriteLine($"[Unhosted] Loading CheckGames took {sw.ElapsedMilliseconds} ms");
     }
 
@@ -59,7 +59,7 @@
         var sw = Stopwatch.StartNew();
         await CheckService.GreenLightAsync(borrowId);
         _games = await CheckService.GetReturnedGamesAsync();
-        MeasurementsLogger.Log("Unhosted", "ApproveGame", sw.ElapsedMilliseconds);
+        MeasurementsLogger.Log("Unhosted", "Approve Game", sw.ElapsedMilliseconds);
         Console.WriteLine($"[Unhosted] Approving Game took {sw.ElapsedMilliseconds} ms");
     }
 

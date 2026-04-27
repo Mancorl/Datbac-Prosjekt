@@ -82,7 +82,7 @@
         var sw = Stopwatch.StartNew();
         await LoadLoansAsync();
         sw.Stop();
-        MeasurementsLogger.Log("Unhosted", "LoadLoans", sw.ElapsedMilliseconds);
+        MeasurementsLogger.Log("Unhosted", "Load Loans", sw.ElapsedMilliseconds);
         Console.WriteLine($"[Unhosted] Loading Loans took {sw.ElapsedMilliseconds} ms");
     }
 
@@ -138,7 +138,7 @@ private async Task ReturnGame(Guid gameId)
     _message = await ReturnService.ReturnGameAsync(user, gameId);
     await LoadLoansAsync();
     sw.Stop();
-    MeasurementsLogger.Log("Unhosted", "ReturnGame", sw.ElapsedMilliseconds);
+    MeasurementsLogger.Log("Unhosted", "Return Game", sw.ElapsedMilliseconds);
     Console.WriteLine($"[Unhosted] Returning Games took {sw.ElapsedMilliseconds} ms");
 }
 }

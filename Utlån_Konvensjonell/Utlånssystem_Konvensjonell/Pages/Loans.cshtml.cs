@@ -63,9 +63,9 @@ public class LoanModel : PageModel
             .ToListAsync();
 
             sw.Stop();
-            Console.WriteLine($"[Conventional] Loans OnGet took {sw.ElapsedMilliseconds} ms");
+            Console.WriteLine($"[Conventional] Load Loans took {sw.ElapsedMilliseconds} ms");
 
-            MeasurementsLogger.Log("Conventional", "LoansOnGet", sw.ElapsedMilliseconds);
+            MeasurementsLogger.Log("Conventional", "Load Loans", sw.ElapsedMilliseconds);
     }
 
     public async Task<IActionResult> OnPostReturnAsync(Guid BorrowId)
@@ -87,9 +87,9 @@ public class LoanModel : PageModel
         }
 
         sw.Stop();
-        Console.WriteLine($"[Conventional] ReturnGame took {sw.ElapsedMilliseconds} ms");
+        Console.WriteLine($"[Conventional] Return Game took {sw.ElapsedMilliseconds} ms");
 
-        MeasurementsLogger.Log("Conventional", "ReturnGame", sw.ElapsedMilliseconds);
+        MeasurementsLogger.Log("Conventional", "Return Game", sw.ElapsedMilliseconds);
 
         return RedirectToPage();
     }

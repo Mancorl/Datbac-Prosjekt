@@ -94,8 +94,8 @@ else
         _user = users.FirstOrDefault();
 
         sw.Stop();
-        MeasurementsLogger.Log("Unhosted", "IndexLoad", sw.ElapsedMilliseconds);
-        Console.WriteLine($"[Unhosted] Load Index took {sw.ElapsedMilliseconds} ms");
+        MeasurementsLogger.Log("Unhosted", "Load Home", sw.ElapsedMilliseconds);
+        Console.WriteLine($"[Unhosted] Load Home took {sw.ElapsedMilliseconds} ms");
 
     }
 

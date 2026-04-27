@@ -49,9 +49,9 @@ public class GameCheckModel : PageModel
             .ToListAsync();
 
             sw.Stop();
-            Console.WriteLine($"[Conventional] GameCheck OnGet took {sw.ElapsedMilliseconds} ms");
+            Console.WriteLine($"[Conventional] Load GameCheck took {sw.ElapsedMilliseconds} ms");
 
-            MeasurementsLogger.Log("Conventional", "GameCheckOnGet", sw.ElapsedMilliseconds);
+            MeasurementsLogger.Log("Conventional", "Load GameCheck", sw.ElapsedMilliseconds);
 
 
     }
@@ -78,9 +78,9 @@ public class GameCheckModel : PageModel
         TempData["Message"] = "Game approved and returned to inventory.";
 
         sw.Stop();
-        Console.WriteLine($"[Conventional] ApproveGame OnGet took {sw.ElapsedMilliseconds} ms");
+        Console.WriteLine($"[Conventional] Approve Game took {sw.ElapsedMilliseconds} ms");
 
-        MeasurementsLogger.Log("Conventional", "ApproveGame", sw.ElapsedMilliseconds);
+        MeasurementsLogger.Log("Conventional", "Approve Game", sw.ElapsedMilliseconds);
 
         return RedirectToPage();
     }
